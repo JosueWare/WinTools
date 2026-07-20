@@ -5,7 +5,7 @@
         [ScriptBlock]$actionSFCSCANNOW = {
 
                 Write-Host "" <#SPACE#>
-            Write-Host "    Iniciando.." -ForegroundColor Yellow
+            Write-Host "    Iniciando.."
                 Write-Host "" <#SPACE#>
 
             Start-Process -FilePath "cmd.exe" -ArgumentList "/c sfc /scannow" -Verb RunAs -Wait
@@ -50,7 +50,7 @@ Write-Host "    (O processo será feito pelo Prompt de comando)"
 
     Start-Sleep -Seconds 1
 
-Write-Host "        [S] Sim / [N] Não" -ForegroundColor Cyan
+Write-Host "        [S] Sim / [N] Não"
     Write-Host "" <#SPACE#>
 
 $questStartSystemScanner = Read-Host
@@ -65,13 +65,17 @@ $questStartSystemScanner = Read-Host
 
                 Write-Host "" <#SPACE#>
             Write-Host "    Antes de iniciar a verificação"
+                Write-Host "" <#SPACE#>
+                
+                Start-Sleep -Seconds 1
+
             Write-Host "    Deseja Desligar ou Reiniciar o sistema"
             Write-Host "    assim que terminar?"
                 Write-Host "" <#SPACE#>
 
                 Start-Sleep -Seconds 1
 
-            Write-Host "        [S] Sim / [N] Não" -ForegroundColor Cyan
+            Write-Host "        [S] Sim / [N] Não"
                 Write-Host "" <#SPACE#>
 
             $questStartSystemScanner_Shutdown_OR_Restart_SYS = Read-Host
@@ -86,7 +90,7 @@ $questStartSystemScanner = Read-Host
                         Write-Host "    Desligar ou Reiniciar?"
                             Write-Host "" <#SPACE#>
 
-                        Write-Host "        [D] Desligar / [R] Reiniciar" -ForegroundColor Cyan
+                        Write-Host "        [D] Desligar / [R] Reiniciar"
                             Write-Host "" <#SPACE#>
 
                         $questStartSystemScanner_Shutdown_OR_Restart = Read-Host

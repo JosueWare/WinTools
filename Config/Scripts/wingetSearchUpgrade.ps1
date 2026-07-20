@@ -15,7 +15,7 @@
 
                 Start-Sleep -Seconds 1
 
-            Write-Host "        [S] Sim / [N] Não" -ForegroundColor Cyan
+            Write-Host "        [S] Sim / [N] Não"
                 Write-Host "" <#SPACE#>
 
             $questUpgradeAllPrograms = Read-Host

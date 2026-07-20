@@ -18,8 +18,8 @@
 
                 Start-Sleep -Seconds 1
 
-            Write-Host "        [1]. Verificação   (sfc /scannow)" -ForegroundColor Cyan
-            Write-Host "        [2]. Reparação     (DISM.exe)" -ForegroundColor Cyan
+            Write-Host "        [1]. Verificação   (sfc /scannow)"
+            Write-Host "        [2]. Reparação     (DISM.exe)"
                 Write-Host "" <#SPACE#>
 
             $questVerify_OR_Repair = Read-Host
@@ -87,11 +87,11 @@ Write-Host "                    WinTools"
         Start-Sleep -Seconds 1
         
         Write-Host "" <#SPACE#>
-    Write-Host "        [1]. Reparação do Windows" -ForegroundColor Cyan
-    Write-Host "        [2]. Procurar por atualizações de Software (Winget)" -ForegroundColor Cyan
+    Write-Host "        [1]. Reparação do Windows"
+    Write-Host "        [2]. Procurar por atualizações de Software (Winget)"
         Write-Host "" <#SPACE#>
         Write-Host "" <#SPACE#>
-    Write-Host "    [X]. Sair" -ForegroundColor DarkGray
+    Write-Host "    [X]. Sair"
         Write-Host "" <#SPACE#>
 
     $SelectOptions = Read-Host

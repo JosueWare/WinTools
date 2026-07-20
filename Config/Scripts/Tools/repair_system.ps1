@@ -61,12 +61,12 @@
 
         Start-Sleep -Seconds 2
 
-    Write-Host "    Deseja prosseguir?"
+    Write-Host "    Deseja prosseguir?" -ForegroundColor Yellow
         Write-Host "" <#SPACE#>
 
         Start-Sleep -Seconds 1
 
-    Write-Host "        [S] Sim / [N] Não"
+    Write-Host "        [S] Sim / [N] Não" -ForegroundColor Yellow
         Write-Host "" <#SPACE#>
 
     $questProssesDepences_SN = Read-Host

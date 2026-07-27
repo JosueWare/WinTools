@@ -79,7 +79,7 @@ Clear-Host
 Write-Host "                    WinTools"
     Write-Host "" <#SPACE#>
 
-    Start-Sleep -Seconds 1
+    Start-Sleep -Milliseconds 500
 
     # Menu
 

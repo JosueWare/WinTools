@@ -63,15 +63,15 @@
             Clear-Host
 
                 Write-Host "" <#SPACE#>
-            Write-Host " Erro" -ForegroundColor Red
+            Write-Host "    Erro" -ForegroundColor Red
                 Write-Host "" <#SPACE#>
 
                 Start-Sleep -Seconds 1
 
-            Write-Host " O Winget não está instalado" -ForegroundColor Red
+            Write-Host "    O Winget não está instalado" -ForegroundColor Red
                 Write-Host "" <#SPACE#>
 
                 Start-Sleep -Seconds 1
 
-            $Host.SetShouldExit(0)
+            Set-Location "$HOME"
         }

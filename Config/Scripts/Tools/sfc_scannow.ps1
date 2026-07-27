@@ -13,28 +13,6 @@
             Write-Host "    Processo concluído" -ForegroundColor Green
         }
 
-        [ScriptBlock]$WrongResponse = {
-
-            Clear-Host
-
-                Write-Host "" <#SPACE#>
-            Write-Host "    Resposta inválida" -ForegroundColor Red
-                Write-Host "" <#SPACE#>
-
-                Start-Sleep -Seconds 1
-
-            Stop-Process -Id $PID
-        }
-
-        [ScriptBlock]$ExitWinToolsSession = {
-
-            Clear-Host
-
-                Start-Sleep -Seconds 1
-
-            Stop-Process -Id $PID
-        }
-
     <#--ScriptsBlocks--[END]#>
 
 # Inicialização
@@ -127,7 +105,7 @@ $questStartSystemScanner = Read-Host
                                     Restart-Computer
                                 }
 
-                                Default {& $WrongResponse}
+                                Default {& $ErrorResponse}
                             }
                     }
                     "N" {
@@ -143,11 +121,11 @@ $questStartSystemScanner = Read-Host
                         Set-Location $HOME
                     }
 
-                    Default {& $WrongResponse}
+                    Default {& $ErrorResponse}
                 }
         }
 
-        "N" {& $ExitWinToolsSession}
+        "N" {& $ExitTerminalSession}
 
-        Default {& $WrongResponse}
+        Default {& $ErrorResponse}
     }

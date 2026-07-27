@@ -12,32 +12,6 @@
             Start-Process -FilePath "cmd.exe" -ArgumentList "/c sfc /scannow" -Verb RunAs -Wait
         }
 
-        # Default
-
-            [ScriptBlock]$WinTools_ErrorResponse = {
-
-                Clear-Host
-
-                    Write-Host "" <#SPACE#>
-                Write-Host "    Resposta inválida" -ForegroundColor Red
-                    Write-Host "" <#SPACE#>
-
-                    Start-Sleep -Seconds 1
-
-                Stop-Process -Id $PID
-            }
-
-            [ScriptBlock]$WinTools_ExitResponse = {
-
-                Clear-Host
-
-                    Start-Sleep -Seconds 1
-
-                Stop-Process -Id $PID
-            }
-
-    <#--ScriptsBlocks--[END]#>
-
 # Inicialização
 
     Clear-Host
@@ -120,7 +94,7 @@
                 Restart-Computer
             }
 
-            "N" {& $WinTools_ExitResponse}
+            "N" {& $ExitTerminalSession}
 
-            Default {& $WinTools_ErrorResponse}
+            Default {& $ErrorResponse}
         }

@@ -39,12 +39,12 @@
 
                             Start-Sleep -Seconds 2
 
-                        Stop-Process -Id $PID
+                        Set-Location "$HOME"
                     }
                 }
         }
 
-        [ScriptBlock]$WrongResponse = {
+        [ScriptBlock]$ErrorResponse = {
 
             Clear-Host
 
@@ -54,19 +54,22 @@
 
                 Start-Sleep -Seconds 1
 
-            Stop-Process -Id $PID
+            Set-Location "$HOME"
         }
 
-        [ScriptBlock]$ExitWinToolsSession = {
+        [ScriptBlock]$ExitTerminalSession = {
 
             Clear-Host
 
                 Start-Sleep -Seconds 1
 
-            Stop-Process -Id $PID
+            $Host.SetShouldExit(0)
         }
 
     <#--ScriptsBlocks#--[END]#>
+
+    #Functions
+    function R {& ".\Config\Navigation\main.ps1"}
 
 # Inicialização
 
@@ -101,7 +104,7 @@ Write-Host "                    WinTools"
             "1" {& $questRepairWindowsSystem}
             "2" {& ".\Config\Scripts\wingetSearchUpgrade.ps1"}
 
-            "X" {& $ExitWinToolsSession}
+            "X" {& $ExitTerminalSession}
 
-            Default {& $WrongResponse}
+            Default {& $ErrorResponse}
         }

@@ -27,19 +27,22 @@
 
                         Set-Location $HOME
                         }
-                    "N" {Set-Location $HOME}
+                    "N" {
+                        Write-Host "" <##>
+                        Set-Location $HOME
+                    }
 
                     Default {
 
                         Clear-Host
 
                             Write-Host "" <#SPACE#>
-                        Write-Host " Resposta inválida" -ForegroundColor Red
+                        Write-Host "    Resposta inválida" -ForegroundColor Red
                             Write-Host "" <#SPACE#>
 
                             Start-Sleep -Seconds 2
 
-                        Stop-Process -Id $PID
+                        $host.SetShouldExit(0)
                     }
                 }
         }
@@ -70,5 +73,5 @@
 
                 Start-Sleep -Seconds 1
 
-            Stop-Process -Id $PID
+            $Host.SetShouldExit(0)
         }

@@ -108,7 +108,15 @@ $questStartSystemScanner = Read-Host
                                 Default {& $ErrorResponse}
                             }
                     }
-                    "N" {& $ExitTerminalSession}
+                    "N" {
+
+                        Clear-Host
+
+                            Start-Sleep -Seconds 1
+
+                        & $actionSFCSCANNOW
+                            Write-Host "" <##>
+                    }
 
                     Default {& $ErrorResponse}
                 }

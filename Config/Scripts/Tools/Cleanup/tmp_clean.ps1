@@ -23,8 +23,45 @@ $questStartCleanupProcess = Read-Host
 
     switch ($questStartCleanupProcess) {
 
-        "S" {}
-        "N" {}
+        "S" {
+            Clear-Host
+
+                Start-Sleep -Milliseconds 500
+
+            <# Folder 1 #>
+                Write-Host "" <##>
+            Write-Host "    Limpando a pasta 'Temp' do Usuário.." -NoNewline
+                Start-Sleep -Milliseconds 500
+            Remove-Item -Path "$folderAppData_Local\Temp\*" -Recurse -Force
+            Write-Host " Limpo!" -ForegroundColor Green
+                Write-Host "" <##>
+
+            <# Folder 2 #>
+                Write-Host "" <##>
+            Write-Host "    Limpando a pasta 'Temp' do Windows.." -NoNewline
+                Start-Sleep -Milliseconds 500
+            Remove-Item -Path "$folderWindows\Temp\*" -Recurse -Force
+            Write-Host " Limpo" -ForegroundColor Green
+                Write-Host "" <##>
+
+            <# Folder 3 #>
+                Write-Host "" <##>
+            Write-Host "    Limpando a pasta 'Prefetch' do Windows.." -NoNewline
+                Start-Sleep -Milliseconds 500
+            Remove-Item -Path "$folderWindows\Prefetch\*" -Recurse -Force
+            Write-Host " Limpo" -ForegroundColor Green
+                Write-Host "" <##>
+
+                Start-Sleep -Seconds 1
+
+                Write-Host "" <##>
+            Write-Host "    Limpeza concluída." -ForegroundColor Green
+                Write-Host "" <##>
+
+            Set-Location $HOME
+        }
+
+        "N" {& $ExitTerminalSession}
 
         Default {
                 Write-Host "" <##>

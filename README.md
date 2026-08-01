@@ -1,1 +1,4 @@
-![PowerShell](https://devblogs.microsoft.com/powershell/wp-content/uploads/sites/30/2018/09/Powershell_256.png)
+![PowerShell](https://powershellgallery.com/Content/Images/Branding/packageDefaultIcon.svg)
+
+# WinTools
+Kit de ferramentas e scripts para usar no Windows

@@ -13,7 +13,7 @@
             Start-Process -FilePath "pwsh.exe" -ArgumentList "-NoProfile", "-NoExit", "-ExecutionPolicy Bypass", "-Command $main_file" -Verb RunAs
         }
 
-        else {
+            else {
 
-            Start-Process -FilePath "powershell.exe" -ArgumentList "-NoProfile", "-NoExit", "-ExecutionPolicy Bypass", "-Command $dep_file" -Verb RunAs
-        }
+                Start-Process -FilePath "powershell.exe" -ArgumentList "-NoProfile", "-NoExit", "-ExecutionPolicy Bypass", "-Command $dep_file" -Verb RunAs
+            }

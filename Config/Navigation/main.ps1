@@ -2,46 +2,44 @@
 
     Set-Location "$PSScriptRoot\..\..\"
 
-    <#--ScriptsBlocks--[INI]#>
+    #ScriptsBlocks
+    [ScriptBlock]$questRepairWindowsSystem = {
 
-        [ScriptBlock]$questRepairWindowsSystem = {
+        Clear-Host
 
-            Clear-Host
+            Start-Sleep -Seconds 1
 
-                Start-Sleep -Seconds 1
+            Write-Host "" <#SPACE#>
+        Write-Host "    Deseja fazer uma verificação de integridade"
+        Write-Host "    do Windows ou uma Reparação completa"
+        Write-Host "    da imagem do sistema?"
+            Write-Host "" <#SPACE#>
+        Start-Sleep -Seconds 1
+            Write-Host "" <#SPACE#>
+        Write-Host "        [1]. Verificação   (sfc /scannow)"
+        Write-Host "        [2]. Reparação     (DISM.exe)"
+            Write-Host "" <#SPACE#>
 
-                Write-Host "" <#SPACE#>
-            Write-Host "    Deseja fazer uma verificação de integridade"
-            Write-Host "    do Windows ou uma Reparação completa"
-            Write-Host "    da imagem do sistema?"
-                Write-Host "" <#SPACE#>
+        $questVerify_OR_Repair = Read-Host
 
-                Start-Sleep -Seconds 1
+            switch ($questVerify_OR_Repair) {
 
-            Write-Host "        [1]. Verificação   (sfc /scannow)"
-            Write-Host "        [2]. Reparação     (DISM.exe)"
-                Write-Host "" <#SPACE#>
+                "1" {& ".\Config\Scripts\Tools\sfc_scannow.ps1"}
+                "2" {& ".\Config\Scripts\Tools\repair_system.ps1"}
 
-            $questVerify_OR_Repair = Read-Host
+                Default {
 
-                switch ($questVerify_OR_Repair) {
+                    Clear-Host
 
-                    "1" {& ".\Config\Scripts\Tools\sfc_scannow.ps1"}
-                    "2" {& ".\Config\Scripts\Tools\repair_system.ps1"}
+                        Write-Host "" <#SPACE#>
+                    Write-Host "    Resposta inválida" -ForegroundColor Red
+                        Write-Host "" <#SPACE#>
 
-                    Default {
+                        Start-Sleep -Seconds 2
 
-                        Clear-Host
-
-                            Write-Host "" <#SPACE#>
-                        Write-Host "    Resposta inválida" -ForegroundColor Red
-                            Write-Host "" <#SPACE#>
-
-                            Start-Sleep -Seconds 2
-
-                        Set-Location "$HOME"
-                    }
+                    Set-Location "$HOME"
                 }
+            }
         }
 
         [ScriptBlock]$ErrorResponse = {

@@ -1,10 +1,8 @@
 # Logon
-
-    Set-Location "$PSScriptRoot\..\..\"
+Set-Location "$PSScriptRoot\..\..\"
 
     #ScriptsBlocks
     [ScriptBlock]$questRepairWindowsSystem = {
-
         Clear-Host
 
             Start-Sleep -Seconds 1
@@ -28,49 +26,44 @@
                 "2" {& ".\Config\Scripts\Tools\repair_system.ps1"}
 
                 Default {
-
                     Clear-Host
 
                         Write-Host "" <#SPACE#>
                     Write-Host "    Resposta inválida" -ForegroundColor Red
                         Write-Host "" <#SPACE#>
 
-                        Start-Sleep -Seconds 2
+                        Start-Sleep -Seconds 1
 
                     Set-Location "$HOME"
                 }
             }
         }
 
-        [ScriptBlock]$ErrorResponse = {
+    [ScriptBlock]$ErrorResponse = {
+        Clear-Host
 
-            Clear-Host
+            Write-Host "" <#SPACE#>
+        Write-Host "    Resposta inválida" -ForegroundColor Red
+            Write-Host "" <#SPACE#>
 
-                Write-Host "" <#SPACE#>
-            Write-Host "    Resposta inválida" -ForegroundColor Red
-                Write-Host "" <#SPACE#>
+            Start-Sleep -Seconds 1
 
-                Start-Sleep -Seconds 1
+        Set-Location "$HOME"
+    }
 
-            Set-Location "$HOME"
-        }
+    [ScriptBlock]$ExitTerminalSession = {
 
-        [ScriptBlock]$ExitTerminalSession = {
+        Clear-Host
 
-            Clear-Host
+            Start-Sleep -Seconds 1
 
-                Start-Sleep -Seconds 1
-
-            $Host.SetShouldExit(0)
-        }
-
-    <#--ScriptsBlocks#--[END]#>
+        $Host.SetShouldExit(0)
+    }
 
     #Functions
     function R {& ".\Config\Navigation\main.ps1"}
 
-# Inicialização
-
+# Init
 Clear-Host
 
     Write-Host "" <#SPACE#>

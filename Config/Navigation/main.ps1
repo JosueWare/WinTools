@@ -1,7 +1,7 @@
 # Logon
 Set-Location "$PSScriptRoot\..\..\"
 
-    #ScriptsBlocks
+    # ScriptsBlocks
     [ScriptBlock]$questRepairWindowsSystem = {
         Clear-Host
 
@@ -60,7 +60,7 @@ Set-Location "$PSScriptRoot\..\..\"
         $Host.SetShouldExit(0)
     }
 
-    #Functions
+    # Functions
     function R {& ".\Config\Navigation\main.ps1"}
 
 # Init

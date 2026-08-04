@@ -61,7 +61,7 @@ Set-Location "$PSScriptRoot\..\..\"
     }
 
     # Functions
-    function R {& ".\Config\Navigation\main.ps1"}
+    function R {& ".\Config\Main\Main.ps1"}
 
 # Init
 Clear-Host

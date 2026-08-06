@@ -22,44 +22,38 @@
 
                 switch ($questUpgradeAllPrograms) {
                     "S" {
-                        
                         Winget Upgrade --All
 
                         Set-Location $HOME
                         }
+
                     "N" {
-                        Write-Host "" <##>
+                            Write-Host "" <##>
                         Set-Location $HOME
                     }
 
                     Default {
-
-                        Clear-Host
-
                             Write-Host "" <#SPACE#>
                         Write-Host "    Resposta inválida" -ForegroundColor Red
                             Write-Host "" <#SPACE#>
 
-                            Start-Sleep -Seconds 2
+                            Start-Sleep -Seconds 1
 
-                        $host.SetShouldExit(0)
+                        Set-Location "$HOME"
                     }
                 }
         }
 
-# Inicialização
+# Init
 
-    <#--Verificar se o Winget está instalado--#>
+    <# Check the Winget.exe #>
 
         if (Get-Command "winget.exe" -ErrorAction SilentlyContinue) {
-
             Clear-Host
-
             & $actionSearchWingetUpgrade
         }
 
         else {
-
             Clear-Host
 
                 Write-Host "" <#SPACE#>
@@ -67,7 +61,8 @@
                 Write-Host "" <#SPACE#>
 
                 Start-Sleep -Seconds 1
-
+                
+                Write-Host "" <#SPACE#>
             Write-Host "    O Winget não está instalado" -ForegroundColor Red
                 Write-Host "" <#SPACE#>
 

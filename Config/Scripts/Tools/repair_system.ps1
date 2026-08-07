@@ -75,7 +75,7 @@
                 Write-Host "        Executando o SystemFileChecker"
                     Write-Host "" <#SPACE#>
 
-                & $actionExecute_SystemFileChecker
+                & $actionExecute_SystemFileChecker <#--[Script 2]--#>
 
                     Start-Sleep -Seconds 1
 
@@ -83,7 +83,7 @@
                 Write-Host "    Processo finalizado." -ForegroundColor Green
                     Write-Host "" <#SPACE#>
 
-                    Start-Sleep -Seconds 1
+                    Start-Sleep -Seconds 2
 
                     Write-Host "" <#SPACE#>
                 Write-Host "    Reiniciando o sistema.." -ForegroundColor Yellow

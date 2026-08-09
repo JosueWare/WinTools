@@ -52,7 +52,6 @@ Set-Location "$PSScriptRoot\..\..\"
     }
 
     [ScriptBlock]$ExitTerminalSession = {
-
         Clear-Host
 
             Start-Sleep -Seconds 1
@@ -94,7 +93,7 @@ Write-Host "                    WinTools"
         switch ($SelectOptions) {
 
             "1" {& $questRepairWindowsSystem}
-            "2" {& ".\Config\Scripts\wingetSearchUpgrade.ps1"}
+            "2" {& ".\Config\Scripts\SearchWingetUpgrade.ps1"}
             "3" {& ".\Config\Scripts\Tools\Cleanup\tmp_clean.ps1"}
 
             "X" {& $ExitTerminalSession}

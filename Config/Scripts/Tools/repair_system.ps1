@@ -75,6 +75,8 @@
                 Write-Host "        Executando o SystemFileChecker"
                     Write-Host "" <#SPACE#>
 
+                    Start-Sleep -Seconds 1
+
                 & $actionExecute_SystemFileChecker <#--[Script 2]--#>
 
                     Start-Sleep -Seconds 1

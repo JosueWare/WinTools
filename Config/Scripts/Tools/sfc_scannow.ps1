@@ -122,7 +122,10 @@ $questStartSystemScanner = Read-Host
                 }
         }
 
-        "N" {& $ExitTerminalSession}
+        "N" {
+            Clear-Host
+            Set-Location $HOME
+        }
 
         Default {& $ErrorResponse}
     }

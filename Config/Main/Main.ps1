@@ -67,7 +67,7 @@ Set-Location "$PSScriptRoot\..\..\"
 Clear-Host
 
     Write-Host "" <#SPACE#>
-Write-Host "                    WinTools (Preview)"
+Write-Host "                    WinTools"
     Write-Host "" <#SPACE#>
 
     Start-Sleep -Milliseconds 500

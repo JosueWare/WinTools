@@ -61,7 +61,11 @@ $questStartCleanupProcess = Read-Host
             Set-Location $HOME
         }
 
-        "N" {& $ExitTerminalSession}
+        "N" {
+            Clear-Host
+            Start-Sleep -Seconds 1
+            & ".\Config\Main\Menu.ps1"
+        }
 
         Default {& $ErrorResponse}
     }

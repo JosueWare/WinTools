@@ -1,4 +1,3 @@
-# Logon
 Set-Location "$PSScriptRoot\..\..\"
 
     # ScriptsBlocks
@@ -53,9 +52,7 @@ Set-Location "$PSScriptRoot\..\..\"
 
     [ScriptBlock]$ExitTerminalSession = {
         Clear-Host
-
-            Start-Sleep -Seconds 1
-
+        Start-Sleep -Milliseconds 250
         $Host.SetShouldExit(0)
     }
 

@@ -12,7 +12,7 @@ Clear-Host
     Write-Host "" <##>
 Write-Host "    Deseja limpar os arquivos agora?" -NoNewline
     Start-Sleep -Milliseconds 500
-Write-Host "    (Dir: 'Local\Temp', 'Windows\Temp', 'Windows\Prefetch')" -ForegroundColor DarkGray
+Write-Host "    (Seguintes pastas: 'Local\Temp', 'Windows\Temp', 'Windows\Prefetch')" -ForegroundColor DarkGray
     Write-Host "" <##>
     Start-Sleep -Milliseconds 500
     Write-Host "" <##>
@@ -63,11 +63,5 @@ $questStartCleanupProcess = Read-Host
 
         "N" {& $ExitTerminalSession}
 
-        Default {
-                Write-Host "" <##>
-            Write-Host "    Resposta inválida" -ForegroundColor Red
-                Write-Host "" <##>
-
-            Set-Location "$HOME"
-        }
+        Default {& $ErrorResponse}
     }

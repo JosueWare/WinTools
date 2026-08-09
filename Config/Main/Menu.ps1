@@ -21,8 +21,8 @@ Set-Location "$PSScriptRoot\..\..\"
 
             switch ($questVerify_OR_Repair) {
 
-                "1" {& ".\Config\Scripts\Tools\sfc_scannow.ps1"}
-                "2" {& ".\Config\Scripts\Tools\repair_system.ps1"}
+                "1" {& ".\Config\Scripts\Tools\SystemFileChecker.ps1"}
+                "2" {& ".\Config\Scripts\Tools\RepairSystem.ps1"}
 
                 Default {
                     Clear-Host

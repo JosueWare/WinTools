@@ -79,7 +79,7 @@ Write-Host "                    WinTools"
         Write-Host "" <#SPACE#>
     Write-Host "        [1]. Reparação do Windows"
     Write-Host "        [2]. Procurar por atualizações de Software (Winget)"
-    Write-Host "        [3]. Limpar arquivos temporários]"
+    Write-Host "        [3]. Limpar arquivos temporários"
         Write-Host "" <#SPACE#>
         Write-Host "" <#SPACE#>
     Write-Host "    [X]. Sair"

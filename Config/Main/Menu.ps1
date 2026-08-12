@@ -1,7 +1,6 @@
 Set-Location "$PSScriptRoot\..\..\"
 
     # ENV
-    $MainScript = Resolve-Path ".\Config\Main\Menu.ps1"
 
     # ScriptsBlocks
     [ScriptBlock]$questRepairWindowsSystem = {

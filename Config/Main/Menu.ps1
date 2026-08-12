@@ -1,5 +1,8 @@
 Set-Location "$PSScriptRoot\..\..\"
 
+    # ENV
+    $MainScript = Resolve-Path ".\Config\Main\Menu.ps1"
+
     # ScriptsBlocks
     [ScriptBlock]$questRepairWindowsSystem = {
         Clear-Host
@@ -54,8 +57,8 @@ Set-Location "$PSScriptRoot\..\..\"
         $Host.SetShouldExit(0)
     }
 
-    # Functions
-    function RS {& ".\Config\Main\Menu.ps1"}
+    # Import-Modules
+    Import-Module ".\Config\Modules\Default.psm1"
 
 # Init
 Clear-Host

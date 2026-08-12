@@ -1,6 +1,6 @@
 # ENV
 $MainScript = Resolve-Path ".\Config\Main\Menu.ps1"
-$DepedencesScript = Resolve-Path ".\Config\Main\Help\Depedences.ps1"
+$DepedencesScript = Resolve-Path ".\Config\Main\Depedences\dpPowerShell.ps1"
 
 # Logon
 if (Get-Command "pwsh.exe" -ErrorAction SilentlyContinue) {

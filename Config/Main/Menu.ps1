@@ -56,9 +56,6 @@ Set-Location "$PSScriptRoot\..\..\"
         $Host.SetShouldExit(0)
     }
 
-    # Import-Modules
-    Import-Module ".\Config\Modules\Default.psm1"
-
 # Init
 Clear-Host
 

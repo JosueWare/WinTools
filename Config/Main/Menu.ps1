@@ -39,8 +39,6 @@ Set-Location "$PSScriptRoot\..\..\"
         }
 
     [ScriptBlock]$ErrorResponse = {
-        Clear-Host
-
             Write-Host "" <#SPACE#>
         Write-Host "    Resposta inválida" -ForegroundColor Red
             Write-Host "" <#SPACE#>
@@ -57,7 +55,7 @@ Set-Location "$PSScriptRoot\..\..\"
     }
 
     # Functions
-    function R {& ".\Config\Main\Menu.ps1"}
+    function RS {& ".\Config\Main\Menu.ps1"}
 
 # Init
 Clear-Host

@@ -88,7 +88,7 @@ Write-Host "                    WinTools"
         switch ($SelectOptions) {
 
             "1" {& $questRepairWindowsSystem}
-            "2" {& ".\Config\Scripts\SearchWingetUpgrade.ps1"}
+            "2" {& ".\Config\Scripts\Tools\SearchUpdateApps.ps1"}
             "3" {& ".\Config\Scripts\Tools\Cleanup\TempClean.ps1"}
 
             "X" {& $ExitTerminalSession}

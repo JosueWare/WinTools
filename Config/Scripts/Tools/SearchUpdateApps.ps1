@@ -20,10 +20,7 @@ $questUpdateAllProgramsWithWinget = Read-Host
     switch ($questUpdateAllProgramsWithWinget) {
 
         "S" {
-            Clear-Host
-
             Winget Upgrade --All
-
             Set-Location $HOME
         }
 

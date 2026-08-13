@@ -1,1 +1,0 @@
-function T {& "Config\Main\Menu.ps1"}

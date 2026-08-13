@@ -1,4 +1,4 @@
-Set-Location "$PSScriptRoot\..\..\"
+Set-Location "$PSScriptRoot\..\.."
 
     # ENV
 
@@ -55,9 +55,6 @@ Set-Location "$PSScriptRoot\..\..\"
         Start-Sleep -Milliseconds 250
         $Host.SetShouldExit(0)
     }
-
-    # Function
-    Import-Module ".\Config\Modules\Default.psm1"
 
 # Menu
 Clear-Host

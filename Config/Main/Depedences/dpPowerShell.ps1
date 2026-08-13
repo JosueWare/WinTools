@@ -1,7 +1,7 @@
+# Menu
 Clear-Host
-# Init
     Write-Host "" <##>
-Write-Host "    Windows PowerShell imcompativel"
+Write-Host "    Erro:" -ForegroundColor Red -NoNewline
+    Start-Sleep -Milliseconds 500
+Write-Host " PowerShell 7 nao foi encontrado" -ForegroundColor Yellow
     Write-Host "" <##>
-
-Set-Location "$HOME"

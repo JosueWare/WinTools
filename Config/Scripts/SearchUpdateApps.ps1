@@ -3,6 +3,8 @@ if (-not (Get-Command "winget.exe")) {
     & ".\Config\Main\Depedences\dpWinget.ps1"
 }
 
+# Test Connection of Internet
+
 # Search Upgrade with Winget.exe
 Clear-Host
 Winget Upgrade

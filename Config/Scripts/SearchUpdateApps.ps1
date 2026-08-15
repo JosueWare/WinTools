@@ -4,12 +4,23 @@ if (-not (Get-Command "winget.exe")) {
 }
 
 # Test Connection of Internet
+if (-not (Test-Connection -TargetName "8.8.8.8" -Count 2 -Quiet)) {
+    Clear-Host
+
+        Write-Host ""
+    Write-Host "    Não foi possível prosseguir pois
+    não está conectado a internet." -ForegroundColor Red
+        Write-Host ""
+
+    exit
+}
 
 # Search Upgrade with Winget.exe
 Clear-Host
 Winget Upgrade
 
     Start-Sleep -Seconds 1
+
     Write-Host ""
 Write-Host "    Deseja atualizar todos os programas?"
     Write-Host ""

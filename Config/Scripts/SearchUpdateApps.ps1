@@ -8,9 +8,12 @@ if (-not (Test-Connection -TargetName "8.8.8.8" -Count 2 -Quiet)) {
     Clear-Host
 
         Write-Host ""
-    Write-Host "    Não foi possível prosseguir pois
-    não está conectado a internet." -ForegroundColor Red
+    Write-Host "    Houve um erro inseperado" -ForegroundColor Red
+        Start-Sleep -Milliseconds 500
+    Write-Host "    Verifique a sua conexão de internet" -ForegroundColor Red
         Write-Host ""
+
+    Set-Location $HOME
 
     exit
 }

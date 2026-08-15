@@ -9,7 +9,7 @@ if (-not (Test-Connection -TargetName "8.8.8.8" -Count 2 -Quiet)) {
 
         Write-Host ""
     Write-Host "    Houve um erro inseperado" -ForegroundColor Red
-        Start-Sleep -Milliseconds 500
+        Start-Sleep -Seconds 1
     Write-Host "    Verifique a sua conexão de internet" -ForegroundColor Red
         Write-Host ""
 

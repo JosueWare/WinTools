@@ -1,3 +1,4 @@
+Clear-Host
 # Check the 'winget.exe'
 if (-not (Get-Command "winget.exe")) {
     & ".\Config\Main\Depedences\dpWinget.ps1"

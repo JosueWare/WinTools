@@ -50,7 +50,7 @@
 
                 Start-Sleep -Seconds 1
 
-            } until ($Internet_ONLINE -eq $true) -or ($TryCount -gt 100)
+            } until (($Internet_ONLINE -eq $true) -or ($TryCount -gt 100))
 
             # END
             if ($Internet_ONLINE) {

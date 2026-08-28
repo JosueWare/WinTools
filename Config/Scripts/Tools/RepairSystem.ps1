@@ -60,6 +60,8 @@
 
                     Start-Sleep -Seconds 1
 
+                    Clear-Host
+
                 <# QUEST #>
                         Write-Host "" <##>
                     Write-Host " Aviso:" -ForegroundColor Yellow
@@ -90,59 +92,59 @@
 
                         switch ($questProssesDepences_SN) {
 
-            "S" {
+                            "S" {
 
-                Clear-Host
+                                Clear-Host
 
-                    Write-Host "" <#SPACE#>
-                Write-Host "    Passo 1:"
+                                    Write-Host "" <#SPACE#>
+                                Write-Host "    Passo 1:"
 
-                    Start-Sleep -Seconds 1
+                                    Start-Sleep -Seconds 1
 
-                    Write-Host "" <#SPACE#>
-                Write-Host "        Executando o DISM"
-                    Write-Host "" <#SPACE#>
+                                    Write-Host "" <#SPACE#>
+                                Write-Host "        Executando o DISM"
+                                    Write-Host "" <#SPACE#>
 
-                    Start-Sleep -Seconds 1
+                                    Start-Sleep -Seconds 1
 
-                & $actionExecute_DISM <#--[Script 1]--#>
+                                & $actionExecute_DISM <#--[Script 1]--#>
 
-                    Start-Sleep -Seconds 1
+                                    Start-Sleep -Seconds 1
 
-                    Write-Host "" <#SPACE#>
-                Write-Host "    Passo 2:"
+                                    Write-Host "" <#SPACE#>
+                                Write-Host "    Passo 2:"
 
-                    Start-Sleep -Seconds 1
+                                    Start-Sleep -Seconds 1
 
-                    Write-Host "" <#SPACE#>
-                Write-Host "        Executando o SystemFileChecker"
-                    Write-Host "" <#SPACE#>
+                                    Write-Host "" <#SPACE#>
+                                Write-Host "        Executando o SystemFileChecker"
+                                    Write-Host "" <#SPACE#>
 
-                    Start-Sleep -Seconds 1
+                                    Start-Sleep -Seconds 1
 
-                & $actionExecute_SystemFileChecker <#--[Script 2]--#>
+                                & $actionExecute_SystemFileChecker <#--[Script 2]--#>
 
-                    Start-Sleep -Seconds 1
+                                    Start-Sleep -Seconds 1
 
-                    Write-Host "" <#SPACE#>
-                Write-Host "    Processo finalizado." -ForegroundColor Green
-                    Write-Host "" <#SPACE#>
+                                    Write-Host "" <#SPACE#>
+                                Write-Host "    Processo finalizado." -ForegroundColor Green
+                                    Write-Host "" <#SPACE#>
 
-                    Start-Sleep -Seconds 2
+                                    Start-Sleep -Seconds 2
 
-                    Write-Host "" <#SPACE#>
-                Write-Host "    Reiniciando o sistema.." -ForegroundColor Yellow
-                    Write-Host "" <#SPACE#>
+                                    Write-Host "" <#SPACE#>
+                                Write-Host "    Reiniciando o sistema.." -ForegroundColor Yellow
+                                    Write-Host "" <#SPACE#>
 
-                    Start-Sleep -Seconds 1
+                                    Start-Sleep -Seconds 1
 
-                Restart-Computer
-            }
+                                Restart-Computer
+                            }
 
-            "N" {& $ExitTerminalSession}
+                            "N" {& $ExitTerminalSession}
 
-            Default {& $ErrorResponse}
-        }
+                            Default {& $ErrorResponse}
+                        }
         <# QUEST #>
 
             }
@@ -156,3 +158,89 @@
                     $host.SetShouldExit(0)
                 }
     }
+        else {
+            <# QUEST #>
+            Write-Host "" <##>
+        Write-Host " Aviso:" -ForegroundColor Yellow
+            Write-Host "" <##>
+
+            Start-Sleep -Seconds 1
+                                # Quebra de Linha (Na 2° linha)
+        Write-Host "    Este processo será um pouco demorado e não
+        pode ser interrompido pois será baixada
+        uma nova imagem do sistema na nuvem e em
+        seguida será feito uma verificação de
+        integridade do sistema (System File Checker).
+
+        Após isso o computador será reiniciado." -ForegroundColor Yellow
+            Write-Host "" <##>
+
+            Start-Sleep -Seconds 2
+
+        Write-Host "    Deseja prosseguir?" -ForegroundColor Yellow
+            Write-Host "" <##>
+
+            Start-Sleep -Seconds 1
+
+        Write-Host "        [S] Sim / [N] Não" -ForegroundColor Yellow
+            Write-Host "" <##>
+
+        $questProssesDepences_SN = Read-Host
+
+            switch ($questProssesDepences_SN) {
+
+                "S" {
+
+                    Clear-Host
+
+                        Write-Host "" <#SPACE#>
+                    Write-Host "    Passo 1:"
+
+                        Start-Sleep -Seconds 1
+
+                        Write-Host "" <#SPACE#>
+                    Write-Host "        Executando o DISM"
+                        Write-Host "" <#SPACE#>
+
+                        Start-Sleep -Seconds 1
+
+                    & $actionExecute_DISM <#--[Script 1]--#>
+
+                        Start-Sleep -Seconds 1
+
+                        Write-Host "" <#SPACE#>
+                    Write-Host "    Passo 2:"
+
+                        Start-Sleep -Seconds 1
+
+                        Write-Host "" <#SPACE#>
+                    Write-Host "        Executando o SystemFileChecker"
+                        Write-Host "" <#SPACE#>
+
+                        Start-Sleep -Seconds 1
+
+                    & $actionExecute_SystemFileChecker <#--[Script 2]--#>
+
+                        Start-Sleep -Seconds 1
+
+                        Write-Host "" <#SPACE#>
+                    Write-Host "    Processo finalizado." -ForegroundColor Green
+                        Write-Host "" <#SPACE#>
+
+                        Start-Sleep -Seconds 2
+
+                        Write-Host "" <#SPACE#>
+                    Write-Host "    Reiniciando o sistema.." -ForegroundColor Yellow
+                        Write-Host "" <#SPACE#>
+
+                        Start-Sleep -Seconds 1
+
+                    Restart-Computer
+                }
+
+                "N" {& $ExitTerminalSession}
+
+                Default {& $ErrorResponse}
+            }
+            <# QUEST #>
+        }

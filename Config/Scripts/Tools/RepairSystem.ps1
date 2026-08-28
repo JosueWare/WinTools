@@ -56,46 +56,39 @@
             if ($Internet_ONLINE) {
                     Write-Host "" <##>
                 Write-Host "    Conexão restabelecida" -ForegroundColor Green
-            }
-                else {
+                    Write-Host "" <##>
+
+                    Start-Sleep -Seconds 1
+
+                <# QUEST #>
                         Write-Host "" <##>
-                    Write-Host "    Não foi possível conectar após $TryCount tentativas." -ForegroundColor Red
+                    Write-Host " Aviso:" -ForegroundColor Yellow
+                        Write-Host "" <##>
+
+                        Start-Sleep -Seconds 1
+                                            # Quebra de Linha (Na 2° linha)
+                    Write-Host "    Este processo será um pouco demorado e não
+                    pode ser interrompido pois será baixada
+                    uma nova imagem do sistema na nuvem e em
+                    seguida será feito uma verificação de
+                    integridade do sistema (System File Checker).
+    
+                    Após isso o computador será reiniciado." -ForegroundColor Yellow
                         Write-Host "" <##>
 
                         Start-Sleep -Seconds 2
 
-                    $host.SetShouldExit(0)
-                }
-    }
+                    Write-Host "    Deseja prosseguir?" -ForegroundColor Yellow
+                        Write-Host "" <##>
 
-        Write-Host "" <#SPACE#>
-    Write-Host " Aviso:" -ForegroundColor Yellow
-        Write-Host "" <#SPACE#>
+                        Start-Sleep -Seconds 1
 
-        Start-Sleep -Seconds 1
-                                            # Quebra de Linha (Na 2° linha)
-    Write-Host "    Este processo será um pouco demorado e não
-    pode ser interrompido pois será baixada
-    uma nova imagem do sistema na nuvem e em
-    seguida será feito uma verificação de
-    integridade do sistema (System File Checker).
-    
-    Após isso o computador será reiniciado." -ForegroundColor Yellow
-        Write-Host "" <#SPACE#>
+                    Write-Host "        [S] Sim / [N] Não" -ForegroundColor Yellow
+                        Write-Host "" <##>
 
-        Start-Sleep -Seconds 2
+                    $questProssesDepences_SN = Read-Host
 
-    Write-Host "    Deseja prosseguir?" -ForegroundColor Yellow
-        Write-Host "" <#SPACE#>
-
-        Start-Sleep -Seconds 1
-
-    Write-Host "        [S] Sim / [N] Não" -ForegroundColor Yellow
-        Write-Host "" <#SPACE#>
-
-    $questProssesDepences_SN = Read-Host
-
-        switch ($questProssesDepences_SN) {
+                        switch ($questProssesDepences_SN) {
 
             "S" {
 
@@ -150,3 +143,16 @@
 
             Default {& $ErrorResponse}
         }
+        <# QUEST #>
+
+            }
+                else {
+                        Write-Host "" <##>
+                    Write-Host "    Não foi possível conectar após $TryCount tentativas." -ForegroundColor Red
+                        Write-Host "" <##>
+
+                        Start-Sleep -Seconds 2
+
+                    $host.SetShouldExit(0)
+                }
+    }

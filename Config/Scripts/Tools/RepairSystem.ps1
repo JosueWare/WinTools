@@ -1,6 +1,11 @@
 # Logon
 
-    <#--ScriptsBlocks--[INI]#>
+    # ENV
+    $TryCount = "0"
+
+    $Internet_ONLINE = $true
+
+    <# ScriptsBlocks #>
 
         [ScriptBlock]$actionExecute_DISM = {
             
@@ -12,9 +17,40 @@
             Start-Process -FilePath "cmd.exe" -ArgumentList "/c sfc /scannow" -Verb RunAs -Wait
         }
 
-# Inicialização
+# Init
 
     Clear-Host
+
+    # Test Connection
+    if (-not (Test-Connection -TargetName "8.8.8.8" -Count 1 -Quiet)) {
+            Write-Host "" <##>
+        Write-Host "    Erro de conexão" -ForegroundColor Red
+            Write-Host "" <##>
+
+            Start-Sleep -Seconds 1
+
+            Write-Host "" <##>
+        Write-Host "    Tentando novamente.. " -NoNewline -ForegroundColor Yellow
+        Write-Host "$TryCount"
+            Write-Host "" <##>
+
+            # Try-Again
+
+            do {
+                    Write-Host "" <##>
+                Write-Host "    Erro de conexão" -ForegroundColor Red
+                    Write-Host "" <##>
+                    Write-Host "" <##>
+                Write-Host "    Tentando novamente.. " -NoNewline -ForegroundColor Yellow
+                Write-Host "$TryCount"
+                    Write-Host "" <##>
+
+                $TryCount++
+
+                Start-Sleep -Seconds 1
+
+            } until ($Internet_ONLINE -eq $true) -or ($TryCount -eq 100)
+    }
 
         Start-Sleep -Seconds 1
 

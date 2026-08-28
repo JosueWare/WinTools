@@ -22,7 +22,7 @@
     Clear-Host
 
     # Test Connection
-    if ($Internet_ONLINE) {
+    if (-not ($Internet_ONLINE)) {
             Write-Host "" <##>
         Write-Host "    Erro de conexão" -ForegroundColor Red
             Write-Host "" <##>
@@ -50,15 +50,17 @@
 
                 Start-Sleep -Seconds 1
 
-            } until (($Internet_ONLINE -eq $true) -or ($TryCount -gt 10))
+            } until (($Internet_ONLINE -eq $true) -or ($TryCount -gt 100))
 
             # END
             if ($Internet_ONLINE) {
+                    Clear-Host
+                    
                     Write-Host "" <##>
                 Write-Host "    Conexão restabelecida" -ForegroundColor Green
                     Write-Host "" <##>
 
-                    Start-Sleep -Seconds 1
+                    Start-Sleep -Seconds 2
 
                     Clear-Host
 
@@ -150,12 +152,12 @@
             }
                 else {
                         Write-Host "" <##>
-                    Write-Host "    Não foi possível conectar após $TryCount tentativas." -ForegroundColor Red
+                    Write-Host "    Não foi possível conectar após 100 tentativas." -ForegroundColor Red
                         Write-Host "" <##>
 
-                        Start-Sleep -Seconds 2
+                        Start-Sleep -Seconds 1
 
-                    $host.SetShouldExit(0)
+                    Set-Location $HOME
                 }
     }
         else {
@@ -166,7 +168,7 @@
 
             Start-Sleep -Seconds 1
                                 # Quebra de Linha (Na 2° linha)
-        Write-Host "    Este processo será um pouco demorado e não
+        Write-Host "        Este processo será um pouco demorado e não
         pode ser interrompido pois será baixada
         uma nova imagem do sistema na nuvem e em
         seguida será feito uma verificação de

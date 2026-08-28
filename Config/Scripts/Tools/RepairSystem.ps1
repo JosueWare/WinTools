@@ -3,7 +3,7 @@
     # ENV
     $TryCount = "0"
 
-    $Internet_ONLINE = $true
+    $Internet_ONLINE = Test-Connection -TargetName "8.8.8.8" -Count 1 -Quiet
 
     <# ScriptsBlocks #>
 
@@ -22,7 +22,7 @@
     Clear-Host
 
     # Test Connection
-    if (-not (Test-Connection -TargetName "8.8.8.8" -Count 1 -Quiet)) {
+    if (-not $Internet_ONLINE) {
             Write-Host "" <##>
         Write-Host "    Erro de conexão" -ForegroundColor Red
             Write-Host "" <##>

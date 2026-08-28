@@ -3,7 +3,7 @@
     # ENV
     [int]$TryCount = "0"
 
-    $Internet_ONLINE = Test-Connection -TargetName "8.8.8.8" -Count 1 -Quiet
+    [bool]$Internet_ONLINE = Test-Connection -TargetName "8.8.8.8" -Count 1 -Quiet
 
     <# ScriptsBlocks #>
 
@@ -37,6 +37,7 @@
             # Try-Again
 
             do {
+
                 Clear-Host
                     Write-Host "" <##>
                 Write-Host "    Erro de conexão" -ForegroundColor Red
@@ -48,7 +49,7 @@
 
                 $TryCount++
 
-                Start-Sleep -Seconds 1
+                $Internet_ONLINE = Test-Connection -TargetName "8.8.8.8" -Count 1 -Quiet
 
             } until (($Internet_ONLINE -eq $true) -or ($TryCount -gt 100))
 
@@ -72,12 +73,12 @@
                         Start-Sleep -Seconds 1
                                             # Quebra de Linha (Na 2° linha)
                     Write-Host "    Este processo será um pouco demorado e não
-                    pode ser interrompido pois será baixada
-                    uma nova imagem do sistema na nuvem e em
-                    seguida será feito uma verificação de
-                    integridade do sistema (System File Checker).
+    pode ser interrompido pois será baixada
+    uma nova imagem do sistema na nuvem e em
+    seguida será feito uma verificação de
+    integridade do sistema (System File Checker).
     
-                    Após isso o computador será reiniciado." -ForegroundColor Yellow
+    Após isso o computador será reiniciado." -ForegroundColor Yellow
                         Write-Host "" <##>
 
                         Start-Sleep -Seconds 2

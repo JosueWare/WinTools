@@ -37,6 +37,7 @@
             # Try-Again
 
             do {
+                Clear-Host
                     Write-Host "" <##>
                 Write-Host "    Erro de conexão" -ForegroundColor Red
                     Write-Host "" <##>
@@ -49,7 +50,18 @@
 
                 Start-Sleep -Seconds 1
 
-            } until ($Internet_ONLINE -eq $true) -or ($TryCount -eq 100)
+            } until ($Internet_ONLINE -eq $true) -or ($TryCount -gt 100)
+
+            # Conditions
+            if ($Internet_ONLINE -eq $true) {<# Ignore #>}
+            
+            if ($TryCount -gt 100) {
+                    Write-Host "" <##>
+                Write-Host "    Limite de tentativas já ultrapassados." -ForegroundColor Red
+                    Write-Host "" <##>
+
+                exit
+            }
     }
 
         Start-Sleep -Seconds 1

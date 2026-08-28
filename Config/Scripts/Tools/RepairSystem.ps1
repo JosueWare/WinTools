@@ -31,7 +31,7 @@
 
             Write-Host "" <##>
         Write-Host "    Tentando novamente.. " -NoNewline -ForegroundColor Yellow
-        Write-Host "$TryCount"
+        Write-Host "$TryCount" -ForegroundColor Cyan
             Write-Host "" <##>
 
             # Try-Again
@@ -43,14 +43,14 @@
                     Write-Host "" <##>
                     Write-Host "" <##>
                 Write-Host "    Tentando novamente.. " -NoNewline -ForegroundColor Yellow
-                Write-Host "$TryCount"
+                Write-Host "$TryCount" -ForegroundColor Cyan
                     Write-Host "" <##>
 
                 $TryCount++
 
                 Start-Sleep -Seconds 1
 
-            } until (($Internet_ONLINE -eq $true) -or ($TryCount -gt 100))
+            } until (($Internet_ONLINE -eq $true) -or ($TryCount -gt 10))
 
             # END
             if ($Internet_ONLINE) {
@@ -67,8 +67,6 @@
                     $host.SetShouldExit(0)
                 }
     }
-
-        Start-Sleep -Seconds 1
 
         Write-Host "" <#SPACE#>
     Write-Host " Aviso:" -ForegroundColor Yellow

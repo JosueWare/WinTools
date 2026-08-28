@@ -1,7 +1,7 @@
 # Logon
 
     # ENV
-    $TryCount = "0"
+    [int]$TryCount = "0"
 
     $Internet_ONLINE = Test-Connection -TargetName "8.8.8.8" -Count 1 -Quiet
 
@@ -22,7 +22,7 @@
     Clear-Host
 
     # Test Connection
-    if (-not $Internet_ONLINE) {
+    if ($Internet_ONLINE) {
             Write-Host "" <##>
         Write-Host "    Erro de conexão" -ForegroundColor Red
             Write-Host "" <##>
@@ -52,16 +52,20 @@
 
             } until ($Internet_ONLINE -eq $true) -or ($TryCount -gt 100)
 
-            # Conditions
-            if ($Internet_ONLINE -eq $true) {<# Ignore #>}
-            
-            if ($TryCount -gt 100) {
+            # END
+            if ($Internet_ONLINE) {
                     Write-Host "" <##>
-                Write-Host "    Limite de tentativas já ultrapassados." -ForegroundColor Red
-                    Write-Host "" <##>
-
-                exit
+                Write-Host "    Conexão restabelecida" -ForegroundColor Green
             }
+                else {
+                        Write-Host "" <##>
+                    Write-Host "    Não foi possível conectar após $TryCount tentativas." -ForegroundColor Red
+                        Write-Host "" <##>
+
+                        Start-Sleep -Seconds 2
+
+                    $host.SetShouldExit(0)
+                }
     }
 
         Start-Sleep -Seconds 1

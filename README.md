@@ -50,3 +50,9 @@ Se escolher a opção "**S**" será executado o comando `winget upgrade --all` e
 programas listados serão baixados e atualizados.
 
 ### 3. Limpar arquivos temporários
+Limpar os arquivos temporários do Windows que acumulam mais de `1 GB`.
+
+As seguintes pastas que serão varridas:
+- `C:\Windows\Temp`
+- `C:\Users\%USERPROFILE%\AppData\Local\Temp`
+- `C:\Windows\Prefetch`

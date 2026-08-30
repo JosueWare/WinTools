@@ -1,4 +1,4 @@
-![PowerShell](https://powershellgallery.com/Content/Images/Branding/packageDefaultIcon.svg)
+![PWSH](https://silentinstallhq.com/wp-content/uploads/2025/08/PowerShell7.png)
 
 # WinTools
 Conjunto de ferramentas de scripts para reparar, limpar e fazer manutenção do sistema Windows

@@ -2,7 +2,10 @@
 
 # WinTools
 Conjunto de ferramentas de scripts para reparar, limpar e fazer manutenção do sistema Windows
-ultilizando o PowerShell.
+ultilizando o PowerShell 7
+
+## ToDo
+[Scripts Testados](.github/public/Tests/ToDo.md)
 
 ## Como ultilizar?
 Primeira mente você precisa ter o PowerShell 7 instalado, por motivo de preferência
@@ -25,14 +28,15 @@ você terá que escolher entre duas opções:
 1. Verificação `sfc /scannow`
 2. Reparação `DISM.exe`
 
-Se você selecionar a opção número **1** será feito um sistema de verificação de integridade
-dos arquivos do Windows. Antes de iniciar a verificação, perguntará se você deseja desligar
-ou reiniciar o computador após o processo ser concluído.
+- Se você selecionar a opção número **1** será feito um sistema de verificação de integridade
+dos arquivos do Windows. Antes de iniciar a verificação, perguntará se você deseja desligar ou
+reiniciar o computador após o processo ser concluído.
 
-Pelo outro lado, se você selecionar a opção número **2** será executado uma outra ferramenta,
-que irá para baixar e substuir a imagem do sistema, combinando com o comando `sfc /scannow`
-igual a primeira opção, porém o será executado primeiro o `DISM.exe` e em seguida o `sfc /scannow`
-e será obrigatório a reinicialização do computador.
+- Pelo outro lado, se você selecionar a opção número **2** será executado uma outra
+ferramenta, que irá para baixar e substuir a imagem do sistema,
+combinando com o comando `sfc /scannow` igual a primeira opção, porém o será executado
+primeiro o `DISM.exe` e em seguida o `sfc /scannow` e será
+obrigatório a reinicialização do computador.
 
 ### 2. Procurar por atualizações de Software (Winget)
 

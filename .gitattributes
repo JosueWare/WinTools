@@ -1,3 +1,6 @@
-# binary files
+# Binary files
 *.png binary
 *.jpg binary
+
+# GitHub Linguist
+*.bat linguist-vendored

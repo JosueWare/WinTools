@@ -3,4 +3,4 @@
 *.jpg binary
 
 # GitHub Linguist
-/Run.bat linguist-vendored
+*.bat linguist-vendored

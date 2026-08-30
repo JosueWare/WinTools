@@ -39,5 +39,14 @@ primeiro o `DISM.exe` e em seguida o `sfc /scannow` e será
 obrigatório a reinicialização do computador.
 
 ### 2. Procurar por atualizações de Software (Winget)
+Esta opção executará o comando `winget upgrade` da ferramenta `winget.exe` que deve estar
+instalado no seu computador, caso contrário o processo não prosseguirá.
+
+Ele procurará por atualizações mais recentes de seus programas instalados no seu computador.
+
+Após os programas serem listados haverá uma pergunta "Deseja atualizar todos os programas?"
+
+Se escolher a opção "**S**" será executado o comando `winget upgrade --all` e todos os
+programas listados serão baixados e atualizados.
 
 ### 3. Limpar arquivos temporários

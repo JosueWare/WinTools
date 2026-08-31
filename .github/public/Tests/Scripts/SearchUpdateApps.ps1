@@ -8,12 +8,14 @@
 
     Winget Upgrade <# CMD #>
 
+        Start-Sleep -Seconds 1
+
         Write-Host "" <##>
     Write-Host "    Deseja atualizar todos os programas?"
         Write-Host "" <##>
-        Start-Sleep -Milliseconds 500
+        Start-Sleep -Seconds 1
         Write-Host "" <##>
-    Write-Host "    [S] Sim | [N] Não"
+    Write-Host "        [S] Sim | [N] Não"
         Write-Host "" <##>
     $questUpgradeAllPrograms = Read-Host
 

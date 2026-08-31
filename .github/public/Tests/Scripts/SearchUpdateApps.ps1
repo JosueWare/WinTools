@@ -38,6 +38,7 @@
         }
 }
 
+# [INI]
 # Check Connection Internet
 if (-not ($Internet_NET)) {
     Clear-Host
@@ -69,38 +70,64 @@ if (-not ($Internet_NET)) {
             Write-Host "" <##>
     } until (($Internet_NET -eq $true) -or ($LimitsTryCounts -gt 20))
 
-    <# Check Command #>
-    if (Get-Command "winget.exe" -ErrorAction SilentlyContinue) {
-        & $WingetSearchUpgrade
-    }
-        else {
-            Clear-Host
-                Write-Host "" <##>
-            Write-Host "    Erro" -ForegroundColor Red
-                Write-Host "" <##>
-
-                Start-Sleep -Seconds 1
-
-                Write-Host "" <##>
-            Write-Host "    O comando 'Winget' não foi encontrado" -ForegroundColor Red
-                Write-Host "" <##>
-
-            Set-Location $HOME
-        }
-}
-    else {
+    <# Reconnect #>
+    if ($Internet_NET -eq $true) {
         Clear-Host
+
             Write-Host "" <##>
-        Write-Host "    Erro" -ForegroundColor Red
+        Write-Host "    Reconectado" -ForegroundColor Green
             Write-Host "" <##>
 
             Start-Sleep -Seconds 1
 
+        # Check Command 'Winget'
+        if (Get-Command "winget.exe" -ErrorAction SilentlyContinue) {
+            & $WingetSearchUpgrade
+        }
+            else {
+                Clear-Host
+                    Write-Host "" <##>
+                Write-Host "    Erro" -ForegroundColor Red
+                    Write-Host "" <##>
+
+                    Start-Sleep -Seconds 1
+
+                    Write-Host "" <##>
+                Write-Host "    O comando 'Winget' não foi encontrado" -ForegroundColor Red
+                    Write-Host "" <##>
+
+                Set-Location $HOME
+            }
+    }
+    
+    if ($LimitsTryCounts -gt 20) {
+        Clear-Host
             Write-Host "" <##>
-        Write-Host "    O comando 'Winget' não foi encontrado" -ForegroundColor Red
+        Write-Host "    Limite de tentativas excecidos" -ForegroundColor Red
             Write-Host "" <##>
 
         Set-Location $HOME
+    }
+}
+    else {
+        # Check Command 'Winget'
+        if (Get-Command "winget.exe" -ErrorAction SilentlyContinue) {
+            & $WingetSearchUpgrade
+        }
+            else {
+                Clear-Host
+                    Write-Host "" <##>
+                Write-Host "    Erro" -ForegroundColor Red
+                    Write-Host "" <##>
+
+                    Start-Sleep -Seconds 1
+
+                    Write-Host "" <##>
+                Write-Host "    O comando 'Winget' não foi encontrado" -ForegroundColor Red
+                    Write-Host "" <##>
+
+                Set-Location $HOME
+            }
     }
 
 # [END]

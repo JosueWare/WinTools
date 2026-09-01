@@ -82,7 +82,7 @@ if (-not ($Internet_NET)) {
         Write-Host "    Reconectado" -ForegroundColor Green
             Write-Host "" <##>
 
-            Start-Sleep -Seconds 1
+            Start-Sleep -Seconds 2
 
         # Check Command 'Winget'
         if (Get-Command "winget.exe" -ErrorAction SilentlyContinue) {

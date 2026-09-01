@@ -70,7 +70,7 @@ if (-not ($Internet_NET)) {
         Write-Host "    Tentando novamente " -ForegroundColor Yellow -NoNewline
         Write-Host "$LimitsTryCounts"
             Write-Host "" <##>
-    } until (($Internet_NET -eq $true) -or ($LimitsTryCounts -gt 20))
+    } until (($Internet_NET -eq $true) -or ($LimitsTryCounts -eq 20))
 
     <# Reconnect #>
     if ($Internet_NET -eq $true) {

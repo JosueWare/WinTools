@@ -1,7 +1,7 @@
 ## ToDo de Scripts
 
-## Scripts Prontos para testar
-- [ ] `SearchUpdateApps.ps1`
+### Scripts Prontos para testar
+- [x] `SearchUpdateApps.ps1`
 - [ ] `RepairSystem.ps1`
 
 ### Scripts Testados

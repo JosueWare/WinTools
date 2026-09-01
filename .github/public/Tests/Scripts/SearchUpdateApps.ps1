@@ -1,0 +1,137 @@
+# ENV
+[bool]$Internet_NET = Test-Connection -TargetName "8.8.8.8" -Count 1 -Quiet
+[int]$LimitsTryCounts = "0"
+
+# Scripts Blocks
+[scriptblock]$WingetSearchUpgrade = {
+    Clear-Host
+
+    Winget Upgrade <# CMD #>
+
+        Start-Sleep -Seconds 1
+
+        Write-Host "" <##>
+    Write-Host "    Deseja atualizar todos os programas?"
+        Write-Host "" <##>
+        Start-Sleep -Seconds 1
+        Write-Host "" <##>
+    Write-Host "        [S] Sim | [N] Não"
+        Write-Host "" <##>
+    $questUpgradeAllPrograms = Read-Host
+
+        switch ($questUpgradeAllPrograms) {
+
+            "S" {
+                Winget Upgrade --All
+
+                Set-Location $HOME
+            }
+            "N" {
+                Set-Location $HOME
+            }
+
+            Default {
+                    Write-Host "" <##>
+                Write-Host "    Resposta inválida" -ForegroundColor Red
+                    Write-Host "" <##>
+
+                Set-Location $HOME
+            }
+        }
+}
+
+# [INI]
+# Check Connection Internet
+if (-not ($Internet_NET)) {
+    Clear-Host
+        Write-Host "" <##>
+    Write-Host "    Erro de conexão" -ForegroundColor Red
+        Write-Host "" <##>
+
+        Start-Sleep -Seconds 1
+
+        Write-Host "" <##>
+    Write-Host "    Tentando novamente " -ForegroundColor Yellow -NoNewline
+    Write-Host "$LimitsTryCounts"
+        Write-Host "" <##>
+
+        Start-Sleep -Seconds 1
+
+    <# Loop #>
+    do {
+        <# ENV #>
+        $Internet_NET = Test-Connection -TargetName "8.8.8.8" -Count 1 -Quiet
+        $LimitsTryCounts++
+
+        Clear-Host
+            Write-Host "" <##>
+        Write-Host "    Erro de conexão" -ForegroundColor Red
+            Write-Host "" <##>
+
+            Write-Host "" <##>
+        Write-Host "    Tentando novamente " -ForegroundColor Yellow -NoNewline
+        Write-Host "$LimitsTryCounts"
+            Write-Host "" <##>
+    } until (($Internet_NET -eq $true) -or ($LimitsTryCounts -gt 20))
+
+    <# Reconnect #>
+    if ($Internet_NET -eq $true) {
+        Clear-Host
+
+            Write-Host "" <##>
+        Write-Host "    Reconectado" -ForegroundColor Green
+            Write-Host "" <##>
+
+            Start-Sleep -Seconds 2
+
+        # Check Command 'Winget'
+        if (Get-Command "winget.exe" -ErrorAction SilentlyContinue) {
+            & $WingetSearchUpgrade
+        }
+            else {
+                Clear-Host
+                    Write-Host "" <##>
+                Write-Host "    Erro" -ForegroundColor Red
+                    Write-Host "" <##>
+
+                    Start-Sleep -Seconds 1
+
+                    Write-Host "" <##>
+                Write-Host "    O comando 'Winget' não foi encontrado" -ForegroundColor Red
+                    Write-Host "" <##>
+
+                Set-Location $HOME
+            }
+    }
+    
+    if ($LimitsTryCounts -gt 20) {
+        Clear-Host
+            Write-Host "" <##>
+        Write-Host "    Limite de tentativas excecidos" -ForegroundColor Red
+            Write-Host "" <##>
+
+        Set-Location $HOME
+    }
+}
+    else {
+        # Check Command 'Winget'
+        if (Get-Command "winget.exe" -ErrorAction SilentlyContinue) {
+            & $WingetSearchUpgrade
+        }
+            else {
+                Clear-Host
+                    Write-Host "" <##>
+                Write-Host "    Erro" -ForegroundColor Red
+                    Write-Host "" <##>
+
+                    Start-Sleep -Seconds 1
+
+                    Write-Host "" <##>
+                Write-Host "    O comando 'Winget' não foi encontrado" -ForegroundColor Red
+                    Write-Host "" <##>
+
+                Set-Location $HOME
+            }
+    }
+
+# [END]

@@ -1,6 +1,11 @@
 # Logon
 
-    <#--ScriptsBlocks--[INI]#>
+    # ENV
+    [int]$TryCount = "0"
+
+    [bool]$Internet_ONLINE = Test-Connection -TargetName "8.8.8.8" -Count 1 -Quiet
+
+    <# ScriptsBlocks #>
 
         [ScriptBlock]$actionExecute_DISM = {
             
@@ -12,91 +17,233 @@
             Start-Process -FilePath "cmd.exe" -ArgumentList "/c sfc /scannow" -Verb RunAs -Wait
         }
 
-# Inicialização
+# Init
 
     Clear-Host
 
-        Start-Sleep -Seconds 1
+    # Test Connection
+    if (-not ($Internet_ONLINE)) {
+            Write-Host "" <##>
+        Write-Host "    Erro de conexão" -ForegroundColor Red
+            Write-Host "" <##>
 
-        Write-Host "" <#SPACE#>
-    Write-Host " Aviso:" -ForegroundColor Yellow
-        Write-Host "" <#SPACE#>
+            Start-Sleep -Seconds 1
 
-        Start-Sleep -Seconds 1
+            Write-Host "" <##>
+        Write-Host "    Tentando novamente.. " -NoNewline -ForegroundColor Yellow
+        Write-Host "$TryCount" -ForegroundColor Cyan
+            Write-Host "" <##>
+
+            # Try-Again
+
+            do {
+
+                Clear-Host
+                    Write-Host "" <##>
+                Write-Host "    Erro de conexão" -ForegroundColor Red
+                    Write-Host "" <##>
+                    Write-Host "" <##>
+                Write-Host "    Tentando novamente.. " -NoNewline -ForegroundColor Yellow
+                Write-Host "$TryCount" -ForegroundColor Cyan
+                    Write-Host "" <##>
+
+                $TryCount++
+
+                $Internet_ONLINE = Test-Connection -TargetName "8.8.8.8" -Count 1 -Quiet
+
+            } until (($Internet_ONLINE -eq $true) -or ($TryCount -gt 100))
+
+            # END
+            if ($Internet_ONLINE) {
+                    Clear-Host
+                    
+                    Write-Host "" <##>
+                Write-Host "    Conexão restabelecida" -ForegroundColor Green
+                    Write-Host "" <##>
+
+                    Start-Sleep -Seconds 2
+
+                    Clear-Host
+
+                <# QUEST #>
+                        Write-Host "" <##>
+                    Write-Host " Aviso:" -ForegroundColor Yellow
+                        Write-Host "" <##>
+
+                        Start-Sleep -Seconds 1
                                             # Quebra de Linha (Na 2° linha)
-    Write-Host "    Este processo será um pouco demorado e não
+                    Write-Host "    Este processo será um pouco demorado e não
     pode ser interrompido pois será baixada
     uma nova imagem do sistema na nuvem e em
     seguida será feito uma verificação de
     integridade do sistema (System File Checker).
     
     Após isso o computador será reiniciado." -ForegroundColor Yellow
-        Write-Host "" <#SPACE#>
+                        Write-Host "" <##>
 
-        Start-Sleep -Seconds 2
+                        Start-Sleep -Seconds 2
 
-    Write-Host "    Deseja prosseguir?" -ForegroundColor Yellow
-        Write-Host "" <#SPACE#>
+                    Write-Host "    Deseja prosseguir?" -ForegroundColor Yellow
+                        Write-Host "" <##>
 
-        Start-Sleep -Seconds 1
+                        Start-Sleep -Seconds 1
 
-    Write-Host "        [S] Sim / [N] Não" -ForegroundColor Yellow
-        Write-Host "" <#SPACE#>
+                    Write-Host "        [S] Sim / [N] Não" -ForegroundColor Yellow
+                        Write-Host "" <##>
 
-    $questProssesDepences_SN = Read-Host
+                    $questProssesDepences_SN = Read-Host
 
-        switch ($questProssesDepences_SN) {
+                        switch ($questProssesDepences_SN) {
 
-            "S" {
+                            "S" {
 
-                Clear-Host
+                                Clear-Host
 
-                    Write-Host "" <#SPACE#>
-                Write-Host "    Passo 1:"
+                                    Write-Host "" <#SPACE#>
+                                Write-Host "    Passo 1:"
 
-                    Start-Sleep -Seconds 1
+                                    Start-Sleep -Seconds 1
 
-                    Write-Host "" <#SPACE#>
-                Write-Host "        Executando o DISM"
-                    Write-Host "" <#SPACE#>
+                                    Write-Host "" <#SPACE#>
+                                Write-Host "        Executando o DISM"
+                                    Write-Host "" <#SPACE#>
 
-                    Start-Sleep -Seconds 1
+                                    Start-Sleep -Seconds 1
 
-                & $actionExecute_DISM <#--[Script 1]--#>
+                                & $actionExecute_DISM <#--[Script 1]--#>
 
-                    Start-Sleep -Seconds 1
+                                    Start-Sleep -Seconds 1
 
-                    Write-Host "" <#SPACE#>
-                Write-Host "    Passo 2:"
+                                    Write-Host "" <#SPACE#>
+                                Write-Host "    Passo 2:"
 
-                    Start-Sleep -Seconds 1
+                                    Start-Sleep -Seconds 1
 
-                    Write-Host "" <#SPACE#>
-                Write-Host "        Executando o SystemFileChecker"
-                    Write-Host "" <#SPACE#>
+                                    Write-Host "" <#SPACE#>
+                                Write-Host "        Executando o SystemFileChecker"
+                                    Write-Host "" <#SPACE#>
 
-                    Start-Sleep -Seconds 1
+                                    Start-Sleep -Seconds 1
 
-                & $actionExecute_SystemFileChecker <#--[Script 2]--#>
+                                & $actionExecute_SystemFileChecker <#--[Script 2]--#>
 
-                    Start-Sleep -Seconds 1
+                                    Start-Sleep -Seconds 1
 
-                    Write-Host "" <#SPACE#>
-                Write-Host "    Processo finalizado." -ForegroundColor Green
-                    Write-Host "" <#SPACE#>
+                                    Write-Host "" <#SPACE#>
+                                Write-Host "    Processo finalizado." -ForegroundColor Green
+                                    Write-Host "" <#SPACE#>
 
-                    Start-Sleep -Seconds 2
+                                    Start-Sleep -Seconds 2
 
-                    Write-Host "" <#SPACE#>
-                Write-Host "    Reiniciando o sistema.." -ForegroundColor Yellow
-                    Write-Host "" <#SPACE#>
+                                    Write-Host "" <#SPACE#>
+                                Write-Host "    Reiniciando o sistema.." -ForegroundColor Yellow
+                                    Write-Host "" <#SPACE#>
 
-                    Start-Sleep -Seconds 1
+                                    Start-Sleep -Seconds 1
 
-                Restart-Computer
+                                Restart-Computer
+                            }
+
+                            "N" {& $ExitTerminalSession}
+
+                            Default {& $ErrorResponse}
+                        }
+        <# QUEST #>
+
             }
+                else {
+                        Write-Host "" <##>
+                    Write-Host "    Não foi possível conectar após 100 tentativas." -ForegroundColor Red
+                        Write-Host "" <##>
 
-            "N" {& $ExitTerminalSession}
+                        Start-Sleep -Seconds 1
 
-            Default {& $ErrorResponse}
+                    Set-Location $HOME
+                }
+    }
+        else {
+            <# QUEST #>
+            Write-Host "" <##>
+        Write-Host " Aviso:" -ForegroundColor Yellow
+            Write-Host "" <##>
+
+            Start-Sleep -Seconds 1
+                                # Quebra de Linha (Na 2° linha)
+        Write-Host "        Este processo será um pouco demorado e não
+        pode ser interrompido pois será baixada
+        uma nova imagem do sistema na nuvem e em
+        seguida será feito uma verificação de
+        integridade do sistema (System File Checker).
+
+        Após isso o computador será reiniciado." -ForegroundColor Yellow
+            Write-Host "" <##>
+
+            Start-Sleep -Seconds 2
+
+        Write-Host "    Deseja prosseguir?" -ForegroundColor Yellow
+            Write-Host "" <##>
+
+            Start-Sleep -Seconds 1
+
+        Write-Host "        [S] Sim / [N] Não" -ForegroundColor Yellow
+            Write-Host "" <##>
+
+        $questProssesDepences_SN = Read-Host
+
+            switch ($questProssesDepences_SN) {
+
+                "S" {
+
+                    Clear-Host
+
+                        Write-Host "" <#SPACE#>
+                    Write-Host "    Passo 1:"
+
+                        Start-Sleep -Seconds 1
+
+                        Write-Host "" <#SPACE#>
+                    Write-Host "        Executando o DISM"
+                        Write-Host "" <#SPACE#>
+
+                        Start-Sleep -Seconds 1
+
+                    & $actionExecute_DISM <#--[Script 1]--#>
+
+                        Start-Sleep -Seconds 1
+
+                        Write-Host "" <#SPACE#>
+                    Write-Host "    Passo 2:"
+
+                        Start-Sleep -Seconds 1
+
+                        Write-Host "" <#SPACE#>
+                    Write-Host "        Executando o SystemFileChecker"
+                        Write-Host "" <#SPACE#>
+
+                        Start-Sleep -Seconds 1
+
+                    & $actionExecute_SystemFileChecker <#--[Script 2]--#>
+
+                        Start-Sleep -Seconds 1
+
+                        Write-Host "" <#SPACE#>
+                    Write-Host "    Processo finalizado." -ForegroundColor Green
+                        Write-Host "" <#SPACE#>
+
+                        Start-Sleep -Seconds 2
+
+                        Write-Host "" <#SPACE#>
+                    Write-Host "    Reiniciando o sistema.." -ForegroundColor Yellow
+                        Write-Host "" <#SPACE#>
+
+                        Start-Sleep -Seconds 1
+
+                    Restart-Computer
+                }
+
+                "N" {& $ExitTerminalSession}
+
+                Default {& $ErrorResponse}
+            }
+            <# QUEST #>
         }

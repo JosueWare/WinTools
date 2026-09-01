@@ -55,6 +55,8 @@ if (-not ($Internet_NET)) {
     Write-Host "$LimitsTryCounts"
         Write-Host "" <##>
 
+        Start-Sleep -Seconds 1
+
     <# Loop #>
     do {
         <# ENV #>
@@ -70,7 +72,7 @@ if (-not ($Internet_NET)) {
         Write-Host "    Tentando novamente " -ForegroundColor Yellow -NoNewline
         Write-Host "$LimitsTryCounts"
             Write-Host "" <##>
-    } until (($Internet_NET -eq $true) -or ($LimitsTryCounts -eq 20))
+    } until (($Internet_NET -eq $true) -or ($LimitsTryCounts -gt 20))
 
     <# Reconnect #>
     if ($Internet_NET -eq $true) {
@@ -102,7 +104,7 @@ if (-not ($Internet_NET)) {
             }
     }
     
-    if ($LimitsTryCounts -gt 20) {
+    if ($LimitsTryCounts -eq 20) {
         Clear-Host
             Write-Host "" <##>
         Write-Host "    Limite de tentativas excecidos" -ForegroundColor Red

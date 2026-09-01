@@ -104,7 +104,7 @@ if (-not ($Internet_NET)) {
             }
     }
     
-    if ($LimitsTryCounts -eq 20) {
+    if ($LimitsTryCounts -gt 20) {
         Clear-Host
             Write-Host "" <##>
         Write-Host "    Limite de tentativas excecidos" -ForegroundColor Red

@@ -45,7 +45,7 @@
                 Write-Host "    Iniciando.."
                     Write-Host "" <##>
 
-                    Start-Sleep -Seconds 1
+                    Start-Sleep -Seconds 2
 
                 Clear-Host <# Step 1 #>
                     Write-Host "" <##>

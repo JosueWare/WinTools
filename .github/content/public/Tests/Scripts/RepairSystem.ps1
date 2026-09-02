@@ -36,7 +36,59 @@
 
         switch ($questProssidExecute_DISM_) {
 
-            "S" {}
+            "S" {
+                Clear-Host
+
+                    Start-Sleep -Seconds 1
+
+                    Write-Host "" <##>
+                Write-Host "    Iniciando.."
+                    Write-Host "" <##>
+
+                    Start-Sleep -Seconds 1
+
+                Clear-Host <# Step 1 #>
+                    Write-Host "" <##>
+                Write-Host "    Passo 1: " -NoNewline
+                    Start-Sleep -Seconds 1
+                Write-Host "Executando o " -NoNewline
+                Write-Host "DISM.exe" -ForegroundColor Magenta
+                    Write-Host "" <##>
+
+                    Start-Sleep -Seconds 1
+
+                Start-Process -FilePath "cmd.exe" -ArgumentList "/c DISM.exe /Online /Cleanup-image /Restorehealth" -Verb RunAs -Wait
+
+                    Write-Host "" <##>
+                Write-Host "    Processo finalizado." -ForegroundColor Green
+                    Write-Host "" <##>
+
+                Clear-Host <# Step 2 #>
+                    Write-Host "" <##>
+                Write-Host "    Passo 2: " -NoNewline
+                    Start-Sleep -Seconds 1
+                Write-Host "Executado o " -NoNewline
+                Write-Host "System File Checker" -ForegroundColor Magenta
+                    Write-Host "" <##>
+
+                    Start-Sleep -Seconds 1
+
+                Start-Process -FilePath "cmd.exe" -ArgumentList "/c sfc /scannow" -Verb RunAs -Wait
+
+                    Write-Host "" <##>
+                Write-Host "    Processo finalizado" -ForegroundColor Green
+                    Write-Host "" <##>
+
+                    Start-Sleep -Seconds 1
+
+                    Write-Host "" <##>
+                Write-Host "    Reiniciando o computador" -ForegroundColor Yellow
+                    Write-Host "" <##>
+
+                    Start-Sleep -Seconds 2
+
+                Restart-Computer
+            }
 
             "N" {
                 Write-Host "" <##>

@@ -12,7 +12,9 @@
         Start-Sleep -Seconds 1
 
         Write-Host <##>
-    Write-Host "    Este processo irá demorar e não pode ser interrompido pois será baixada uma nova imagem de disco do sistema e em seguida será feito uma verificação da integridade dos arquivos do sistema (System File Checker)." -ForegroundColor Yellow
+    Write-Host "    Este processo irá demorar e não pode ser interrompido pois será
+    baixada uma nova imagem de disco do sistema e em seguida será
+    feito uma verificação da integridade dos arquivos do sistema (System File Checker)." -ForegroundColor Yellow
         Write-Host <##>
 
         Start-Sleep -Seconds 2

@@ -8,7 +8,7 @@
         Write-Host <##>
     Write-Host " AVISO:" -ForegroundColor Yellow
         Write-Host <##>
-        
+
         Start-Sleep -Seconds 1
 
         Write-Host <##>
@@ -83,3 +83,4 @@ if (-not ($Internet_NET)) {
             Set-Location $HOME
             }
 }
+    else {& $Execute_DISM}

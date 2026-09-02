@@ -3,7 +3,33 @@
 [int]$LimitsTryCounts = "0"
 
 # Scripts Blocks
-[scriptblock]$Execute_DISM = {}
+[scriptblock]$Execute_DISM = {
+    Clear-Host
+        Write-Host <##>
+    Write-Host " AVISO:" -ForegroundColor Yellow
+        Write-Host <##>
+        
+        Start-Sleep -Seconds 1
+
+        Write-Host <##>
+    Write-Host "    Este processo irá demorar e não pode ser interrompido pois será baixada uma nova imagem de disco do sistema e em seguida será feito uma verificação da integridade dos arquivos do sistema (System File Checker)." -ForegroundColor Yellow
+        Write-Host <##>
+
+        Start-Sleep -Seconds 2
+
+        Write-Host <##>
+    Write-Host "    Após isso o computador será reinciado." -ForegroundColor Yellow
+        Write-Host <##>
+
+        Start-Sleep -Seconds 2
+
+        Write-Host <##>
+    Write-Host "    Deseja prosseguir?"
+        Write-Host <##>
+        Start-Sleep -Milliseconds 500
+    Write-Host "        [S] Sim | [N] Não"
+        Write-Host <##>
+}
 
 <#=============#>
 

@@ -3,6 +3,7 @@
 [int]$LimitsTryCounts = "0"
 
 # Scripts Blocks
+[scriptblock]$Execute_DISM = {}
 
 <#=============#>
 
@@ -36,4 +37,23 @@ if (-not ($Internet_NET)) {
         Write-Host "$LimitsTryCounts" -ForegroundColor Cyan
             Write-Host <##>
         } until (($Internet_NET -eq $true) -or ($LimitsTryCounts -gt 20))
+
+        if ($Internet_NET -eq $true) {
+            Clear-Host
+                Write-Host "" <##>
+            Write-Host "    Reconectado" -ForegroundColor Green
+                Write-Host "" <##>
+
+                Start-Sleep -Seconds 2
+
+            & $Execute_DISM
+        }
+            else {
+                Clear-Host
+                    Write-Host "" <##>
+                Write-Host "    Número de tentativas excedidas" -ForegroundColor Red
+                    Write-Host "" <##>
+
+            Set-Location $HOME
+            }
 }

@@ -8,16 +8,16 @@ Set-Location "$PSScriptRoot\..\.."
 
             Start-Sleep -Seconds 1
 
-            Write-Host "" <#SPACE#>
+            Write-Host "" <##>
         Write-Host "    Deseja fazer uma verificação de integridade"
         Write-Host "    do Windows ou uma Reparação completa"
         Write-Host "    da imagem do sistema?"
-            Write-Host "" <#SPACE#>
+            Write-Host "" <##>
         Start-Sleep -Seconds 1
-            Write-Host "" <#SPACE#>
+            Write-Host "" <##>
         Write-Host "        [1]. Verificação   (sfc /scannow)"
         Write-Host "        [2]. Reparação     (DISM.exe)"
-            Write-Host "" <#SPACE#>
+            Write-Host "" <##>
 
         $questVerify_OR_Repair = Read-Host
 
@@ -29,25 +29,25 @@ Set-Location "$PSScriptRoot\..\.."
                 Default {
                     Clear-Host
 
-                        Write-Host "" <#SPACE#>
+                        Write-Host "" <##>
                     Write-Host "    Resposta inválida" -ForegroundColor Red
-                        Write-Host "" <#SPACE#>
+                        Write-Host "" <##>
 
                         Start-Sleep -Seconds 1
 
-                    Set-Location "$HOME"
+                    Set-Location $HOME
                 }
             }
         }
 
     [ScriptBlock]$ErrorResponse = {
-            Write-Host "" <#SPACE#>
+            Write-Host "" <##>
         Write-Host "    Resposta inválida" -ForegroundColor Red
-            Write-Host "" <#SPACE#>
+            Write-Host "" <##>
 
             Start-Sleep -Seconds 1
 
-        Set-Location "$HOME"
+        Set-Location $HOME
     }
 
     [ScriptBlock]$ExitTerminalSession = {
@@ -59,28 +59,29 @@ Set-Location "$PSScriptRoot\..\.."
 # Menu
 Clear-Host
 
-    Write-Host "" <#SPACE#>
+    Write-Host "" <##>
 Write-Host "                    WinTools"
-    Write-Host "" <#SPACE#>
+    Write-Host "" <##>
 
     Start-Sleep -Milliseconds 500
 
     # Menu
 
-        Write-Host "" <#SPACE#>
+        Write-Host "" <##>
     Write-Host "    Opções:"
-        Write-Host "" <#SPACE#>
+        Write-Host "" <##>
 
         Start-Sleep -Seconds 1
         
-        Write-Host "" <#SPACE#>
+        Write-Host "" <##>
     Write-Host "        [1] Reparação do Windows"
     Write-Host "        [2] Procurar por atualizações de Software (Winget)"
     Write-Host "        [3] Limpar arquivos temporários"
-        Write-Host "" <#SPACE#>
-        Write-Host "" <#SPACE#>
+    Write-Host "        [5] Acessar BIOs"
+        Write-Host "" <##>
+        Write-Host "" <##>
     Write-Host "    [X] Sair"
-        Write-Host "" <#SPACE#>
+        Write-Host "" <##>
 
     $SelectOptions = Read-Host
 

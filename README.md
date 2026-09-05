@@ -18,6 +18,7 @@ No menu inicial haverá estas opções:
 - `[1]. Reparação do Windows`
 - `[2]. Procurar por atualizações de Software (Winget)`
 - `[3]. Limpar arquivos temporários"`
+- `[5]. Acessar BIOs`
 - `[X] Sair`
 
 ### 1. Reparação do Windows

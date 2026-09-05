@@ -89,6 +89,7 @@ Write-Host "                    WinTools"
             "1" {& $questRepairWindowsSystem}
             "2" {& ".\Config\Scripts\SearchUpdateApps.ps1"}
             "3" {& ".\Config\Scripts\Tools\Cleanup\TempClean.ps1"}
+            "5" {}
 
             "X" {& $ExitTerminalSession}
 

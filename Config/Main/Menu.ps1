@@ -114,6 +114,7 @@ Clear-Host
     Write-Host "        [1] Reparação do Windows"
     Write-Host "        [2] Procurar por atualizações de Software (Winget)"
     Write-Host "        [3] Limpar arquivos temporários"
+    Write-Host "        [4] Otimizar unidades (Em breve!)"
     Write-Host "        [5] Acessar BIOs"
         Write-Host "" <##>
         Write-Host "" <##>
@@ -127,6 +128,16 @@ Clear-Host
             "1" {& $questRepairWindowsSystem}
             "2" {& ".\Config\Scripts\SearchUpdateApps.ps1"}
             "3" {& ".\Config\Scripts\Tools\Cleanup\TempClean.ps1"}
+            "4" {
+                Clear-Host
+                    Write-Host "" <##>
+                Write-Host "    Opção disponível em breve!"
+                    Write-Host "" <##>
+
+                    Start-Sleep -Seconds 2
+
+                & ".\Config\Main\Menu.ps1"
+            }
             "5" {& ".\Config\Scripts\AccessBIOs.ps1"}
 
             "X" {& $ExitTerminalSession}

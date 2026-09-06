@@ -71,7 +71,22 @@ Set-Location "$PSScriptRoot\..\.."
         # [Git]
         [scriptblock]$gitLoadMainTitleProject = {
             if (Get-Command "git.exe" -ErrorAction SilentlyContinue) {
+                if ($gitCurrentBranch -eq "main") {
+                        Write-Host "" <##>
+                    Write-Host "                    WinTools"
+                        Write-Host "" <##>
+                }
 
+                elseif ($gitCurrentBranch -eq "preview") {
+                        Write-Host "" <##>
+                    Write-Host "                    WinTools (Preview)"
+                        Write-Host "" <##>
+                }
+                    else {
+                            Write-Host "" <##>
+                        Write-Host "                    WinTools"
+                            Write-Host "" <##>
+                    }
             }
                 else {
                         Write-Host "" <##>

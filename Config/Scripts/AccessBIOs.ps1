@@ -1,3 +1,11 @@
+# Logon
+
+    # Scripts Blocks
+    [scriptblock]$ExecBIOsAccess = {
+        shutdown.exe /r /fw /t 0
+    }
+
+# Begin
 Clear-Host
 Start-Sleep -Seconds 1
 
@@ -23,7 +31,11 @@ $questProssid = Read-Host
 
     switch ($questProssid) {
 
-        "S" {}
+        "S" {
+            Clear-Host
+            Start-Sleep -Seconds 2
+            & $ExecBIOsAccess
+        }
 
         "N" {& ".\Config\Main\Menu.ps1"}
 

@@ -2,7 +2,12 @@ Set-Location "$PSScriptRoot\..\.."
 
 # Logon
 
+    # Import-JSON
+    $DataJSON = ".\Config\Env\ProjectName.json" | ConvertFrom-Json
+
     # ENV
+    $ReleaseTitle = $DataJSON.ReleaseName
+    $PreviewTitle = $DataJSON.PreviewName
 
     # ScriptsBlocks
     [ScriptBlock]$questRepairWindowsSystem = {

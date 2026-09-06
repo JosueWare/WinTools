@@ -56,6 +56,11 @@ Set-Location "$PSScriptRoot\..\.."
         $Host.SetShouldExit(0)
     }
 
+    [scriptblock]$BackToMenu = {
+        Clear-Host
+        & ".\Config\Main\Menu.ps1"
+    }
+
 # Menu
 Clear-Host
 

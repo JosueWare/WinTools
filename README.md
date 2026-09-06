@@ -1,4 +1,4 @@
-![PWSH](https://silentinstallhq.com/wp-content/uploads/2025/08/PowerShell7.png)
+<img src="https://silentinstallhq.com/wp-content/uploads/2025/08/PowerShell7.png" alt="PowerShell" width="160">
 
 # WinTools
 Conjunto de ferramentas de scripts para reparar, limpar e fazer manutenção do sistema Windows
@@ -15,10 +15,11 @@ eu optei que o Windows PowerShell 5.1 não pode ser usado.
 Execute o arquivo `Run.bat`
 
 No menu inicial haverá estas opções:
-- `[1]. Reparação do Windows`
-- `[2]. Procurar por atualizações de Software (Winget)`
-- `[3]. Limpar arquivos temporários"`
-- `[5]. Acessar BIOs`
+- `[1] Reparação do Windows`
+- `[2] Procurar por atualizações de Software (Winget)`
+- `[3] Limpar arquivos temporários"`
+- `[4] Otimizar Unidades (Em breve)`
+- `[5] Acessar BIOs`
 - `[X] Sair`
 
 ### 1. Reparação do Windows
@@ -57,3 +58,10 @@ As seguintes pastas que serão varridas:
 - `C:\Windows\Temp`
 - `C:\Users\%USERPROFILE%\AppData\Local\Temp`
 - `C:\Windows\Prefetch`
+
+### 4. Otimizar Unidades
+Esta opção ainda não está disponível. Será mais detalhado no futuro.
+
+### 5. Acessar BIOs
+Antes selecionar esta opção, você deve saber se o modelo da sua placa mãe
+é compatível com a interface <a href="https://www.google.com/search?q=uefi">UEFI</a>, caso contrário poderá retornar erro.

@@ -6,8 +6,8 @@ Set-Location "$PSScriptRoot\..\.."
     $DataJSON = ".\Config\Env\ProjectName.json" | ConvertFrom-Json
 
     # ENV
-    $ReleaseTitle = $DataJSON.ReleaseName
-    $PreviewTitle = $DataJSON.PreviewName
+    $ReleaseTitle = "$DataJSON.ReleaseName"
+    $PreviewTitle = "$DataJSON.PreviewName"
 
         # [Git] Current Branch
         $gitCurrentBranch = (git branch --show-current).Trim()

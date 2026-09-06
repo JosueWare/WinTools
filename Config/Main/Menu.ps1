@@ -9,6 +9,9 @@ Set-Location "$PSScriptRoot\..\.."
     $ReleaseTitle = $DataJSON.ReleaseName
     $PreviewTitle = $DataJSON.PreviewName
 
+        # [Git] Current Branch
+        $gitCurrentBranch = (git branch --show-current).Trim()
+
     # ScriptsBlocks
     [ScriptBlock]$questRepairWindowsSystem = {
         Clear-Host
@@ -65,12 +68,22 @@ Set-Location "$PSScriptRoot\..\.."
         $Host.SetShouldExit(0)
     }
 
+        # [Git]
+        [scriptblock]$gitLoadMainTitleProject = {
+            if (Get-Command "git.exe" -ErrorAction SilentlyContinue) {
+
+            }
+                else {
+                        Write-Host "" <##>
+                    Write-Host "                    WinTools"
+                        Write-Host "" <##>
+                }
+        }
+
 # Menu
 Clear-Host
 
-    Write-Host "" <##>
-Write-Host "                    WinTools"
-    Write-Host "" <##>
+& $gitLoadMainTitleProject <# Load Main Title #>
 
     Start-Sleep -Milliseconds 500
 

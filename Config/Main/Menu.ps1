@@ -3,11 +3,11 @@ Set-Location "$PSScriptRoot\..\.."
 # Logon
 
     # Import-JSON
-    $DataJSON = ".\Config\Env\ProjectName.json" | ConvertFrom-Json
+    $DataJSON = Get-Content ".\Config\Env\ProjectName.json" | ConvertFrom-Json
 
     # ENV
-    $ReleaseTitle = "$DataJSON.ReleaseName"
-    $PreviewTitle = "$DataJSON.PreviewName"
+    $ReleaseTitle = $DataJSON.ReleaseName
+    $PreviewTitle = $DataJSON.PreviewName
 
         # [Git] Current Branch
         $gitCurrentBranch = (git branch --show-current).Trim()
@@ -73,13 +73,13 @@ Set-Location "$PSScriptRoot\..\.."
             if (Get-Command "git.exe" -ErrorAction SilentlyContinue) {
                 if ($gitCurrentBranch -eq "main") {
                         Write-Host "" <##>
-                    Write-Host "                    WinTools"
+                    Write-Host "                    $ReleaseTitle"
                         Write-Host "" <##>
                 }
 
                 elseif ($gitCurrentBranch -eq "preview") {
                         Write-Host "" <##>
-                    Write-Host "                    WinTools (Preview)"
+                    Write-Host "                    $PreviewTitle"
                         Write-Host "" <##>
                 }
                     else {

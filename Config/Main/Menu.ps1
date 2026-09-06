@@ -41,24 +41,21 @@ Set-Location "$PSScriptRoot\..\.."
         }
 
     [ScriptBlock]$ErrorResponse = {
+        Clear-Host
             Write-Host "" <##>
         Write-Host "    Resposta inválida" -ForegroundColor Red
             Write-Host "" <##>
 
-            Start-Sleep -Seconds 1
+            Start-Sleep -Seconds 2
 
-        Set-Location $HOME
+        Clear-Host
+        & ".\Config\Main\Menu.ps1"
     }
 
     [ScriptBlock]$ExitTerminalSession = {
         Clear-Host
         Start-Sleep -Milliseconds 250
         $Host.SetShouldExit(0)
-    }
-
-    [scriptblock]$BackToMenu = {
-        Clear-Host
-        & ".\Config\Main\Menu.ps1"
     }
 
 # Menu

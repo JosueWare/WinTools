@@ -27,15 +27,19 @@
                 Set-Location $HOME
             }
             "N" {
-                Set-Location $HOME
+                Clear-History
+                & ".\Config\Main\Menu.ps1"
             }
 
             Default {
+                Clear-Host
                     Write-Host "" <##>
                 Write-Host "    Resposta inválida" -ForegroundColor Red
                     Write-Host "" <##>
 
-                Set-Location $HOME
+                    Start-Sleep -Seconds 1
+
+                & ".\Config\Scripts\SearchUpdateApps.ps1"
             }
         }
 }

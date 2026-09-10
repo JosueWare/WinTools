@@ -77,7 +77,7 @@ Set-Location "$PSScriptRoot\..\.."
                         Write-Host "" <##>
                 }
 
-                elseif ($gitCurrentBranch -eq "preview") {
+                elseif ($gitCurrentBranch -eq "build") {
                         Write-Host "" <##>
                     Write-Host "                    $PreviewTitle"
                         Write-Host "" <##>

@@ -32,7 +32,7 @@ $questStartCleanupProcess = Read-Host
                 Write-Host "" <##>
             Write-Host "    Limpando a pasta 'Temp' do Usuário.." -NoNewline
                 Start-Sleep -Milliseconds 500
-            Remove-Item -Path "$folderAppData_Local\Temp\*" -ErrorAction SilentlyContinue -Recurse -Force
+            Remove-Item -Path "$folderAppData_Local\Temp\*" -ErrorAction SilentlyContinue -Recurse
             Write-Host " Limpo!" -ForegroundColor Green
                 Write-Host "" <##>
 
@@ -40,7 +40,7 @@ $questStartCleanupProcess = Read-Host
                 Write-Host "" <##>
             Write-Host "    Limpando a pasta 'Temp' do Windows.." -NoNewline
                 Start-Sleep -Milliseconds 500
-            Remove-Item -Path "$folderWindows\Temp\*" -ErrorAction SilentlyContinue -Recurse -Force
+            Remove-Item -Path "$folderWindows\Temp\*" -ErrorAction SilentlyContinue -Recurse
             Write-Host " Limpo" -ForegroundColor Green
                 Write-Host "" <##>
 
@@ -48,7 +48,7 @@ $questStartCleanupProcess = Read-Host
                 Write-Host "" <##>
             Write-Host "    Limpando a pasta 'Prefetch' do Windows.." -NoNewline
                 Start-Sleep -Milliseconds 500
-            Remove-Item -Path "$folderWindows\Prefetch\*" -ErrorAction SilentlyContinue -Recurse -Force
+            Remove-Item -Path "$folderWindows\Prefetch\*" -ErrorAction SilentlyContinue -Recurse
             Write-Host " Limpo" -ForegroundColor Green
                 Write-Host "" <##>
 

@@ -7,7 +7,7 @@
 
 ---
 
-## 1.2.5 [Beta]
+## 1.2.5
 
 ### Added
 - Um novo script para facilitar o trabalho com a ferramenta Git

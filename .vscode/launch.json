@@ -9,6 +9,7 @@
             "name": "PowerShell: Windows PowerShell",
             "type": "PowerShell",
             "request": "launch",
+            "script": "${workspaceFolder}/Config/Start.ps1",
             "sessionName": "Windows PowerShell (x64)"
         }
     ]

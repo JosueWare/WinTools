@@ -49,7 +49,7 @@
                 Write-Host "    Deseja voltar ao início?"
                     Write-Host "" <##>
                     Start-Sleep -Seconds 1
-                Write-Host "        [S] Sim | [N] Não"
+                Write-Host "        [S] Sim | [N] Não (Sair)"
                     Write-Host "" <##>
 
                 $questReturnToMainMenu = Read-Host

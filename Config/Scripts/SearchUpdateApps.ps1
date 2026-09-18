@@ -11,21 +11,62 @@
         Start-Sleep -Seconds 1
 
         Write-Host "" <##>
-    Write-Host "    Deseja atualizar todos os programas?"
+    Write-Host "    Deseja atualizar todos os programas ou só algum específico?"
         Write-Host "" <##>
         Start-Sleep -Seconds 1
         Write-Host "" <##>
-    Write-Host "        [S] Sim | [N] Não"
+    Write-Host "        [A] Atualizar Todos | [E] Específico | [N] Nenhum"
         Write-Host "" <##>
     $questUpgradeAllPrograms = Read-Host
 
         switch ($questUpgradeAllPrograms) {
 
-            "S" {
+            "A" {
                 Winget Upgrade --All
 
                 Set-Location $HOME
             }
+
+            "E" {
+                Clear-Host
+                Winget Upgrade
+
+                    Start-Sleep -Seconds 1
+
+                    Write-Host "" <##>
+                Write-Host "    Digite o programa específico:"
+                    Write-Host "" <##>
+
+                $selectedProgramToUpdate = Read-Host
+
+                Clear-Host
+
+                Winget Upgrade "$selectedProgramToUpdate"
+
+                    Start-Sleep -Seconds 1
+
+                    Write-Host "" <##>
+                Write-Host "    Deseja voltar ao início?"
+                    Write-Host "" <##>
+                    Start-Sleep -Seconds 1
+                Write-Host "        [S] Sim | [N] Não"
+                    Write-Host "" <##>
+
+                $questReturnToMainMenu = Read-Host
+
+                    switch ($questReturnToMainMenu) {
+
+                        "S" {
+                            Clear-Host
+                            & ".\Config\Main\Menu.ps1"
+                        }
+
+                        "N" {& $ExitTerminalSession}
+
+                        Default {}
+                    }
+            }
+
             "N" {
                 Clear-History
                 & ".\Config\Main\Menu.ps1"

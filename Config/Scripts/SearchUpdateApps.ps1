@@ -41,7 +41,16 @@
                         "S" {& ".\Config\Main\Menu.ps1"}
                         "N" {& $ExitTerminalSession}
 
-                        Default {}
+                        Default {
+                            Clear-Host
+                                Write-Host "" <##>
+                            Write-Host "    Resposta inválida" -ForegroundColor Red
+                                Write-Host "" <##>
+
+                                Start-Sleep -Seconds 2
+
+                            & ".\Config\Main\Menu.ps1"
+                        }
                     }
             }
 

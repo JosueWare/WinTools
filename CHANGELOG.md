@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.7-Beta
+
+### Added
+- Melhorias no script `SearchUpdateApps.ps1`
+
 ## 1.2.6
 
 ### Added

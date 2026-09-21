@@ -1,11 +1,21 @@
 # Logon
 
     # ENV
+
+        # fullpath
+        $fullpath_dpPowerShell = (Join-Path -Path "Config" -ChildPath "Main")
+        $fullpath_dpPowerShell = (Join-Path -Path $fullpath_dpPowerShell -ChildPath "Depedences")
+        $fullpath_dpPowerShell = (Join-Path -Path $fullpath_dpPowerShell -ChildPath "dpPowerShell.ps1")
+
+        $fullpath_dpWindows = (Join-Path -Path "Config" -ChildPath "Main")
+        $fullpath_dpWindows = (Join-Path -Path $fullpath_dpWindows -ChildPath "Depedences")
+        $fullpath_dpWindows = (Join-Path -Path $fullpath_dpWindows -ChildPath "dpWindows.ps1")
+
     $MainScript = Resolve-Path ".\Config\Main\Menu.ps1"
 
         # Depedences
-        $dpPowerShell = Resolve-Path ".\Config\Main\Depedences\dpPowerShell.ps1"
-        $dpWindowsOS = Resolve-Path ".\Config\Main\Depedences\dpWindows.ps1"
+        $dpPowerShell = Resolve-Path $fullpath_dpPowerShell
+        $dpWindowsOS = Resolve-Path $fullpath_dpWindows
 
 # Init
 

@@ -3,7 +3,10 @@
 ## 1.2.9 (Unreleased)
 
 ### Added
-- Melhorias no script `SearchUpdateApps.ps1`
+Melhorias no script `SearchUpdateApps.ps1`
+- Agora quando executado o script haverá uma pergunta se deseja atualizar todos os programas listados ou algum específico
+
+    `[A] Atualizar Todos | [E] Específico | [N] Nenhum`
 
 ## 1.2.6
 

@@ -8,6 +8,9 @@ Melhorias no script `SearchUpdateApps.ps1`
 
     `[A] Atualizar Todos | [E] Específico | [N] Nenhum`
 
+Mudanças no script `Start.ps1`
+- Substituição das barras invertidas `\` pelo o `Join-Path`
+
 ## 1.2.6
 
 ### Added

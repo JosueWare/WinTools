@@ -16,7 +16,7 @@ if ($env:OS -eq "Windows_NT") {
             }
     }
         else {
-            Write-Host "WinTools nao é suportado para o Windows PowerShell 5.1" -ForegroundColor Red
+            Write-Host "WinTools nao e suportado para o Windows PowerShell 5.1" -ForegroundColor Red
         }
 }
     else {

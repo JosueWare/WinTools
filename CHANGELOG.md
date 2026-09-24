@@ -6,11 +6,13 @@
 
 - Adicionado o arquivo `WinTools.ps1` para executar dentro do diretório do projeto.
 
+### Features
 - Melhorias no script `SearchUpdateApps.ps1`
   Agora quando executado o script haverá uma pergunta se deseja atualizar todos os programas listados ou algum específico.
 
     `[A] Atualizar Todos | [E] Específico | [N] Nenhum`
 
+### Changes
 - Mudanças no script `Start.ps1`
   Substituição das barras invertidas `\` pelo o `Join-Path`
 

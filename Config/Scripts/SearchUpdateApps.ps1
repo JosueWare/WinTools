@@ -10,12 +10,12 @@
 
         Start-Sleep -Seconds 1
 
-        Write-Host "" <##>
+        Write-Host ""
     Write-Host "    Deseja atualizar todos os programas ou só algum específico?"
-        Write-Host "" <##>
+        Write-Host ""
         Start-Sleep -Seconds 1
     Write-Host "        [A] Atualizar Todos | [E] Específico | [N] Nenhum"
-        Write-Host "" <##>
+        Write-Host ""
     $questUpgradeAllPrograms = Read-Host
 
         switch ($questUpgradeAllPrograms) {
@@ -27,12 +27,12 @@
 
                     Start-Sleep -Seconds 1
 
-                    Write-Host "" <##>
+                    Write-Host ""
                 Write-Host "    Deseja voltar ao início?"
-                    Write-Host "" <##>
+                    Write-Host ""
                     Start-Sleep -Seconds 1
                 Write-Host "        [S] Sim | [N] Não (encerrar)"
-                    Write-Host "" <##>
+                    Write-Host ""
 
                 $questReturnToMainMenu = Read-Host
 
@@ -43,9 +43,9 @@
 
                         Default {
                             Clear-Host
-                                Write-Host "" <##>
+                                Write-Host ""
                             Write-Host "    Resposta inválida" -ForegroundColor Red
-                                Write-Host "" <##>
+                                Write-Host ""
 
                                 Start-Sleep -Seconds 2
 
@@ -60,9 +60,9 @@
 
                     Start-Sleep -Seconds 1
 
-                    Write-Host "" <##>
+                    Write-Host ""
                 Write-Host "    Digite o programa específico:"
-                    Write-Host "" <##>
+                    Write-Host ""
 
                 $selectedProgramToUpdate = Read-Host
 
@@ -72,12 +72,12 @@
 
                     Start-Sleep -Seconds 1
 
-                    Write-Host "" <##>
+                    Write-Host ""
                 Write-Host "    Deseja voltar ao início?"
-                    Write-Host "" <##>
+                    Write-Host ""
                     Start-Sleep -Seconds 1
                 Write-Host "        [S] Sim | [N] Não (encerrar)"
-                    Write-Host "" <##>
+                    Write-Host ""
 
                 $questReturnToMainMenu = Read-Host
 
@@ -101,9 +101,9 @@
 
             Default {
                 Clear-Host
-                    Write-Host "" <##>
+                    Write-Host ""
                 Write-Host "    Resposta inválida" -ForegroundColor Red
-                    Write-Host "" <##>
+                    Write-Host ""
 
                     Start-Sleep -Seconds 1
 
@@ -116,16 +116,16 @@
 # Check Connection Internet
 if (-not ($Internet_NET)) {
     Clear-Host
-        Write-Host "" <##>
+        Write-Host ""
     Write-Host "    Erro de conexão" -ForegroundColor Red
-        Write-Host "" <##>
+        Write-Host ""
 
         Start-Sleep -Seconds 1
 
-        Write-Host "" <##>
+        Write-Host ""
     Write-Host "    Tentando novamente " -ForegroundColor Yellow -NoNewline
     Write-Host "$LimitsTryCounts"
-        Write-Host "" <##>
+        Write-Host ""
 
         Start-Sleep -Seconds 1
 
@@ -136,23 +136,23 @@ if (-not ($Internet_NET)) {
         $LimitsTryCounts++
 
         Clear-Host
-            Write-Host "" <##>
+            Write-Host ""
         Write-Host "    Erro de conexão" -ForegroundColor Red
-            Write-Host "" <##>
+            Write-Host ""
 
-            Write-Host "" <##>
+            Write-Host ""
         Write-Host "    Tentando novamente " -ForegroundColor Yellow -NoNewline
         Write-Host "$LimitsTryCounts"
-            Write-Host "" <##>
+            Write-Host ""
     } until (($Internet_NET -eq $true) -or ($LimitsTryCounts -gt 20))
 
     <# Reconnect #>
     if ($Internet_NET -eq $true) {
         Clear-Host
 
-            Write-Host "" <##>
+            Write-Host ""
         Write-Host "    Reconectado" -ForegroundColor Green
-            Write-Host "" <##>
+            Write-Host ""
 
             Start-Sleep -Seconds 2
 
@@ -162,15 +162,15 @@ if (-not ($Internet_NET)) {
         }
             else {
                 Clear-Host
-                    Write-Host "" <##>
+                    Write-Host ""
                 Write-Host "    Erro" -ForegroundColor Red
-                    Write-Host "" <##>
+                    Write-Host ""
 
                     Start-Sleep -Seconds 1
 
-                    Write-Host "" <##>
+                    Write-Host ""
                 Write-Host "    O comando 'Winget' não foi encontrado" -ForegroundColor Red
-                    Write-Host "" <##>
+                    Write-Host ""
 
                 Set-Location $HOME
             }
@@ -178,9 +178,9 @@ if (-not ($Internet_NET)) {
     
     if ($LimitsTryCounts -gt 20) {
         Clear-Host
-            Write-Host "" <##>
+            Write-Host ""
         Write-Host "    Limite de tentativas excecidos" -ForegroundColor Red
-            Write-Host "" <##>
+            Write-Host ""
 
         Set-Location $HOME
     }
@@ -192,15 +192,15 @@ if (-not ($Internet_NET)) {
         }
             else {
                 Clear-Host
-                    Write-Host "" <##>
+                    Write-Host ""
                 Write-Host "    Erro" -ForegroundColor Red
-                    Write-Host "" <##>
+                    Write-Host ""
 
                     Start-Sleep -Seconds 1
 
-                    Write-Host "" <##>
+                    Write-Host ""
                 Write-Host "    O comando 'Winget' não foi encontrado" -ForegroundColor Red
-                    Write-Host "" <##>
+                    Write-Host ""
 
                 Set-Location $HOME
             }

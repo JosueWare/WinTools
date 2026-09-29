@@ -4,9 +4,9 @@
 
         [ScriptBlock]$actionSFCSCANNOW = {
 
-                Write-Host "" <#SPACE#>
+                Write-Host ""
             Write-Host "    Iniciando.."
-                Write-Host "" <#SPACE#>
+                Write-Host ""
 
             Start-Process -FilePath "cmd.exe" -ArgumentList "/c sfc /scannow" -Verb RunAs -Wait
 
@@ -21,15 +21,15 @@ Clear-Host
 
     Start-Sleep -Seconds 1
 
-    Write-Host "" <#SPACE#>
+    Write-Host ""
 Write-Host "    Deseja iniciar uma verificação de integridade do sistema agora?"
 Write-Host "    (O processo será feito pelo Prompt de comando)"
-    Write-Host "" <#SPACE#>
+    Write-Host ""
 
     Start-Sleep -Seconds 1
 
 Write-Host "        [S] Sim / [N] Não"
-    Write-Host "" <#SPACE#>
+    Write-Host ""
 
 $questStartSystemScanner = Read-Host
 
@@ -41,20 +41,20 @@ $questStartSystemScanner = Read-Host
 
                 Start-Sleep -Seconds 1
 
-                Write-Host "" <#SPACE#>
+                Write-Host ""
             Write-Host "    Antes de iniciar a verificação"
-                Write-Host "" <#SPACE#>
+                Write-Host ""
                 
                 Start-Sleep -Seconds 1
 
             Write-Host "    Deseja Desligar ou Reiniciar o sistema"
             Write-Host "    assim que terminar?"
-                Write-Host "" <#SPACE#>
+                Write-Host ""
 
                 Start-Sleep -Seconds 1
 
             Write-Host "        [S] Sim / [N] Não"
-                Write-Host "" <#SPACE#>
+                Write-Host ""
 
             $questStartSystemScanner_Shutdown_OR_Restart_SYS = Read-Host
             
@@ -64,12 +64,12 @@ $questStartSystemScanner = Read-Host
 
                         Clear-Host
 
-                            Write-Host "" <#SPACE#>
+                            Write-Host ""
                         Write-Host "    Desligar ou Reiniciar?"
-                            Write-Host "" <#SPACE#>
+                            Write-Host ""
 
                         Write-Host "        [D] Desligar / [R] Reiniciar"
-                            Write-Host "" <#SPACE#>
+                            Write-Host ""
 
                         $questStartSystemScanner_Shutdown_OR_Restart = Read-Host
 
@@ -81,9 +81,9 @@ $questStartSystemScanner = Read-Host
 
                                         Start-Sleep -Seconds 2
 
-                                        Write-Host "" <#SPACE#>
+                                        Write-Host ""
                                     Write-Host "    Desligando.." -ForegroundColor Yellow
-                                        Write-Host "" <#SPACE#>
+                                        Write-Host ""
 
                                         Start-Sleep -Seconds 2
 
@@ -96,9 +96,9 @@ $questStartSystemScanner = Read-Host
 
                                         Start-Sleep -Seconds 2
 
-                                        Write-Host "" <#SPACE#>
+                                        Write-Host ""
                                     Write-Host "    Reiniciando.." -ForegroundColor Yellow
-                                        Write-Host "" <#SPACE#>
+                                        Write-Host ""
 
                                         Start-Sleep -Seconds 2
 
@@ -115,7 +115,7 @@ $questStartSystemScanner = Read-Host
                             Start-Sleep -Seconds 1
 
                         & $actionSFCSCANNOW
-                            Write-Host "" <##>
+                            Write-Host ""
                     }
 
                     Default {& $ErrorResponse}

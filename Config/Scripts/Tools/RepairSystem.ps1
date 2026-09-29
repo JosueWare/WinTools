@@ -5,32 +5,32 @@
 # Scripts Blocks
 [scriptblock]$Execute_DISM = {
     Clear-Host
-        Write-Host "" <##>
+        Write-Host ""
     Write-Host " AVISO:" -ForegroundColor Yellow
-        Write-Host "" <##>
+        Write-Host ""
 
         Start-Sleep -Seconds 1
 
-        Write-Host "" <##>
+        Write-Host ""
     Write-Host "    Este processo irá demorar e não pode ser interrompido pois será
     baixada uma nova imagem de disco do sistema e em seguida será
     feito uma verificação da integridade dos arquivos do sistema (System File Checker)." -ForegroundColor Yellow
-        Write-Host "" <##>
+        Write-Host ""
 
         Start-Sleep -Seconds 2
 
-        Write-Host "" <##>
+        Write-Host ""
     Write-Host "    Após isso o computador será reinciado." -ForegroundColor Yellow
-        Write-Host "" <##>
+        Write-Host ""
 
         Start-Sleep -Seconds 2
 
-        Write-Host "" <##>
+        Write-Host ""
     Write-Host "    Deseja prosseguir?"
-        Write-Host "" <##>
+        Write-Host ""
         Start-Sleep -Milliseconds 500
     Write-Host "        [S] Sim | [N] Não"
-        Write-Host "" <##>
+        Write-Host ""
 
     $questProssidExecute_DISM_ = Read-Host
 
@@ -41,49 +41,49 @@
 
                     Start-Sleep -Seconds 1
 
-                    Write-Host "" <##>
+                    Write-Host ""
                 Write-Host "    Iniciando.."
-                    Write-Host "" <##>
+                    Write-Host ""
 
                     Start-Sleep -Seconds 2
 
                 Clear-Host <# Step 1 #>
-                    Write-Host "" <##>
+                    Write-Host ""
                 Write-Host "    Passo 1: " -NoNewline
                     Start-Sleep -Seconds 1
                 Write-Host "Executando o " -NoNewline
                 Write-Host "DISM.exe" -ForegroundColor Magenta
-                    Write-Host "" <##>
+                    Write-Host ""
 
                     Start-Sleep -Seconds 1
 
                 Start-Process -FilePath "cmd.exe" -ArgumentList "/c DISM.exe /Online /Cleanup-image /Restorehealth" -Verb RunAs -Wait
 
-                    Write-Host "" <##>
+                    Write-Host ""
                 Write-Host "    Processo finalizado." -ForegroundColor Green
-                    Write-Host "" <##>
+                    Write-Host ""
 
                 Clear-Host <# Step 2 #>
-                    Write-Host "" <##>
+                    Write-Host ""
                 Write-Host "    Passo 2: " -NoNewline
                     Start-Sleep -Seconds 1
                 Write-Host "Executado o " -NoNewline
                 Write-Host "System File Checker" -ForegroundColor Magenta
-                    Write-Host "" <##>
+                    Write-Host ""
 
                     Start-Sleep -Seconds 1
 
                 Start-Process -FilePath "cmd.exe" -ArgumentList "/c sfc /scannow" -Verb RunAs -Wait
 
-                    Write-Host "" <##>
+                    Write-Host ""
                 Write-Host "    Processo finalizado" -ForegroundColor Green
-                    Write-Host "" <##>
+                    Write-Host ""
 
                     Start-Sleep -Seconds 1
 
-                    Write-Host "" <##>
+                    Write-Host ""
                 Write-Host "    Reiniciando o computador" -ForegroundColor Yellow
-                    Write-Host "" <##>
+                    Write-Host ""
 
                     Start-Sleep -Seconds 2
 
@@ -91,15 +91,15 @@
             }
 
             "N" {
-                Write-Host "" <##>
+                Write-Host ""
                 Set-Location $HOME
             }
 
             Default {
                 Clear-Host
-                    Write-Host "" <##>
+                    Write-Host ""
                 Write-Host "    Resposta inválida" -ForegroundColor Red
-                    Write-Host "" <##>
+                    Write-Host ""
 
                 Set-Location $HOME
             }
@@ -112,16 +112,16 @@
 # Check Internet Connection
 if (-not ($Internet_NET)) {
     Clear-Host
-        Write-Host "" <##>
+        Write-Host ""
     Write-Host "    Erro de conexão" -ForegroundColor Red
-        Write-Host "" <##>
+        Write-Host ""
 
         Start-Sleep -Seconds 1
 
-        Write-Host "" <##>
+        Write-Host ""
     Write-Host "    Tentando novamente " -ForegroundColor Yellow -NoNewline
     Write-Host "$LimitsTryCounts" -ForegroundColor Cyan
-        Write-Host "" <##>
+        Write-Host ""
 
         do { <# Loop [INI] #>
         # ENV
@@ -129,21 +129,21 @@ if (-not ($Internet_NET)) {
         $LimitsTryCounts++
 
         Clear-Host
-            Write-Host "" <##>
+            Write-Host ""
         Write-Host "    Erro de conexão" -ForegroundColor Red
-            Write-Host "" <##>
+            Write-Host ""
 
-            Write-Host "" <##>
+            Write-Host ""
         Write-Host "    Tentando novamente " -ForegroundColor Yellow -NoNewline
         Write-Host "$LimitsTryCounts" -ForegroundColor Cyan
-            Write-Host "" <##>
+            Write-Host ""
         } until (($Internet_NET -eq $true) -or ($LimitsTryCounts -gt 20))
 
         if ($Internet_NET -eq $true) {
             Clear-Host
-                Write-Host "" <##>
+                Write-Host ""
             Write-Host "    Reconectado" -ForegroundColor Green
-                Write-Host "" <##>
+                Write-Host ""
 
                 Start-Sleep -Seconds 2
 
@@ -151,9 +151,9 @@ if (-not ($Internet_NET)) {
         }
             else {
                 Clear-Host
-                    Write-Host "" <##>
+                    Write-Host ""
                 Write-Host "    Número de tentativas excedidas" -ForegroundColor Red
-                    Write-Host "" <##>
+                    Write-Host ""
 
             Set-Location $HOME
             }

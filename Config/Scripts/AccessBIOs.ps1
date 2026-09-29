@@ -9,7 +9,7 @@
 Clear-Host
 Start-Sleep -Seconds 1
 
-    Write-Host "" <##>
+    Write-Host ""
 Write-Host " Aviso:" -ForegroundColor Yellow
     Start-Sleep -Seconds 1
 Write-Host @(
@@ -20,12 +20,12 @@ Write-Host @(
 
     Start-Sleep -Seconds 1
 
-    Write-Host "" <##>
+    Write-Host ""
 Write-Host "    Deseja prosseguir? (Salve seus arquivos da área de trabalho!)" -ForegroundColor Yellow
-    Write-Host "" <##>
+    Write-Host ""
     Start-Sleep -Milliseconds 500
 Write-Host "        [S] Sim | [N] Não"
-    Write-Host "" <##>
+    Write-Host ""
 
 $questProssid = Read-Host
 

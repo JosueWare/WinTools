@@ -18,16 +18,16 @@ Set-Location "$PSScriptRoot\..\.."
 
             Start-Sleep -Seconds 1
 
-            Write-Host "" <##>
+            Write-Host ""
         Write-Host "    Deseja fazer uma verificação de integridade"
         Write-Host "    do Windows ou uma Reparação completa"
         Write-Host "    da imagem do sistema?"
-            Write-Host "" <##>
+            Write-Host ""
         Start-Sleep -Seconds 1
-            Write-Host "" <##>
+            Write-Host ""
         Write-Host "        [1]. Verificação   (sfc /scannow)"
         Write-Host "        [2]. Reparação     (DISM.exe)"
-            Write-Host "" <##>
+            Write-Host ""
 
         $questVerify_OR_Repair = Read-Host
 
@@ -39,9 +39,9 @@ Set-Location "$PSScriptRoot\..\.."
                 Default {
                     Clear-Host
 
-                        Write-Host "" <##>
+                        Write-Host ""
                     Write-Host "    Resposta inválida" -ForegroundColor Red
-                        Write-Host "" <##>
+                        Write-Host ""
 
                         Start-Sleep -Seconds 1
 
@@ -52,9 +52,9 @@ Set-Location "$PSScriptRoot\..\.."
 
     [ScriptBlock]$ErrorResponse = {
         Clear-Host
-            Write-Host "" <##>
+            Write-Host ""
         Write-Host "    Resposta inválida" -ForegroundColor Red
-            Write-Host "" <##>
+            Write-Host ""
 
             Start-Sleep -Seconds 2
 
@@ -72,26 +72,26 @@ Set-Location "$PSScriptRoot\..\.."
         [scriptblock]$gitLoadMainTitleProject = {
             if (Get-Command "git.exe" -ErrorAction SilentlyContinue) {
                 if ($gitCurrentBranch -eq "main") {
-                        Write-Host "" <##>
+                        Write-Host ""
                     Write-Host "                    $ReleaseTitle"
-                        Write-Host "" <##>
+                        Write-Host ""
                 }
 
                 elseif ($gitCurrentBranch -eq "build") {
-                        Write-Host "" <##>
+                        Write-Host ""
                     Write-Host "                    $PreviewTitle"
-                        Write-Host "" <##>
+                        Write-Host ""
                 }
                     else {
-                            Write-Host "" <##>
+                            Write-Host ""
                         Write-Host "                    WinTools"
-                            Write-Host "" <##>
+                            Write-Host ""
                     }
             }
                 else {
-                        Write-Host "" <##>
+                        Write-Host ""
                     Write-Host "                    WinTools"
-                        Write-Host "" <##>
+                        Write-Host ""
                 }
         }
 
@@ -104,22 +104,22 @@ Clear-Host
 
     # Menu
 
-        Write-Host "" <##>
+        Write-Host ""
     Write-Host "    Opções:"
-        Write-Host "" <##>
+        Write-Host ""
 
         Start-Sleep -Seconds 1
         
-        Write-Host "" <##>
+        Write-Host ""
     Write-Host "        [1] Reparação do Windows"
     Write-Host "        [2] Procurar por atualizações de Software (Winget)"
     Write-Host "        [3] Limpar arquivos temporários"
     Write-Host "        [4] Otimizar unidades (Em breve!)"
     Write-Host "        [5] Acessar BIOs"
-        Write-Host "" <##>
-        Write-Host "" <##>
+        Write-Host ""
+        Write-Host ""
     Write-Host "    [X] Sair"
-        Write-Host "" <##>
+        Write-Host ""
 
     $SelectOptions = Read-Host
 
@@ -130,9 +130,9 @@ Clear-Host
             "3" {& ".\Config\Scripts\Tools\Cleanup\TempClean.ps1"}
             "4" {
                 Clear-Host
-                    Write-Host "" <##>
+                    Write-Host ""
                 Write-Host "    Opção disponível em breve!"
-                    Write-Host "" <##>
+                    Write-Host ""
 
                     Start-Sleep -Seconds 2
 

@@ -9,15 +9,15 @@ Clear-Host
 
     Start-Sleep -Seconds 1
 
-    Write-Host "" <##>
+    Write-Host ""
 Write-Host "    Deseja limpar os arquivos agora?" -NoNewline
     Start-Sleep -Milliseconds 500
 Write-Host "    (Seguintes pastas: 'Local\Temp', 'Windows\Temp', 'Windows\Prefetch')" -ForegroundColor DarkGray
-    Write-Host "" <##>
+    Write-Host ""
     Start-Sleep -Milliseconds 500
-    Write-Host "" <##>
+    Write-Host ""
 Write-Host "        [S] Sim / [N] Não"
-    Write-Host "" <##>
+    Write-Host ""
 
 $questStartCleanupProcess = Read-Host
 
@@ -29,34 +29,34 @@ $questStartCleanupProcess = Read-Host
                 Start-Sleep -Milliseconds 500
 
             <# Folder 1 #>
-                Write-Host "" <##>
+                Write-Host ""
             Write-Host "    Limpando a pasta 'Temp' do Usuário.." -NoNewline
                 Start-Sleep -Milliseconds 500
             Remove-Item -Path "$folderAppData_Local\Temp\*" -ErrorAction SilentlyContinue -Recurse
             Write-Host " Limpo!" -ForegroundColor Green
-                Write-Host "" <##>
+                Write-Host ""
 
             <# Folder 2 #>
-                Write-Host "" <##>
+                Write-Host ""
             Write-Host "    Limpando a pasta 'Temp' do Windows.." -NoNewline
                 Start-Sleep -Milliseconds 500
             Remove-Item -Path "$folderWindows\Temp\*" -ErrorAction SilentlyContinue -Recurse
             Write-Host " Limpo" -ForegroundColor Green
-                Write-Host "" <##>
+                Write-Host ""
 
             <# Folder 3 #>
-                Write-Host "" <##>
+                Write-Host ""
             Write-Host "    Limpando a pasta 'Prefetch' do Windows.." -NoNewline
                 Start-Sleep -Milliseconds 500
             Remove-Item -Path "$folderWindows\Prefetch\*" -ErrorAction SilentlyContinue -Recurse
             Write-Host " Limpo" -ForegroundColor Green
-                Write-Host "" <##>
+                Write-Host ""
 
                 Start-Sleep -Seconds 1
 
-                Write-Host "" <##>
+                Write-Host ""
             Write-Host "        Limpeza concluída." -ForegroundColor Green
-                Write-Host "" <##>
+                Write-Host ""
 
             Set-Location $HOME
         }

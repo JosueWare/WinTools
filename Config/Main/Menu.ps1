@@ -1,10 +1,5 @@
 Set-Location "$PSScriptRoot\..\.."
 
-# Logon
-
-    # Import-JSON
-    $DataJSON = Get-Content ".\Config\Env\ProjectName.json" | ConvertFrom-Json
-
     # ENV
     $ReleaseTitle = $DataJSON.ReleaseName
     $PreviewTitle = $DataJSON.PreviewName
@@ -68,37 +63,12 @@ Set-Location "$PSScriptRoot\..\.."
         $Host.SetShouldExit(0)
     }
 
-        # [Git]
-        [scriptblock]$gitLoadMainTitleProject = {
-            if (Get-Command "git.exe" -ErrorAction SilentlyContinue) {
-                if ($gitCurrentBranch -eq "main") {
-                        Write-Host ""
-                    Write-Host "                    $ReleaseTitle"
-                        Write-Host ""
-                }
-
-                elseif ($gitCurrentBranch -eq "build") {
-                        Write-Host ""
-                    Write-Host "                    $PreviewTitle"
-                        Write-Host ""
-                }
-                    else {
-                            Write-Host ""
-                        Write-Host "                    WinTools"
-                            Write-Host ""
-                    }
-            }
-                else {
-                        Write-Host ""
-                    Write-Host "                    WinTools"
-                        Write-Host ""
-                }
-        }
-
 # Menu
 Clear-Host
 
-& $gitLoadMainTitleProject <# Load Main Title #>
+    Write-Host ""
+Write-Host "                    WinTools"
+    Write-Host ""
 
     Start-Sleep -Milliseconds 500
 

@@ -16,6 +16,10 @@
 - Mudanças no script `Start.ps1`
   Substituição das barras invertidas `\` pelo o `Join-Path`
 
+### Removed
+- Removido o bloco de script para o uso integrado com o Git onde o título do projeto era exibido de acordo com a branch posta.
+- Deletado a pasta `Env` em `Config`
+
 ## 1.2.6
 13/09/2026
 

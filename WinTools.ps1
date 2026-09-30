@@ -9,7 +9,7 @@ if ($env:OS -eq "Windows_NT") {
     if ($PSVersionTable.PSEdition -eq "Core") {
         #Check ADMIN
         if ($runnigAdmin) {
-            & (Join-Path -Path $PSScriptRoot -ChildPath @("Config", "Main", "Menu.ps1"))
+            & (Join-Path -Path $PSScriptRoot -ChildPath @("GUI", "Main", "Menu.ps1"))
         }
         else {
             Write-Host "WinTools requer que você execute como administrador" -ForegroundColor Yellow

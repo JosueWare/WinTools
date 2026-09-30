@@ -11,14 +11,14 @@ if ($env:OS -eq "Windows_NT") {
         if ($runnigAdmin) {
             & (Join-Path -Path $PSScriptRoot -ChildPath @("Config", "Main", "Menu.ps1"))
         }
-            else {
-                Write-Host "WinTools requer que você execute como administrador" -ForegroundColor Yellow
-            }
-    }
         else {
-            Write-Host "WinTools nao e suportado para o Windows PowerShell 5.1" -ForegroundColor Red
+            Write-Host "WinTools requer que você execute como administrador" -ForegroundColor Yellow
         }
-}
-    else {
-        Write-Host "WinTools foi feito para usar no Windows" -ForegroundColor Red
     }
+    else {
+        Write-Host "WinTools nao e suportado para o Windows PowerShell 5.1" -ForegroundColor Red
+    }
+}
+else {
+    Write-Host "WinTools foi feito para usar no Windows" -ForegroundColor Red
+}

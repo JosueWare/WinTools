@@ -58,13 +58,29 @@ $questStartCleanupProcess = Read-Host
             Write-Host "        Limpeza concluída." -ForegroundColor Green
                 Write-Host ""
 
-            Set-Location $HOME
+                Start-Sleep -Seconds 1
+
+                Write-Host ""
+            Write-Host "    Deseja voltar ao início?"
+                Write-Host ""
+                Start-Sleep -Milliseconds 500
+            Write-Host "        [S] Sim | [N] Não (Encerrar)"
+                Write-Host ""
+            $questBackToMainMenu = Read-Host
+
+                switch ($questBackToMainMenu) {
+
+                    "S" {& $BackToMainMenu}
+                    "N" {& $ExitTerminalSession}
+
+                    Default {& $ErrorResponse}
+                }
         }
 
         "N" {
             Clear-Host
             Start-Sleep -Seconds 1
-            & ".\Config\Main\Menu.ps1"
+            & $BackToMainMenu
         }
 
         Default {& $ErrorResponse}

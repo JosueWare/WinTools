@@ -45,16 +45,20 @@ Set-Location "$PSScriptRoot\..\.."
             }
         }
 
+    [scriptblock]$BackToMainMenu = {
+        & "Config\Main\Menu.ps1"
+    }
+
     [ScriptBlock]$ErrorResponse = {
         Clear-Host
             Write-Host ""
         Write-Host "    Resposta inválida" -ForegroundColor Red
             Write-Host ""
 
-            Start-Sleep -Seconds 2
+            Start-Sleep -Seconds 1
 
         Clear-Host
-        & ".\Config\Main\Menu.ps1"
+        & $BackToMainMenu
     }
 
     [ScriptBlock]$ExitTerminalSession = {
@@ -91,9 +95,9 @@ Write-Host "                    WinTools"
     Write-Host "    [X] Sair"
         Write-Host ""
 
-    $SelectOptions = Read-Host
+    $switchSelectOptions = Read-Host
 
-        switch ($SelectOptions) {
+        switch ($switchSelectOptions) {
 
             "1" {& $questRepairWindowsSystem}
             "2" {& ".\Config\Scripts\SearchUpdateApps.ps1"}

@@ -38,19 +38,10 @@
 
                     switch ($questReturnToMainMenu) {
 
-                        "S" {& ".\Config\Main\Menu.ps1"}
+                        "S" {& $BackToMainMenu}
                         "N" {& $ExitTerminalSession}
 
-                        Default {
-                            Clear-Host
-                                Write-Host ""
-                            Write-Host "    Resposta inválida" -ForegroundColor Red
-                                Write-Host ""
-
-                                Start-Sleep -Seconds 2
-
-                            & ".\Config\Main\Menu.ps1"
-                        }
+                        Default {& $ErrorResponse}
                     }
             }
 
@@ -83,32 +74,20 @@
 
                     switch ($questReturnToMainMenu) {
 
-                        "S" {
-                            Clear-Host
-                            & ".\Config\Main\Menu.ps1"
-                        }
+                        "S" {& $BackToMainMenu}
 
                         "N" {& $ExitTerminalSession}
 
-                        Default {}
+                        Default {& $ErrorResponse}
                     }
             }
 
             "N" {
                 Clear-History
-                & ".\Config\Main\Menu.ps1"
+                & $BackToMainMenu
             }
 
-            Default {
-                Clear-Host
-                    Write-Host ""
-                Write-Host "    Resposta inválida" -ForegroundColor Red
-                    Write-Host ""
-
-                    Start-Sleep -Seconds 1
-
-                & ".\Config\Scripts\SearchUpdateApps.ps1"
-            }
+            Default {& $ErrorResponse}
         }
 }
 

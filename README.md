@@ -12,7 +12,7 @@ Execute o arquivo `Run.bat`
 No menu inicial haverá estas opções:
 - `[1] Reparação do Windows`
 - `[2] Procurar por atualizações de Software (Winget)`
-- `[3] Limpar arquivos temporários"`
+- `[3] Limpar arquivos temporários`
 - `[4] Otimizar Unidades (Em breve)`
 - `[5] Acessar BIOs`
 - `[X] Sair`

@@ -92,8 +92,8 @@ Write-Host "                    WinTools"
         switch ($switchSelectOptions) {
 
             "1" {& $questRepairWindowsSystem}
-            "2" {& ".\Config\Scripts\SearchUpdateApps.ps1"}
-            "3" {& ".\Config\Scripts\Tools\Cleanup\TempClean.ps1"}
+            "2" {& (Join-Path -Path "Scripts" -ChildPath "SearchUpdateApps.ps1")}
+            "3" {& (Join-Path -Path "Scripts" -ChildPath @("Tools", "Cleanup", "TempClean.ps1"))}
             "4" {
                 Clear-Host
                     Write-Host ""
@@ -102,9 +102,9 @@ Write-Host "                    WinTools"
 
                     Start-Sleep -Seconds 2
 
-                & ".\Config\Main\Menu.ps1"
+                & $BackToMainMenu
             }
-            "5" {& ".\Config\Scripts\AccessBIOs.ps1"}
+            "5" {& (Join-Path -Path "Scripts" -ChildPath "AccessBIOs.ps1")}
 
             "X" {& $ExitTerminalSession}
 

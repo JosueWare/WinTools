@@ -6,3 +6,37 @@
     }
 
 # GUI
+if (Confirm-SecureBootUEFI -eq $true) {
+    Clear-Host
+        Write-Host ""
+    Write-Host "    Salve seus itens da sua área de trabalho" -ForegroundColor Yellow
+        Write-Host ""
+
+        Start-Sleep -Seconds 2
+
+    Write-Host "    Deseja reiniciar o computador agora?"
+        Write-Host ""
+        Start-Sleep -Seconds 1
+    Write-Host "        [S] Sim / [N] Não"
+        Write-Host ""
+
+    $questRestartComputerNow = Read-Host
+
+        switch ($questRestartComputerNow) {
+
+            "S" {
+                Clear-Host
+                    Write-Host ""
+                Write-Host "    Reiniciando.." -ForegroundColor Yellow
+                    Write-Host ""
+
+                    Start-Sleep -Seconds 1
+
+                & $ExecBIOsAccess
+            }
+            
+            "N" {& $BackToMainMenu}
+
+            Default {& $ErrorResponse}
+        }
+}

@@ -37,7 +37,7 @@ $questProssid = Read-Host
             & $ExecBIOsAccess
         }
 
-        "N" {& ".\Config\Main\Menu.ps1"}
+        "N" {& $BackToMainMenu}
 
         Default {& $ErrorResponse}
     }

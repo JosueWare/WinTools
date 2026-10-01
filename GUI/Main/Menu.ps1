@@ -1,13 +1,8 @@
-Set-Location "$PSScriptRoot\..\.."
+Set-Location (Join-Path -Path $PSScriptRoot -ChildPath @("..", ".."))
 
-    # ENV
-    $ReleaseTitle = $DataJSON.ReleaseName
-    $PreviewTitle = $DataJSON.PreviewName
+# ENV
 
-        # [Git] Current Branch
-        $gitCurrentBranch = (git branch --show-current).Trim()
-
-    # ScriptsBlocks
+    # Scripts Blocks
     [ScriptBlock]$questRepairWindowsSystem = {
         Clear-Host
 
@@ -28,25 +23,22 @@ Set-Location "$PSScriptRoot\..\.."
 
             switch ($questVerify_OR_Repair) {
 
-                "1" {& ".\Config\Scripts\Tools\SystemFileChecker.ps1"}
-                "2" {& ".\Config\Scripts\Tools\RepairSystem.ps1"}
+                "1" {& (Join-Path -Path "Scripts" -ChildPath @("Tools", "SystemFileChecker.ps1"))}
+                "2" {& (Join-Path -Path "Scripts" -ChildPath @("Tools", "RepairSystem.ps1"))}
 
                 Default {
                     Clear-Host
-
                         Write-Host ""
                     Write-Host "    Resposta inválida" -ForegroundColor Red
                         Write-Host ""
-
                         Start-Sleep -Seconds 1
-
-                    Set-Location $HOME
+                    & (Join-Path -Path "GUI" -ChildPath @("Main", "Menu.ps1"))
                 }
             }
         }
 
     [scriptblock]$BackToMainMenu = {
-        & "Config\Main\Menu.ps1"
+        & (Join-Path -Path "GUI" -ChildPath @("Main", "Menu.ps1"))
     }
 
     [ScriptBlock]$ErrorResponse = {
@@ -100,8 +92,8 @@ Write-Host "                    WinTools"
         switch ($switchSelectOptions) {
 
             "1" {& $questRepairWindowsSystem}
-            "2" {& ".\Config\Scripts\SearchUpdateApps.ps1"}
-            "3" {& ".\Config\Scripts\Tools\Cleanup\TempClean.ps1"}
+            "2" {& (Join-Path -Path "Scripts" -ChildPath "SearchUpdateApps.ps1")}
+            "3" {& (Join-Path -Path "Scripts" -ChildPath @("Tools", "Cleanup", "TempClean.ps1"))}
             "4" {
                 Clear-Host
                     Write-Host ""
@@ -110,9 +102,9 @@ Write-Host "                    WinTools"
 
                     Start-Sleep -Seconds 2
 
-                & ".\Config\Main\Menu.ps1"
+                & $BackToMainMenu
             }
-            "5" {& ".\Config\Scripts\AccessBIOs.ps1"}
+            "5" {& (Join-Path -Path "Scripts" -ChildPath "AccessBIOs.ps1")}
 
             "X" {& $ExitTerminalSession}
 

@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.2.9x [Unreleased]
+## 1.2.9 [Beta]
 
 ### Added
 

@@ -3,6 +3,8 @@
 # WinTools
 Conjunto de ferramentas de scripts para reparar, limpar e fazer manutenção do sistema Windows ultilizando o PowerShell 7
 
+Confira a [Changelog](CHANGELOG.md)
+
 ## Como ultilizar?
 Primeira mente você precisa ter o PowerShell 7 instalado, por motivo de preferência eu optei que o Windows PowerShell 5.1 não pode ser usado.
 

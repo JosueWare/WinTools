@@ -77,3 +77,29 @@ elseif ((Confirm-SecureBootUEFI) -eq $false) {
             Default {& $ErrorResponse}
         }
 }
+else {
+    Clear-Host
+    Write-Host @("
+        A BIOs de sua placa-mãe não é compatível com a interface UEFI
+        Sua placa-mãe está configurado no modo 'BIOsLegacy' (Herdado)
+    ") -ForegroundColor Red
+
+        Start-Sleep -Seconds 1
+
+        Write-Host ""
+    Write-Host "    Deseja voltar ao início?"
+        Write-Host ""
+        Start-Sleep -Milliseconds 500
+    Write-Host "        [S] Sim / [N] Não (Encerrar)"
+        Write-Host ""
+
+    $questBackToMainMenu = Read-Host
+
+        switch ($questBackToMainMenu) {
+
+            "S" {& $BackToMainMenu}
+            "N" {& $ExitTerminalSession}
+
+            Default {& $ErrorResponse}
+        }
+}

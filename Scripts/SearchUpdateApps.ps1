@@ -65,31 +65,31 @@
                         "-NoExit",
                         "-Command",
                         "winget upgrade Spotify.Spotify"
-                    )
+                    ) -Wait
                 }
-                else {}
+                else {
+                    Winget Upgrade "$selectedProgramToUpdate"
 
-                Winget Upgrade "$selectedProgramToUpdate"
+                        Start-Sleep -Seconds 1
 
-                    Start-Sleep -Seconds 1
+                        Write-Host ""
+                    Write-Host "    Deseja voltar ao início?"
+                        Write-Host ""
+                        Start-Sleep -Seconds 1
+                    Write-Host "        [S] Sim | [N] Não (encerrar)"
+                        Write-Host ""
 
-                    Write-Host ""
-                Write-Host "    Deseja voltar ao início?"
-                    Write-Host ""
-                    Start-Sleep -Seconds 1
-                Write-Host "        [S] Sim | [N] Não (encerrar)"
-                    Write-Host ""
+                    $questReturnToMainMenu = Read-Host
 
-                $questReturnToMainMenu = Read-Host
+                        switch ($questReturnToMainMenu) {
 
-                    switch ($questReturnToMainMenu) {
+                            "S" {& $BackToMainMenu}
 
-                        "S" {& $BackToMainMenu}
+                            "N" {& $ExitTerminalSession}
 
-                        "N" {& $ExitTerminalSession}
-
-                        Default {& $ErrorResponse}
+                            Default {& $ErrorResponse}
                     }
+                }
             }
 
             "N" {

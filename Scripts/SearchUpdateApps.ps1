@@ -65,6 +65,7 @@
                         "-NoExit",
                         "-Command",
                         "winget upgrade Spotify.Spotify"
+                        "exit"
                     ) -Wait
 
                         Start-Sleep -Seconds 1

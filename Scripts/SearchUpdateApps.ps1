@@ -59,6 +59,15 @@
 
                 Clear-Host
 
+                if (($selectedProgramToUpdate) -eq "Spotify.Spotify") {
+                    Start-Process -FilePath "pwsh.exe" -ArgumentList @(
+                        "-NoProfile",
+                        "-NoExit",
+                        "-Command",
+                        "& { winget upgrade Spotify.Spotify }"
+                    )
+                }
+
                 Winget Upgrade "$selectedProgramToUpdate"
 
                     Start-Sleep -Seconds 1

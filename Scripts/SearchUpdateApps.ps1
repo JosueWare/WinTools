@@ -66,6 +66,23 @@
                         "-Command",
                         "winget upgrade Spotify.Spotify"
                     ) -Wait
+
+                        Start-Sleep -Seconds 1
+
+                        Write-Host ""
+                    Write-Host "    Deseja voltar ao início?"
+                        Write-Host ""
+                        Start-Sleep -Seconds 1
+                    Write-Host "        [S] Sim | [N] Não (encerrar)"
+                        Write-Host ""
+
+                    $questReturnToMainMenu = Read-Host
+
+                        switch ($questReturnToMainMenu) {
+                            "S" {& $BackToMainMenu}
+                            "N" {& $ExitTerminalSession}
+                            Default {& $ErrorResponse}
+                        }
                 }
                 else {
                     Winget Upgrade "$selectedProgramToUpdate"
@@ -82,11 +99,8 @@
                     $questReturnToMainMenu = Read-Host
 
                         switch ($questReturnToMainMenu) {
-
                             "S" {& $BackToMainMenu}
-
                             "N" {& $ExitTerminalSession}
-
                             Default {& $ErrorResponse}
                     }
                 }

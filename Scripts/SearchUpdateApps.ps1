@@ -64,9 +64,10 @@
                         "-NoProfile",
                         "-NoExit",
                         "-Command",
-                        "& { winget upgrade Spotify.Spotify }"
+                        "winget upgrade Spotify.Spotify"
                     )
                 }
+                else {}
 
                 Winget Upgrade "$selectedProgramToUpdate"
 

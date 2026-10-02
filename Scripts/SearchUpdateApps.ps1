@@ -62,10 +62,8 @@
                 if (($selectedProgramToUpdate) -eq "Spotify.Spotify") {
                     Start-Process -FilePath "pwsh.exe" -ArgumentList @(
                         "-NoProfile",
-                        "-NoExit",
                         "-Command",
                         "winget upgrade Spotify.Spotify"
-                        "exit"
                     ) -Wait
 
                         Start-Sleep -Seconds 1

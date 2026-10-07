@@ -1,4 +1,5 @@
 # Changelog
+[Voltar](README.md)
 
 ## 1.3.0
 

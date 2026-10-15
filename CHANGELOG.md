@@ -1,6 +1,8 @@
 # Changelog
 [Voltar](README.md)
 
+## 1.3.1 [Beta]
+
 ## 1.3.0
 
 ### Added

@@ -4,7 +4,18 @@ $isADMIN = ([Security.Principal.WindowsPrincipal] `
 
 <#==========#>
 if (($PSVersionTable.PSEdition) -eq "Core") {
-    & (Join-Path -Path "GUI" -ChildPath @("Main", "Menu.ps1"))
+    if ($isADMIN -eq $true) {
+        & (Join-Path -Path "GUI" -ChildPath @("Main", "Menu.ps1"))
+    }
+    else {
+            Write-Host ""
+        Write-Host "    Execute como administrador" -ForegroundColor Yellow
+            Write-Host ""
+            Start-Sleep -Seconds 1
+        Write-Host "    Deseja inicar como administrador?"
+            Write-Host ""
+        $questStartPwsh = Read-Host "(S/N)"
+    }
 }
 else {
         Write-Host ""

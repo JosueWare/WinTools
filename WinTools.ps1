@@ -32,7 +32,7 @@ else {
         Write-Host ""
     $questStartPwsh = Read-Host "(S/N)"
     if ($questStartPwsh -eq "S") {
-        Write-Host "TRUE" -ForegroundColor Green
+        & (Join-Path -Path $PSScriptRoot -ChildPath @("Config", "Start.ps1"))
     }
     else {<# IGNORE #>}
 }

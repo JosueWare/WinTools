@@ -32,7 +32,7 @@ else {
         Write-Host ""
     $questStartPwsh = Read-Host "(S/N)"
     if ($questStartPwsh -eq "S") {
-        & (Join-Path -Path $PSScriptRoot -ChildPath @("Config", "Start.ps1"))
+        & (Join-Path (Join-Path "$PSScriptRoot" "Config") "Start.ps1")
     }
     else {<# IGNORE #>}
 }

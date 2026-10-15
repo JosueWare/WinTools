@@ -15,6 +15,12 @@ if (($PSVersionTable.PSEdition) -eq "Core") {
         Write-Host "    Deseja inicar como administrador?"
             Write-Host ""
         $questStartPwsh = Read-Host "(S/N)"
+        switch ($questStartPwsh) {
+            "S" {
+                & (Join-Path -Path $PSScriptRoot -ChildPath @("Config", "Start.ps1"))
+            }
+            Default {<# IGNORE #>}
+        }
     }
 }
 else {

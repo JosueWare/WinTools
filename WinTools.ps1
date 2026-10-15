@@ -12,7 +12,7 @@ if (($PSVersionTable.PSEdition) -eq "Core") {
         Write-Host "    Execute como administrador" -ForegroundColor Yellow
             Write-Host ""
             Start-Sleep -Seconds 1
-        Write-Host "    Deseja inicar como administrador?"
+        Write-Host "    Deseja iniciar como administrador?"
             Write-Host ""
         $questStartPwsh = Read-Host "(S/N)"
         switch ($questStartPwsh) {

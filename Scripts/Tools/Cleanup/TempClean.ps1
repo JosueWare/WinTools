@@ -55,6 +55,7 @@ if ($folder_USER_TEMP -eq $true) { <# TEMP_USER #>
         Start-Sleep -Seconds 1
 
     Write-Host " Limpo" -ForegroundColor Green
+        Write-Host ""
 }
 else {
         Write-Host ""

@@ -42,7 +42,7 @@ Write-Host "    Analisando.."
         $folder_PREFETCH = $false
     }
 
-# Check Bool Values
+# Check Bool Values & Clean Folders
 $folder_USER_TEMP
 $folder_TEMP
 $folder_PREFETCH

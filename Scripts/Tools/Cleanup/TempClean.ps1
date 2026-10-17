@@ -43,6 +43,48 @@ Write-Host "    Analisando.."
     }
 
 # Check Bool Values & Clean Folders
-$folder_USER_TEMP
-$folder_TEMP
-$folder_PREFETCH
+Clear-Host
+
+if ($folder_USER_TEMP -eq $true) { <# TEMP_USER #>
+        Write-Host ""
+    Write-Host "    Limpando a pasta 'Temp' do usuário.." -NoNewline
+
+    Remove-Item (Join-Path -Path $path_USER_TEMP -ChildPath "*") -Recurse -ErrorAction SilentlyContinue
+        Start-Sleep -Seconds 1
+
+    Write-Host "    Limpo" -ForegroundColor Green
+}
+else {
+        Write-Host ""
+    Write-Host "    A pasta 'Temp' do usuário não foi encontrada" -ForegroundColor Red
+        Write-Host ""
+        Start-Sleep -Seconds 1
+}
+
+if ($folder_TEMP -eq $true) { <# TEMP #>
+        Write-Host ""
+    Write-Host "    Limpando a pasta 'Temp' do Windows.." -NoNewline
+
+    Remove-Item (Join-Path -Path $path_TEMP -ChildPath "*") -Recurse -ErrorAction SilentlyContinue
+        Start-Sleep -Seconds 1
+
+    Write-Host "    Limpo" -ForegroundColor Green
+        Write-Host ""
+}
+else {
+        Write-Host ""
+    Write-Host "    A pasta 'Temp' do Windows não foi encontrada" -ForegroundColor Red
+        Write-Host ""
+        Start-Sleep -Seconds 1
+}
+
+if ($folder_PREFETCH -eq $true) {
+        Write-Host ""
+    Write-Host "    Limpando a pasta 'Prefetch' do Windows.." -NoNewline
+
+    Remove-Item (Join-Path -Path $path_PREFETCH -ChildPath "*") -Recurse -ErrorAction SilentlyContinue
+        Start-Sleep -Seconds 1
+
+    Write-Host "    Limpo" -ForegroundColor Green
+        Write-Host ""
+}

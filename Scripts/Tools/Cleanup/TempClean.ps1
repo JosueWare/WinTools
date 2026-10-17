@@ -5,6 +5,11 @@
 
 # Bool
 
+    # Paths
+    [bool]$folder_USER_TEMP = $null
+    [bool]$folder_TEMP = $null
+    [bool]$folder_PREFETCH = $null
+
 # Menu
 Clear-Host
     Write-Host ""
@@ -15,29 +20,29 @@ Write-Host "    Analisando.."
 
     <# USER_TEMP #>
     if (Test-Path -Path $path_USER_TEMP) {
-        [bool]$path_USER_TEMP = $true
+        $folder_USER_TEMP = $true
     }
     else {
-        [bool]$path_USER_TEMP = $false
+        $folder_USER_TEMP = $false
     }
 
     <# TEMP #>
     if (Test-Path -Path $path_TEMP) {
-        [bool]$path_TEMP = $true
+        $folder_TEMP = $true
     }
     else {
-        [bool]$path_TEMP = $false
+        $folder_TEMP = $false
     }
 
     <# PREFETCH #>
     if (Test-Path -Path $path_PREFETCH) {
-        [bool]$path_PREFETCH = $true
+        $folder_PREFETCH = $true
     }
     else {
-        [bool]$path_PREFETCH = $false
+        $folder_PREFETCH = $false
     }
 
 # Check Bool Values
-$path_USER_TEMP
-$path_TEMP
-$path_PREFETCH
+$folder_USER_TEMP
+$folder_TEMP
+$folder_PREFETCH

@@ -1,8 +1,8 @@
 # Changelog
 [Voltar](README.md)
 
-## 1.3.1 [Beta]
-??/??/2026
+## 1.3.1
+18/10/2026
 
 ### Changes
 - O arquivo script `WinTools.ps1` foi corrigido

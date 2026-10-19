@@ -1,0 +1,12 @@
+{
+    "MainMenu": {
+        "Options": {
+            "WindowsRepair": "[1] Reparação do Windows",
+            "CheckSoftwareUpdates": "[2] Procurar por atualizações de Software",
+            "ClearTemporaryFiles": "[3] Limpar arquivos temporários",
+            "OptimizeUnits": "[4] Otimizar unidades (Em breve)",
+            "AccessBIOS": "[5] Acessar BIOS",
+            "Exit": "[X] Sair"
+        }
+    }
+}

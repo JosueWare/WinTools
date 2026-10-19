@@ -81,7 +81,7 @@ Write-Host "        [1] Reparação do Windows"
 Write-Host "        [2] Procurar por atualizações de Software (Winget)"
 Write-Host "        [3] Limpar arquivos temporários"
 Write-Host "        [4] Otimizar unidades (Em breve!)"
-Write-Host "        [5] Acessar BIOs"
+Write-Host "        [5] Acessar BIOS"
     Write-Host ""
     Write-Host ""
 Write-Host "    [X] Sair"
@@ -93,7 +93,7 @@ switch ($switchSelectOptions) {
     "2" {& (Join-Path -Path "Scripts" -ChildPath "SearchUpdateApps.ps1")}
     "3" {& (Join-Path -Path "Scripts" -ChildPath @("Tools", "Cleanup", "TempClean.ps1"))}
     "4" {& (Join-Path -Path "Scripts" -ChildPath "Defrag.ps1")}
-    "5" {& (Join-Path -Path "Scripts" -ChildPath "AccessBIOs.ps1")}
+    "5" {& (Join-Path -Path "Scripts" -ChildPath "BIOS_Access.ps1")}
 
     "X" {& $ExitTerminalSession}
 

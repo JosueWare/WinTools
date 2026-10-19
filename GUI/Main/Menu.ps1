@@ -1,5 +1,16 @@
 Set-Location (Join-Path -Path $PSScriptRoot -ChildPath @("..", ".."))
 
+# Get Language
+if (Get-Command "Get-Culture" -ErrorAction SilentlyContinue) {
+    $currentLanguage = (Get-Culture).Name
+}
+else {
+    $currentLanguage = "en-US"
+}
+
+# Config Language
+$Lang = Get-Content (Join-Path -Path "Lang" -ChildPath "${currentLanguage}.json") | ConvertFrom-Json
+
 # ENV
 
     # Scripts Blocks

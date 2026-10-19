@@ -1,4 +1,9 @@
 {
+    "General": {
+        "questBackToMainMenu": "Deseja voltar ao início?",
+        "InvalidResponse": "Resposta Inválida",
+        "YES_OR_NOT": "[S] Sim / [N] Não"
+    },
     "MainMenu": {
         "Options": {
             "WindowsRepair": "[1] Reparação do Windows",
@@ -7,6 +12,18 @@
             "OptimizeUnits": "[4] Otimizar unidades (Em breve)",
             "AccessBIOS": "[5] Acessar BIOS",
             "Exit": "[X] Sair"
+        },
+        "SubOptions": {
+            "RepairWindowsORVerify": {
+                "BR_1": "Deseja fazer uma verificação de integridade",
+                "BR_2": "do Windows ou uma Reparação completa",
+                "BR_3": "da imagem do sistema?",
+
+                "selectVerifcy_OR_Repair": {
+                    "Option_1": "[1]. Verificação   (sfc /scannow)",
+                    "Option_2": "[2]. Reparação     (DISM.exe)"
+                }
+            }
         }
     }
 }

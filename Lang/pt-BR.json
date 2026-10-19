@@ -2,7 +2,10 @@
     "General": {
         "questBackToMainMenu": "Deseja voltar ao início?",
         "InvalidResponse": "Resposta Inválida",
-        "YES_OR_NOT": "[S] Sim / [N] Não"
+        "YES_OR_NOT": "[S] Sim / [N] Não",
+        "Restarting": "Reiniciando..",
+        "ShuttingDown": "Desligando..",
+        "WARNING": "AVISO:"
     },
     "MainMenu": {
         "Options": {
@@ -22,6 +25,19 @@
                 "selectVerifcy_OR_Repair": {
                     "Option_1": "[1]. Verificação   (sfc /scannow)",
                     "Option_2": "[2]. Reparação     (DISM.exe)"
+                }
+            }
+        }
+    },
+    "Scripts": {
+        "BIOS_Access": {
+            "SaveYourItemsFromDesktop": "Salve seus itens da sua área de trabalho",
+            "questRestartComputerNow": "Deseja reiniciar o computador agora?",
+            "SecureBootState": {
+                "TRUE_but_inactive": "Sua placa-mãe suporta a interface UEFI porém o SecureBoot está desativado",
+                "Incompatible": {
+                    "BR_1": "A BIOs de sua placa-mãe não é compatível com a interface UEFI",
+                    "BR_2": "Sua placa-mãe está configurado no modo 'BIOsLegacy' (Herdado)"
                 }
             }
         }

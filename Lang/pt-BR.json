@@ -5,7 +5,18 @@
         "YES_OR_NOT": "[S] Sim / [N] Não",
         "Restarting": "Reiniciando..",
         "ShuttingDown": "Desligando..",
-        "WARNING": "AVISO:"
+        "WARNING": "AVISO:",
+        "Exit": "Sair",
+        "TryingAgain": "Tentando novamente",
+        "TryLimitsExceeded": "Limite de tentativas excecidos",
+        "Reconnected": "Reconectado",
+        "Errors": {
+            "msgError": "Erro",
+            "ConnectionError": "Erro de conexão"
+        },
+        "MissingCommands": {
+            "Winget": "O comando 'Winget' não foi encontrado"
+        }
     },
     "MainMenu": {
         "Options": {
@@ -40,6 +51,14 @@
                     "BR_2": "Sua placa-mãe está configurado no modo 'BIOsLegacy' (Herdado)"
                 }
             }
+        },
+        "Defrag": {
+            "OptionAvailableSoon": "Opção disponível em breve"
+        },
+        "SearchUpdateApps": {
+            "questUpdateAllPrograms_OR": "Deseja atualizar todos os programas ou só algum específico?",
+            "ShowOptions": "[A] Atualizar Todos | [E] Específico | [N] Nenhum",
+            "EnterSpecificProgram": "Digite o programa específico:"
         }
     }
 }

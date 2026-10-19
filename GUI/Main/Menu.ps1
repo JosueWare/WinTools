@@ -68,36 +68,34 @@ Write-Host "                    WinTools"
 
     Start-Sleep -Milliseconds 500
 
-    # Menu
+# Options
 
-        Write-Host ""
-    Write-Host "    Opções:"
-        Write-Host ""
+    Write-Host ""
+Write-Host "    Opções:"
+    Write-Host ""
 
-        Start-Sleep -Seconds 1
-        
-        Write-Host ""
-    Write-Host "        [1] Reparação do Windows"
-    Write-Host "        [2] Procurar por atualizações de Software (Winget)"
-    Write-Host "        [3] Limpar arquivos temporários"
-    Write-Host "        [4] Otimizar unidades (Em breve!)"
-    Write-Host "        [5] Acessar BIOs"
-        Write-Host ""
-        Write-Host ""
-    Write-Host "    [X] Sair"
-        Write-Host ""
+    Start-Sleep -Seconds 1
+    
+    Write-Host ""
+Write-Host "        [1] Reparação do Windows"
+Write-Host "        [2] Procurar por atualizações de Software (Winget)"
+Write-Host "        [3] Limpar arquivos temporários"
+Write-Host "        [4] Otimizar unidades (Em breve!)"
+Write-Host "        [5] Acessar BIOs"
+    Write-Host ""
+    Write-Host ""
+Write-Host "    [X] Sair"
+    Write-Host ""
 
-    $switchSelectOptions = Read-Host
+$switchSelectOptions = Read-Host
+switch ($switchSelectOptions) {
+    "1" {& $questRepairWindowsSystem}
+    "2" {& (Join-Path -Path "Scripts" -ChildPath "SearchUpdateApps.ps1")}
+    "3" {& (Join-Path -Path "Scripts" -ChildPath @("Tools", "Cleanup", "TempClean.ps1"))}
+    "4" {& (Join-Path -Path "Scripts" -ChildPath "Defrag.ps1")}
+    "5" {& (Join-Path -Path "Scripts" -ChildPath "AccessBIOs.ps1")}
 
-        switch ($switchSelectOptions) {
+    "X" {& $ExitTerminalSession}
 
-            "1" {& $questRepairWindowsSystem}
-            "2" {& (Join-Path -Path "Scripts" -ChildPath "SearchUpdateApps.ps1")}
-            "3" {& (Join-Path -Path "Scripts" -ChildPath @("Tools", "Cleanup", "TempClean.ps1"))}
-            "4" {& (Join-Path -Path "Scripts" -ChildPath "Defrag.ps1")}
-            "5" {& (Join-Path -Path "Scripts" -ChildPath "AccessBIOs.ps1")}
-
-            "X" {& $ExitTerminalSession}
-
-            Default {& $ErrorResponse}
-        }
+    Default {& $ErrorResponse}
+}

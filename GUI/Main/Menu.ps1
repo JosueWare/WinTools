@@ -94,16 +94,7 @@ Write-Host "                    WinTools"
             "1" {& $questRepairWindowsSystem}
             "2" {& (Join-Path -Path "Scripts" -ChildPath "SearchUpdateApps.ps1")}
             "3" {& (Join-Path -Path "Scripts" -ChildPath @("Tools", "Cleanup", "TempClean.ps1"))}
-            "4" {
-                Clear-Host
-                    Write-Host ""
-                Write-Host "    Opção disponível em breve!"
-                    Write-Host ""
-
-                    Start-Sleep -Seconds 2
-
-                & $BackToMainMenu
-            }
+            "4" {& (Join-Path -Path "Scripts" -ChildPath "Defrag.ps1")}
             "5" {& (Join-Path -Path "Scripts" -ChildPath "AccessBIOs.ps1")}
 
             "X" {& $ExitTerminalSession}

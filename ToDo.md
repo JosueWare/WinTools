@@ -2,7 +2,7 @@
 [Voltar](README.md)
 
 ## Scripts Traduzidos (substuição)
-- [ ] `Menu.ps1`
+- [x] `Menu.ps1`
 - [ ] `BIOS_Access.ps1`
 - [ ] `Defrag.ps1`
 - [ ] `SearchUpdateApps.ps1`

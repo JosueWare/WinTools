@@ -9,15 +9,18 @@
 if ((Confirm-SecureBootUEFI) -eq $true) {
     Clear-Host
         Write-Host ""
-    Write-Host "    Salve seus itens da sua área de trabalho" -ForegroundColor Yellow
+        Write-Host $Lang.Tab.tab4 -NoNewline
+    Write-Host $Lang.Scripts.BIOS_Access.SaveYourItemsFromDesktop -ForegroundColor Yellow
         Write-Host ""
 
         Start-Sleep -Seconds 2
 
-    Write-Host "    Deseja reiniciar o computador agora?"
+        Write-Host $Lang.Tab.tab4 -NoNewline
+    Write-Host $Lang.Scripts.BIOS_Access.$questRestartComputerNow
         Write-Host ""
         Start-Sleep -Seconds 1
-    Write-Host "        [S] Sim / [N] Não"
+        Write-Host $Lang.Tab.tab8 -NoNewline
+    Write-Host $Lang.General.YES_OR_NOT
         Write-Host ""
 
     $questRestartComputerNow = Read-Host
@@ -27,7 +30,8 @@ if ((Confirm-SecureBootUEFI) -eq $true) {
             "S" {
                 Clear-Host
                     Write-Host ""
-                Write-Host "    Reiniciando.." -ForegroundColor Yellow
+                    Write-Host $Lang.Tab.tab4 -NoNewline
+                Write-Host $Lang.General.Restarting -ForegroundColor Yellow
                     Write-Host ""
 
                     Start-Sleep -Seconds 1
@@ -43,11 +47,10 @@ if ((Confirm-SecureBootUEFI) -eq $true) {
 elseif ((Confirm-SecureBootUEFI) -eq $false) {
     Clear-Host
         Write-Host ""
-    Write-Host " AVISO:" -ForegroundColor Yellow
+        Write-Host " " -NoNewline
+    Write-Host $Lang.General.WARNING -ForegroundColor Yellow
         Start-Sleep -Seconds 1
-    Write-Host @("
-        Sua placa-mãe suporta a interface UEFI porém o SecureBoot está desativado
-    ") -ForegroundColor Yellow
+    Write-Host $Lang.Scripts.AccessBIOS.SecureBootState.TRUE_but_inactive -ForegroundColor Yellow
 
         Start-Sleep -Seconds 2
 

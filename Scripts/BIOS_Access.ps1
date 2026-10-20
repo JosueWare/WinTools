@@ -54,10 +54,12 @@ elseif ((Confirm-SecureBootUEFI) -eq $false) {
 
         Start-Sleep -Seconds 2
 
-    Write-Host "    Deseja reiniciar o computador agora?"
+        Write-Host $Lang.Tab.tab4 -NoNewline
+    Write-Host $Lang.Scripts.AccessBIOS.questRestartComputerNow
         Write-Host ""
         Start-Sleep -Seconds 1
-    Write-Host "        [S] Sim / [N] Não"
+        Write-Host $Lang.Tab.tab8 -NoNewline
+    Write-Host $Lang.General.YES_OR_NOT
         Write-Host ""
 
     $questRestartComputerNow = Read-Host
@@ -67,7 +69,8 @@ elseif ((Confirm-SecureBootUEFI) -eq $false) {
             "S" {
                 Clear-Host
                     Write-Host ""
-                Write-Host "    Reiniciando.." -ForegroundColor Yellow
+                    Write-Host $Lang.Tab.tab4 -NoNewline
+                Write-Host $Lang.General.Restarting -ForegroundColor Yellow
                     Write-Host ""
 
                     Start-Sleep -Seconds 1
@@ -82,18 +85,21 @@ elseif ((Confirm-SecureBootUEFI) -eq $false) {
 }
 else {
     Clear-Host
-    Write-Host @("
-        A BIOs de sua placa-mãe não é compatível com a interface UEFI
-        Sua placa-mãe está configurado no modo 'BIOsLegacy' (Herdado)
-    ") -ForegroundColor Red
+        Write-Host ""
+        Write-Host $Lang.Tab.tab4 -NoNewline
+    Write-Host $Lang.Scripts.AccessBIOS.SecureBootState.Incompatible.BR_1 -ForegroundColor Red
+    Write-Host $Lang.Scripts.AccessBIOS.SecureBootState.Incompatible.BR_2 -ForegroundColor Red
+        Write-Host ""
 
         Start-Sleep -Seconds 1
 
         Write-Host ""
-    Write-Host "    Deseja voltar ao início?"
+        Write-Host $Lang.Tab.tab4 -NoNewline
+    Write-Host $Lang.General.questBackToMainMenu
         Write-Host ""
         Start-Sleep -Milliseconds 500
-    Write-Host "        [S] Sim / [N] Não (Encerrar)"
+        Write-Host $Lang.Tab.tab8 -NoNewline
+    Write-Host $Lang.General.YES_OR_NOT
         Write-Host ""
 
     $questBackToMainMenu = Read-Host
@@ -101,6 +107,7 @@ else {
         switch ($questBackToMainMenu) {
 
             "S" {& $BackToMainMenu}
+            "Y" {& $BackToMainMenu}
             "N" {& $ExitTerminalSession}
 
             Default {& $ErrorResponse}

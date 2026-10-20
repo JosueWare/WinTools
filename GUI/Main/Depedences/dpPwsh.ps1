@@ -1,9 +1,6 @@
 # Logon
 Set-Location (Join-Path -Path $PSScriptRoot -ChildPath @("..", ".."))
 
-    # Set 'UTF-8'
-    [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
-
 # Check Shell [GUI]
 if (($PSVersionTable.PSEdition) -eq "Core") { <# powershell.exe #>
     Clear-Host

@@ -9,5 +9,5 @@
 - [x] `RepairSystem.ps1`
 - [x] `SystemFileChecker.ps1`
 - [x] `TempClean.ps1`
-- [ ] `dpPwsh.ps1`
+- [x] `dpPwsh.ps1`
 - [ ] `dpWinget.ps1`

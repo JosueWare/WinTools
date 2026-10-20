@@ -24,6 +24,12 @@
             "Winget": "O comando 'Winget' não foi encontrado"
         }
     },
+    "Depedences": {
+        "Pwsh": {
+            "is_PWSH": "PowerShell Core nao foi encontrado",
+            "is_POWERSHELL": "PowerShell Core não foi encontrado"
+        }
+    },
     "MainMenu": {
         "Options": {
             "WindowsRepair": "[1] Reparação do Windows",

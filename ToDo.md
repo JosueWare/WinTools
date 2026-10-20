@@ -1,7 +1,7 @@
 # ToDo
 [Voltar](README.md)
 
-## Scripts Traduzidos (substuição)
+## Scripts Traduzidos (substuídos)
 - [ ] `Menu.ps1`
 - [ ] `BIOS_Access.ps1`
 - [ ] `Defrag.ps1`

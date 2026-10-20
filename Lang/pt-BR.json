@@ -4,11 +4,16 @@
         "InvalidResponse": "Resposta Inválida",
         "YES_OR_NOT": "[S] Sim / [N] Não",
         "Restarting": "Reiniciando..",
-        "ShuttingDown": "Desligando..",
+        "RestartingComputer": "Reiniciando o computador",
+        "ShuttingdownComputer": "Desligando o computador",
+        "Shuttingdown": "Desligando..",
         "WARNING": "AVISO:",
         "Exit": "Sair",
+        "Starting": "Iniciando..",
+        "ExecutingThe": "Executando o ",
+        "FinishedProcess": "Processo finalizado",
         "TryingAgain": "Tentando novamente",
-        "TryLimitsExceeded": "Limite de tentativas excecidos",
+        "TryLimitsExceeded": "Número de tentativas excecidas",
         "Reconnected": "Reconectado",
         "Errors": {
             "msgError": "Erro",
@@ -59,6 +64,16 @@
             "questUpdateAllPrograms_OR": "Deseja atualizar todos os programas ou só algum específico?",
             "ShowOptions": "[A] Atualizar Todos | [E] Específico | [N] Nenhum",
             "EnterSpecificProgram": "Digite o programa específico:"
+        },
+        "RepairSystem": {
+            "Exclamantion": {
+                "BR_1": "Este processo irá demorar e não pode ser interrompido pois será",
+                "BR_2": "baixada uma nova imagem de disco do sistema e em seguida será",
+                "BR_3": "feito uma verificação da integridade dos arquivos do sistema.",
+
+                "BR_4": "Após isso o computador será reinciado."
+            },
+            "questProceed": "Deseja prosseguir?"
         }
     }
 }

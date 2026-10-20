@@ -1,7 +1,7 @@
 {
     "TAB": {
-        "4x": "    ",
-        "8x": "        "
+        "tab4": "    ",
+        "tab8": "        "
     },
     "General": {
         "questBackToMainMenu": "Deseja voltar ao início?",

@@ -85,6 +85,25 @@
             "DoYouWant_SHUTDOWN_OR_RESTART": "Deseja Desligar ou Reiniciar o sistema",
             "AfterProcess": "assim que terminar?",
             "Options": "[D] Desligar / [R] Reiniciar"
+        },
+        "TempClean": {
+            "AnalyzingFolders": "Analisando pastas..",
+            "NotFound": {
+                "userTEMP": "A pasta 'Temp' do usuário não foi encontrada",
+                "sysTEMP": "A pasta 'Temp' do Windows não foi encontrada",
+                "sysPREFETCH": "A pasta 'Prefetch' do Windows não foi encontrada"
+            },
+            "CleaningUp": {
+                "userTEMP": "Limpando a pasta 'Temp' do usuário..",
+                "sysTEMP": "Limpando a pasta 'Temp' do Windows..",
+                "sysPREFETCH": "Limpando a pasta 'Prefetch' do Windows.."
+            },
+            "Clean": "Limpo",
+            "questBackToMainMenu": "Deseja voltar ao início?",
+            "optionsBackToMainMenu": {
+                "Option_1": "[S] Sim / [N] Não",
+                "Option_2": "[S] Sim / [N] Não (Sair)"
+            }
         }
     }
 }

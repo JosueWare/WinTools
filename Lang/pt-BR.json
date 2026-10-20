@@ -3,10 +3,11 @@
         "questBackToMainMenu": "Deseja voltar ao início?",
         "InvalidResponse": "Resposta Inválida",
         "YES_OR_NOT": "[S] Sim / [N] Não",
+        "Shuttingdown": "Desligando..",
         "Restarting": "Reiniciando..",
+        "Shutdown_OR_Restart": "Desligar ou Reiniciar?",
         "RestartingComputer": "Reiniciando o computador",
         "ShuttingdownComputer": "Desligando o computador",
-        "Shuttingdown": "Desligando..",
         "WARNING": "AVISO:",
         "Exit": "Sair",
         "Starting": "Iniciando..",
@@ -74,6 +75,16 @@
                 "BR_4": "Após isso o computador será reinciado."
             },
             "questProceed": "Deseja prosseguir?"
+        },
+        "SystemFileChecker": {
+            "Information_GUI": {
+                "BR_1": "Deseja iniciar uma verificação de integridade do sistema agora?",
+                "BR_2": "(O processo será feito pelo Prompt de comando)"
+            },
+            "BeforeStart": "Antes de iniciar a verificação",
+            "DoYouWant_SHUTDOWN_OR_RESTART": "Deseja Desligar ou Reiniciar o sistema",
+            "AfterProcess": "assim que terminar?",
+            "Options": "[D] Desligar / [R] Reiniciar"
         }
     }
 }

@@ -28,6 +28,9 @@
         "Pwsh": {
             "is_PWSH": "PowerShell Core nao foi encontrado",
             "is_POWERSHELL": "PowerShell Core não foi encontrado"
+        },
+        "Winget": {
+            "NotInstalled": "O 'Winget.exe' não está instalado"
         }
     },
     "MainMenu": {

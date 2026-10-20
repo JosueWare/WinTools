@@ -10,4 +10,4 @@
 - [x] `SystemFileChecker.ps1`
 - [x] `TempClean.ps1`
 - [x] `dpPwsh.ps1`
-- [ ] `dpWinget.ps1`
+- [x] `dpWinget.ps1`

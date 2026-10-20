@@ -20,14 +20,16 @@ $Lang = Get-Content -Raw (Join-Path -Path "Lang" -ChildPath "${currentLanguage}.
             Start-Sleep -Seconds 1
 
             Write-Host ""
-        Write-Host "    Deseja fazer uma verificação de integridade"
-        Write-Host "    do Windows ou uma Reparação completa"
-        Write-Host "    da imagem do sistema?"
+            Write-Host $Lang.Tab.tab4 -NoNewline
+        Write-Host $Lang.MainMenu.SubOptions.RepairWindowsORVerify.BR_1
+        Write-Host $Lang.MainMenu.SubOptions.RepairWindowsORVerify.BR_2
+        Write-Host $Lang.MainMenu.SubOptions.RepairWindowsORVerify.BR_3
             Write-Host ""
         Start-Sleep -Seconds 1
             Write-Host ""
-        Write-Host "        [1]. Verificação   (sfc /scannow)"
-        Write-Host "        [2]. Reparação     (DISM.exe)"
+            Write-Host $Lang.Tab.tab8 -NoNewline
+        Write-Host $Lang.MainMenu.SubOptions.selectVerify_OR_Repair.Option_1
+        Write-Host $Lang.MainMenu.SubOptions.selectVerify_OR_Repair.Option_2
             Write-Host ""
 
         $questVerify_OR_Repair = Read-Host
@@ -40,7 +42,8 @@ $Lang = Get-Content -Raw (Join-Path -Path "Lang" -ChildPath "${currentLanguage}.
                 Default {
                     Clear-Host
                         Write-Host ""
-                    Write-Host "    Resposta inválida" -ForegroundColor Red
+                        Write-Host $Lang.Tab.tab4 -NoNewline
+                    Write-Host $Lang.General.InvalidResponse -ForegroundColor Red
                         Write-Host ""
                         Start-Sleep -Seconds 1
                     & (Join-Path -Path "GUI" -ChildPath @("Main", "Menu.ps1"))
@@ -55,7 +58,8 @@ $Lang = Get-Content -Raw (Join-Path -Path "Lang" -ChildPath "${currentLanguage}.
     [ScriptBlock]$ErrorResponse = {
         Clear-Host
             Write-Host ""
-        Write-Host "    Resposta inválida" -ForegroundColor Red
+            Write-Host $Lang.Tab.tab4 -NoNewline
+        Write-Host $Lang.General.InvalidResponse -ForegroundColor Red
             Write-Host ""
 
             Start-Sleep -Seconds 1

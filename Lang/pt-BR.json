@@ -53,7 +53,7 @@
                 "BR_2": "do Windows ou uma Reparação completa",
                 "BR_3": "da imagem do sistema?",
 
-                "selectVerifcy_OR_Repair": {
+                "selectVerify_OR_Repair": {
                     "Option_1": "[1]. Verificação   (sfc /scannow)",
                     "Option_2": "[2]. Reparação     (DISM.exe)"
                 }

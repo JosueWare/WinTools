@@ -1,13 +1,13 @@
 # ToDo
 [Voltar](README.md)
 
-## Scripts Traduzidos
-- [x] `Menu.ps1`
-- [x] `BIOS_Access.ps1`
-- [x] `Defrag.ps1`
-- [x] `SearchUpdateApps.ps1`
-- [x] `RepairSystem.ps1`
-- [x] `SystemFileChecker.ps1`
-- [x] `TempClean.ps1`
-- [x] `dpPwsh.ps1`
-- [x] `dpWinget.ps1`
+## Scripts Traduzidos (substuição)
+- [ ] `Menu.ps1`
+- [ ] `BIOS_Access.ps1`
+- [ ] `Defrag.ps1`
+- [ ] `SearchUpdateApps.ps1`
+- [ ] `RepairSystem.ps1`
+- [ ] `SystemFileChecker.ps1`
+- [ ] `TempClean.ps1`
+- [ ] `dpPwsh.ps1`
+- [ ] `dpWinget.ps1`

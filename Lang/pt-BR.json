@@ -1,7 +1,12 @@
 {
+    "TAB": {
+        "4x": "    ",
+        "8x": "        "
+    },
     "General": {
         "questBackToMainMenu": "Deseja voltar ao início?",
         "InvalidResponse": "Resposta Inválida",
+        "Options": "Opções",
         "YES_OR_NOT": "[S] Sim / [N] Não",
         "Shuttingdown": "Desligando..",
         "Restarting": "Reiniciando..",

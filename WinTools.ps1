@@ -12,6 +12,20 @@ if (($PSVersionTable.PSEdition) -eq "Core") {
             Write-Host ""
         Write-Host "    Execute o Pwsh.exe como Administrador" -ForegroundColor Red
             Write-Host ""
+
+            Start-Sleep -Seconds 1
+
+        Write-Host "    Deseja executar?"
+            Write-Host ""
+            Start-Sleep -Milliseconds 500
+        Write-Host "        [S] Sim | [N] Não"
+            Write-Host ""
+        $questStartPowerShellCore = Read-Host
+        switch ($questStartPowerShellCore) {
+
+            "S" {. (Join-Path -Path "Config" -ChildPath "Start.ps1")}
+            Default {}
+        }
     }
 }
 else {

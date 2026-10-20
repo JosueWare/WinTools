@@ -50,12 +50,15 @@ elseif ((Confirm-SecureBootUEFI) -eq $false) {
         Write-Host " " -NoNewline
     Write-Host $Lang.General.WARNING -ForegroundColor Yellow
         Start-Sleep -Seconds 1
-    Write-Host $Lang.Scripts.AccessBIOS.SecureBootState.TRUE_but_inactive -ForegroundColor Yellow
+        Write-Host ""
+        Write-Host $Lang.Tab.tab4 -NoNewline
+    Write-Host $Lang.Scripts.BIOS_Access.SecureBootState.TRUE_but_inactive -ForegroundColor Yellow
 
         Start-Sleep -Seconds 2
 
+        Write-Host ""
         Write-Host $Lang.Tab.tab4 -NoNewline
-    Write-Host $Lang.Scripts.AccessBIOS.questRestartComputerNow
+    Write-Host $Lang.Scripts.BIOS_Access.questRestartComputerNow
         Write-Host ""
         Start-Sleep -Seconds 1
         Write-Host $Lang.Tab.tab8 -NoNewline
@@ -87,8 +90,8 @@ else {
     Clear-Host
         Write-Host ""
         Write-Host $Lang.Tab.tab4 -NoNewline
-    Write-Host $Lang.Scripts.AccessBIOS.SecureBootState.Incompatible.BR_1 -ForegroundColor Red
-    Write-Host $Lang.Scripts.AccessBIOS.SecureBootState.Incompatible.BR_2 -ForegroundColor Red
+    Write-Host $Lang.Scripts.BIOS_Access.SecureBootState.Incompatible.BR_1 -ForegroundColor Red
+    Write-Host $Lang.Scripts.BIOS_Access.SecureBootState.Incompatible.BR_2 -ForegroundColor Red
         Write-Host ""
 
         Start-Sleep -Seconds 1

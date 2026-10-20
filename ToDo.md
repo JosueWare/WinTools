@@ -7,7 +7,7 @@
 - [x] `Defrag.ps1`
 - [x] `SearchUpdateApps.ps1`
 - [x] `RepairSystem.ps1`
-- [ ] `SystemFileChecker.ps1`
+- [x] `SystemFileChecker.ps1`
 - [ ] `TempClean.ps1`
 - [ ] `dpPwsh.ps1`
 - [ ] `dpWinget.ps1`

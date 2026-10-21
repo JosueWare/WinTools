@@ -6,30 +6,35 @@
 [scriptblock]$Execute_DISM = {
     Clear-Host
         Write-Host ""
-    Write-Host " AVISO:" -ForegroundColor Yellow
+        Write-Host " " -NoNewline
+    Write-Host $Lang.General.WARNING -ForegroundColor Yellow
         Write-Host ""
 
         Start-Sleep -Seconds 1
 
         Write-Host ""
-    Write-Host "    Este processo irá demorar e não pode ser interrompido pois será
-    baixada uma nova imagem de disco do sistema e em seguida será
-    feito uma verificação da integridade dos arquivos do sistema (System File Checker)." -ForegroundColor Yellow
+        Write-Host $Lang.TAB.tab4 -NoNewline
+    Write-Host $Lang.Scripts.RepairSystem.Exclamantion.BR_1 -ForegroundColor Yellow
+    Write-Host $Lang.Scripts.RepairSystem.Exclamantion.BR_2 -ForegroundColor Yellow
+    Write-Host $Lang.Scripts.RepairSystem.Exclamantion.BR_3 -ForegroundColor Yellow
         Write-Host ""
 
         Start-Sleep -Seconds 2
 
         Write-Host ""
-    Write-Host "    Após isso o computador será reinciado." -ForegroundColor Yellow
+        Write-Host $Lang.TAB.tab4 -NoNewline
+    Write-Host $Lang.Scripts.RepairSystem.Exclamantion.BR_4 -ForegroundColor Yellow
         Write-Host ""
 
         Start-Sleep -Seconds 2
 
         Write-Host ""
-    Write-Host "    Deseja prosseguir?"
+        Write-Host $Lang.TAB.tab4 -NoNewline
+    Write-Host $Lang.Scripts.RepairSystem.questProceed
         Write-Host ""
         Start-Sleep -Milliseconds 500
-    Write-Host "        [S] Sim | [N] Não"
+        Write-Host $Lang.TAB.tab8 -NoNewline
+    Write-Host $Lang.General.YES_OR_NOT
         Write-Host ""
 
     $questProssidExecute_DISM_ = Read-Host

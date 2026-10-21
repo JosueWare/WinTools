@@ -4,6 +4,10 @@
         "tab8": "        "
     },
     "General": {
+        "Steps": {
+            "step1": "Passo 1:",
+            "step2": "Passo 2:"
+        },
         "questBackToMainMenu": "Deseja voltar ao início?",
         "InvalidResponse": "Resposta Inválida",
         "Options": "Opções",

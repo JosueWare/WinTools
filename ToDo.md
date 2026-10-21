@@ -4,7 +4,7 @@
 ## Scripts Traduzidos (substuídos)
 - [x] `Menu.ps1`
 - [x] `BIOS_Access.ps1`
-- [ ] `Defrag.ps1`
+- [x] `Defrag.ps1`
 - [ ] `SearchUpdateApps.ps1`
 - [ ] `RepairSystem.ps1`
 - [ ] `SystemFileChecker.ps1`

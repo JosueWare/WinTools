@@ -2,6 +2,8 @@
 [Voltar](README.md)
 
 ## Scripts Traduzidos (substuídos)
+Estado de conclusão: **`40%`**
+
 - [x] `Menu.ps1`
 - [x] `BIOS_Access.ps1`
 - [x] `Defrag.ps1`

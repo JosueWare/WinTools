@@ -11,11 +11,11 @@
         Start-Sleep -Seconds 1
 
         Write-Host ""
-        Write-Host $Lang.Tab.tab4 -NoNewline
+        Write-Host $Lang.TAB.tab4 -NoNewline
     Write-Host $Lang.Scripts.SearchUpdateApps.questUpdateAllPrograms_OR
         Write-Host ""
         Start-Sleep -Seconds 1
-        Write-Host $Lang.Tab.tab8 -NoNewline
+        Write-Host $Lang.TAB.tab8 -NoNewline
     Write-Host $Lang.Scripts.SearchUpdateApps.ShowOptions
         Write-Host ""
     $questUpgradeAllPrograms = Read-Host
@@ -30,11 +30,11 @@
                     Start-Sleep -Seconds 1
 
                     Write-Host ""
-                    Write-Host $Lang.Tab.tab4 -NoNewline
+                    Write-Host $Lang.TAB.tab4 -NoNewline
                 Write-Host $Lang.General.questBackToMainMenu
                     Write-Host ""
                     Start-Sleep -Seconds 1
-                    Write-Host $Lang.Tab.tab8 -NoNewline
+                    Write-Host $Lang.TAB.tab8 -NoNewline
                 Write-Host $Lang.Scripts.TempClean.optionsBackToMainMenu.Option_2
                     Write-Host ""
 
@@ -56,7 +56,7 @@
                     Start-Sleep -Seconds 1
 
                     Write-Host ""
-                    Write-Host $Lang.Tab.tab4 -NoNewline
+                    Write-Host $Lang.TAB.tab4 -NoNewline
                 Write-Host $Lang.Scripts.SearchUpdateApps.EnterSpecificProgram
                     Write-Host ""
 
@@ -74,11 +74,11 @@
                         Start-Sleep -Seconds 1
 
                         Write-Host ""
-                        Write-Host $Lang.Tab.tab4 -NoNewline
+                        Write-Host $Lang.TAB.tab4 -NoNewline
                     Write-Host $Lang.General.questBackToMainMenu
                         Write-Host ""
                         Start-Sleep -Seconds 1
-                        Write-Host $Lang.Tab.tab8 -NoNewline
+                        Write-Host $Lang.TAB.tab8 -NoNewline
                     Write-Host $Lang.Scripts.TempClean.optionsBackToMainMenu.Option_2
                         Write-Host ""
 
@@ -96,11 +96,11 @@
                         Start-Sleep -Seconds 1
 
                         Write-Host ""
-                        Write-Host $Lang.Tab.tab4 -NoNewline
+                        Write-Host $Lang.TAB.tab4 -NoNewline
                     Write-Host $Lang.General.questBackToMainMenu
                         Write-Host ""
                         Start-Sleep -Seconds 1
-                        Write-Host $Lang.Tab.tab8 -NoNewline
+                        Write-Host $Lang.TAB.tab8 -NoNewline
                     Write-Host $Lang.Scripts.TempClean.optionsBackToMainMenu.Option_2
                         Write-Host ""
 
@@ -128,14 +128,14 @@
 if (-not ($Internet_NET)) {
     Clear-Host
         Write-Host ""
-        Write-Host $Lang.Tab.tab4 -NoNewline
+        Write-Host $Lang.TAB.tab4 -NoNewline
     Write-Host $Lang.General.Errors.ConnectionError -ForegroundColor Red
         Write-Host ""
 
         Start-Sleep -Seconds 1
 
         Write-Host ""
-        Write-Host $Lang.Tab.tab4 -NoNewline
+        Write-Host $Lang.TAB.tab4 -NoNewline
     Write-Host $Lang.General.TryingAgain
     Write-Host "$LimitsTryCounts"
         Write-Host ""
@@ -154,7 +154,7 @@ if (-not ($Internet_NET)) {
             Write-Host ""
 
             Write-Host ""
-            Write-Host $Lang.Tab.tab4 -NoNewline
+            Write-Host $Lang.TAB.tab4 -NoNewline
         Write-Host $Lang.General.TryingAgain
         Write-Host "$LimitsTryCounts"
             Write-Host ""
@@ -165,7 +165,7 @@ if (-not ($Internet_NET)) {
         Clear-Host
 
             Write-Host ""
-            Write-Host $Lang.Tab.tab4 -NoNewline
+            Write-Host $Lang.TAB.tab4 -NoNewline
         Write-Host $Lang.General.Reconnected -ForegroundColor Green
             Write-Host ""
 
@@ -178,14 +178,14 @@ if (-not ($Internet_NET)) {
             else {
                 Clear-Host
                     Write-Host ""
-                    Write-Host $Lang.Tab.tab4 -NoNewline
+                    Write-Host $Lang.TAB.tab4 -NoNewline
                 Write-Host $Lang.General.Errors.msgError -ForegroundColor Red
                     Write-Host ""
 
                     Start-Sleep -Seconds 1
 
                     Write-Host ""
-                    Write-Host $Lang.Tab.tab4 -NoNewline
+                    Write-Host $Lang.TAB.tab4 -NoNewline
                 Write-Host $Lang.General.MissingCommands.Winget -ForegroundColor Red
                     Write-Host ""
 
@@ -196,7 +196,7 @@ if (-not ($Internet_NET)) {
     if ($LimitsTryCounts -gt 20) {
         Clear-Host
             Write-Host ""
-            Write-Host $Lang.Tab.tab4 -NoNewline
+            Write-Host $Lang.TAB.tab4 -NoNewline
         Write-Host $Lang.General.TryLimitsExceeded -ForegroundColor Red
             Write-Host ""
 
@@ -211,14 +211,14 @@ if (-not ($Internet_NET)) {
             else {
                 Clear-Host
                     Write-Host ""
-                    Write-Host $Lang.Tab.tab4 -NoNewline
+                    Write-Host $Lang.TAB.tab4 -NoNewline
                 Write-Host $Lang.General.Errors.msgError -ForegroundColor Red
                     Write-Host ""
 
                     Start-Sleep -Seconds 1
 
                     Write-Host ""
-                    Write-Host $Lang.Tab.tab4 -NoNewline
+                    Write-Host $Lang.TAB.tab4 -NoNewline
                 Write-Host $Lang.General.MissingCommands.Winget -ForegroundColor Red
                     Write-Host ""
 

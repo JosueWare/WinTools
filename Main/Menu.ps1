@@ -1,16 +1,5 @@
 Set-Location (Join-Path -Path $PSScriptRoot -ChildPath @("..", ".."))
 
-# Get Language
-if (Get-Command "Get-Culture" -ErrorAction SilentlyContinue) {
-    $currentLanguage = (Get-Culture).Name
-}
-else {
-    $currentLanguage = "en-US"
-}
-
-# Config Language
-$Lang = Get-Content -Raw (Join-Path -Path "Lang" -ChildPath "${currentLanguage}.json") | ConvertFrom-Json
-
 # ENV
 
     # Scripts Blocks
@@ -86,26 +75,19 @@ Write-Host "                    WinTools"
 # Options
 
     Write-Host ""
-Write-Host $Lang.Tab.tab4 -NoNewline
-Write-Host $Lang.General.Options
+Write-Host "    Opções:"
     Write-Host ""
 
     Start-Sleep -Seconds 1
     
     Write-Host ""
-    Write-Host $Lang.Tab.tab8 -NoNewline
-Write-Host $Lang.MainMenu.Options.WindowsRepair
-    Write-Host $Lang.Tab.tab8 -NoNewline
-Write-Host $Lang.MainMenu.Options.CheckSoftwareUpdates
-    Write-Host $Lang.Tab.tab8 -NoNewline
-Write-Host $Lang.MainMenu.Options.ClearTemporaryFiles
-    Write-Host $Lang.Tab.tab8 -NoNewline
-Write-Host $lang.MainMenu.Options.OptimizeUnits
-    Write-Host $Lang.Tab.tab8 -NoNewline
-Write-Host $lang.MainMenu.Options.AccessBIOS
+Write-Host "        [1] Reparação do Windows"
+Write-Host "        [2] Procurar por atualizações de Software"
+Write-Host "        [3] Limpar arquivos temporários"
+Write-Host "        [4] Otimizar unidades (Em breve)"
+Write-Host "        [5] Acessar BIOS"
     Write-Host ""
-    Write-Host $Lang.Tab.tab8 -NoNewline
-Write-Host $Lang.MainMenu.Options.Exit
+Write-Host "    [X] Sair"
     Write-Host ""
 
 $switchSelectOptions = Read-Host

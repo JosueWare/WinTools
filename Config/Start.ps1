@@ -1,12 +1,8 @@
 # Logon
 
     # ENV
-    $MainScript = @(
-        (Join-Path (Join-Path "GUI" "Main") "Menu.ps1")
-    )
-    $dpPwsh = @(
-        (Join-Path (Join-Path (Join-Path "GUI" "Main") "Depedences") "dpPwsh.ps1")
-    )
+    $MainScript = "Main/Menu.ps1"
+    $dpPwsh = "Main/Depedences/Pwsh.ps1"
 
 # Start
 if (Get-Command "pwsh.exe" -ErrorAction SilentlyContinue) {

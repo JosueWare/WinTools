@@ -2,7 +2,7 @@
 [Voltar](README.md)
 
 ## Scripts Traduzidos [DESFAZENDO]
-Estado de conclusão: **`40%`**
+Estado de conclusão: **`10%`**
 
 - [x] `Menu.ps1`
 - [ ] `BIOS_Access.ps1`

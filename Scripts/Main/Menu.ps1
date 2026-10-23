@@ -21,8 +21,8 @@ Set-Location "$PSScriptRoot/../.."
 
             switch ($questVerify_OR_Repair) {
 
-                "1" {& "Scripts/Tools/SystemFileChecker.ps1"}
-                "2" {& "Scripts/Tools/RepairSystem.ps1"}
+                "1" {& "Scripts/Tools/Maintenance/SystemFileChecker.ps1"}
+                "2" {& "Scripts/Tools/Maintenance/RepairSystem.ps1"}
 
                 Default {
                     Clear-Host
@@ -87,10 +87,10 @@ Write-Host "    [X] Sair"
 $switchSelectOptions = Read-Host
 switch ($switchSelectOptions) {
     "1" {& $questRepairWindowsSystem}
-    "2" {& ""}
-    "3" {& ""}
-    "4" {& ""}
-    "5" {& ""}
+    "2" {& "Scripts/Tools/SearchUpdateApps.ps1"}
+    "3" {& "Scripts/Tools/Cleaning/TempClean.ps1"}
+    "4" {& "Scripts/Tools/Defrag.ps1"}
+    "5" {& "Scripts/Tools/BIOS_Access.ps1"}
 
     "X" {& $ExitTerminalSession}
 

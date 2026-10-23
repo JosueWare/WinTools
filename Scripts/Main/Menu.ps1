@@ -1,5 +1,5 @@
-Set-Location "$PSScriptRoot/.."
-exit
+Set-Location "$PSScriptRoot/../.."
+
 # ENV
 
     # Scripts Blocks

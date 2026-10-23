@@ -1,8 +1,8 @@
 # Logon
 
     # ENV
-    $MainScript = "Main/Menu.ps1"
-    $dpPwsh = "Main/Depedences/Pwsh.ps1"
+    $MainScript = "Scripts/Main/Menu.ps1"
+    $dpPwsh = "Scripts/Main/Depedences/Pwsh.ps1"
 
 # Start
 if (Get-Command "pwsh.exe" -ErrorAction SilentlyContinue) {

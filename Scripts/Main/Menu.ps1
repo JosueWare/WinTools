@@ -1,5 +1,5 @@
 Set-Location "$PSScriptRoot/.."
-
+exit
 # ENV
 
     # Scripts Blocks
@@ -21,22 +21,22 @@ Set-Location "$PSScriptRoot/.."
 
             switch ($questVerify_OR_Repair) {
 
-                "1" {& (Join-Path -Path "Scripts" -ChildPath @("Tools", "SystemFileChecker.ps1"))}
-                "2" {& (Join-Path -Path "Scripts" -ChildPath @("Tools", "RepairSystem.ps1"))}
+                "1" {& "Scripts/Tools/SystemFileChecker.ps1"}
+                "2" {& "Scripts/Tools/RepairSystem.ps1"}
 
                 Default {
                     Clear-Host
                         Write-Host ""
-                    Write-Host "Resposta Inválida" -ForegroundColor Red
+                    Write-Host "    Resposta Inválida" -ForegroundColor Red
                         Write-Host ""
                         Start-Sleep -Seconds 1
-                    & "Main/Menu.ps1"
+                    & "Scripts/Main/Menu.ps1"
                 }
             }
         }
 
     [scriptblock]$BackToMainMenu = {
-        & "Main/Menu.ps1"
+        & "Scripts/Main/Menu.ps1"
     }
 
     [ScriptBlock]$ErrorResponse = {
@@ -87,10 +87,10 @@ Write-Host "    [X] Sair"
 $switchSelectOptions = Read-Host
 switch ($switchSelectOptions) {
     "1" {& $questRepairWindowsSystem}
-    "2" {& (Join-Path -Path "Scripts" -ChildPath "SearchUpdateApps.ps1")}
-    "3" {& (Join-Path -Path "Scripts" -ChildPath @("Tools", "Cleanup", "TempClean.ps1"))}
-    "4" {& (Join-Path -Path "Scripts" -ChildPath "Defrag.ps1")}
-    "5" {& (Join-Path -Path "Scripts" -ChildPath "BIOS_Access.ps1")}
+    "2" {& ""}
+    "3" {& ""}
+    "4" {& ""}
+    "5" {& ""}
 
     "X" {& $ExitTerminalSession}
 

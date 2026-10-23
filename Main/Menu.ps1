@@ -1,24 +1,20 @@
-Set-Location (Join-Path -Path $PSScriptRoot -ChildPath @("..", ".."))
+Set-Location "$PSScriptRoot/.."
 
 # ENV
 
     # Scripts Blocks
     [ScriptBlock]$questRepairWindowsSystem = {
         Clear-Host
-
             Start-Sleep -Seconds 1
-
             Write-Host ""
-            Write-Host $Lang.Tab.tab4 -NoNewline
-        Write-Host $Lang.MainMenu.SubOptions.RepairWindowsORVerify.BR_1
-        Write-Host $Lang.MainMenu.SubOptions.RepairWindowsORVerify.BR_2
-        Write-Host $Lang.MainMenu.SubOptions.RepairWindowsORVerify.BR_3
+        Write-Host "    Deseja fazer uma verificação de integridade"
+        Write-Host "    do Windows ou uma Reparação completa"
+        Write-Host "    da imagem do sistema?"
             Write-Host ""
         Start-Sleep -Seconds 1
             Write-Host ""
-            Write-Host $Lang.Tab.tab8 -NoNewline
-        Write-Host $Lang.MainMenu.SubOptions.selectVerify_OR_Repair.Option_1
-        Write-Host $Lang.MainMenu.SubOptions.selectVerify_OR_Repair.Option_2
+        Write-Host "        [1]. Verificação   (sfc /scannow)"
+        Write-Host "        [2]. Reparação     (DISM.exe)"
             Write-Host ""
 
         $questVerify_OR_Repair = Read-Host
@@ -31,24 +27,22 @@ Set-Location (Join-Path -Path $PSScriptRoot -ChildPath @("..", ".."))
                 Default {
                     Clear-Host
                         Write-Host ""
-                        Write-Host $Lang.Tab.tab4 -NoNewline
-                    Write-Host $Lang.General.InvalidResponse -ForegroundColor Red
+                    Write-Host "Resposta Inválida" -ForegroundColor Red
                         Write-Host ""
                         Start-Sleep -Seconds 1
-                    & (Join-Path -Path "GUI" -ChildPath @("Main", "Menu.ps1"))
+                    & "Main/Menu.ps1"
                 }
             }
         }
 
     [scriptblock]$BackToMainMenu = {
-        & (Join-Path -Path "GUI" -ChildPath @("Main", "Menu.ps1"))
+        & "Main/Menu.ps1"
     }
 
     [ScriptBlock]$ErrorResponse = {
         Clear-Host
             Write-Host ""
-            Write-Host $Lang.Tab.tab4 -NoNewline
-        Write-Host $Lang.General.InvalidResponse -ForegroundColor Red
+        Write-Host "    Resposta Inválida" -ForegroundColor Red
             Write-Host ""
 
             Start-Sleep -Seconds 1
@@ -60,7 +54,7 @@ Set-Location (Join-Path -Path $PSScriptRoot -ChildPath @("..", ".."))
     [ScriptBlock]$ExitTerminalSession = {
         Clear-Host
         Start-Sleep -Milliseconds 250
-        $Host.SetShouldExit(0)
+        (Get-Process -Id $PID).CloseMainWindow()
     }
 
 # Menu

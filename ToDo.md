@@ -1,13 +1,13 @@
 # ToDo
 [Voltar](README.md)
 
-## Scripts Traduzidos (substuídos)
+## Scripts Traduzidos [DESFAZENDO]
 Estado de conclusão: **`40%`**
 
-- [x] `Menu.ps1`
-- [x] `BIOS_Access.ps1`
-- [x] `Defrag.ps1`
-- [x] `SearchUpdateApps.ps1`
+- [ ] `Menu.ps1`
+- [ ] `BIOS_Access.ps1`
+- [ ] `Defrag.ps1`
+- [ ] `SearchUpdateApps.ps1`
 - [ ] `RepairSystem.ps1`
 - [ ] `SystemFileChecker.ps1`
 - [ ] `TempClean.ps1`

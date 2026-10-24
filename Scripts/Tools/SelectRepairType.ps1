@@ -1,9 +1,3 @@
-# Check Request
-if (-not (($GetRequest) -and ($RequestType -eq "SelectRepairType"))) {
-    Write-Host "Execution Denied" -ForegroundColor Red
-    exit
-}
-
 Clear-Host
     Start-Sleep -Seconds 1
     Write-Host ""

@@ -96,11 +96,12 @@
             }
 
             "N" {
-                Write-Host ""
-                Set-Location $HOME
+                . $BackToMainMenu
             }
 
-            Default {& $ErrorResponse}
+            Default {
+                . $ErrorResponse
+            }
         }
 }
 
@@ -145,7 +146,7 @@ if (-not ($Internet_NET)) {
 
                 Start-Sleep -Seconds 2
 
-            & $Execute_DISM
+            . $Execute_DISM
         }
             else {
                 Clear-Host
@@ -156,4 +157,6 @@ if (-not ($Internet_NET)) {
             Set-Location $HOME
             }
 }
-    else {& $Execute_DISM}
+    else {
+        . $Execute_DISM
+    }

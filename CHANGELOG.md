@@ -4,8 +4,12 @@
 ## 1.3.4
 23/10/2026
 
+Geral:
 - Removido a tradução `pt-BR` na beta do projeto
 - E mais outras coisas foram removidas e aprimoradas
+
+Novo script:
+- `DefaultFolders.ps1` criará pastas como `Logs` e private automaticamente quando executar o arquivo script principal.
 
 ## 1.3.1
 18/10/2026

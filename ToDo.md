@@ -10,6 +10,6 @@ Estado de conclusão: **`100%`**
 - [x] `SearchUpdateApps.ps1`
 - [x] `RepairSystem.ps1`
 - [x] `SystemFileChecker.ps1`
-- [ ] `TempClean.ps1`
-- [ ] `Pwsh.ps1`
-- [ ] `Winget.ps1`
+- [x] `TempClean.ps1`
+- [x] `Pwsh.ps1`
+- [x] `Winget.ps1`

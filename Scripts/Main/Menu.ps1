@@ -1,45 +1,13 @@
 Set-Location "$PSScriptRoot/../.."
 
 # Startup scripts
-& "Scripts/Config/DefaultFolders.ps1"
+. "Scripts/Config/DefaultFolders.ps1"
 
 # ENV
 
     # Scripts Blocks
-    [ScriptBlock]$questRepairWindowsSystem = {
-        Clear-Host
-            Start-Sleep -Seconds 1
-            Write-Host ""
-        Write-Host "    Deseja fazer uma verificação de integridade"
-        Write-Host "    do Windows ou uma Reparação completa"
-        Write-Host "    da imagem do sistema?"
-            Write-Host ""
-        Start-Sleep -Seconds 1
-            Write-Host ""
-        Write-Host "        [1]. Verificação   (sfc /scannow)"
-        Write-Host "        [2]. Reparação     (DISM.exe)"
-            Write-Host ""
-
-        $questVerify_OR_Repair = Read-Host
-
-            switch ($questVerify_OR_Repair) {
-
-                "1" {& "Scripts/Tools/Maintenance/SystemFileChecker.ps1"}
-                "2" {& "Scripts/Tools/Maintenance/RepairSystem.ps1"}
-
-                Default {
-                    Clear-Host
-                        Write-Host ""
-                    Write-Host "    Resposta Inválida" -ForegroundColor Red
-                        Write-Host ""
-                        Start-Sleep -Seconds 1
-                    & "Scripts/Main/Menu.ps1"
-                }
-            }
-        }
-
     [scriptblock]$BackToMainMenu = {
-        & "Scripts/Main/Menu.ps1"
+        . "Scripts/Main/Menu.ps1"
     }
 
     [ScriptBlock]$ErrorResponse = {
@@ -51,7 +19,7 @@ Set-Location "$PSScriptRoot/../.."
             Start-Sleep -Seconds 1
 
         Clear-Host
-        & $BackToMainMenu
+        . $BackToMainMenu
     }
 
     [ScriptBlock]$ExitTerminalSession = {
@@ -89,13 +57,13 @@ Write-Host "    [X] Sair"
 
 $switchSelectOptions = Read-Host
 switch ($switchSelectOptions) {
-    "1" {& $questRepairWindowsSystem}
-    "2" {& "Scripts/Tools/SearchUpdateApps.ps1"}
-    "3" {& "Scripts/Tools/Cleaning/TempClean.ps1"}
-    "4" {& "Scripts/Tools/Defrag.ps1"}
-    "5" {& "Scripts/Tools/BIOS_Access.ps1"}
+    "1" {. "Scripts/Tools/SelectRepairType.ps1"}
+    "2" {. "Scripts/Tools/SearchUpdateApps.ps1"}
+    "3" {. "Scripts/Tools/Cleaning/TempClean.ps1"}
+    "4" {. "Scripts/Tools/Defrag.ps1"}
+    "5" {. "Scripts/Tools/BIOS_Access.ps1"}
 
-    "X" {& $ExitTerminalSession}
+    "X" {. $ExitTerminalSession}
 
-    Default {& $ErrorResponse}
+    Default {. $ErrorResponse}
 }

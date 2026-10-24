@@ -3,7 +3,11 @@ Set-Location "$PSScriptRoot/../.."
 # Startup scripts
 . "Scripts/Config/DefaultFolders.ps1"
 
-# Generator Log Request
+# Log Generator
+[bool]$GetLog = $false
+[string]$LogName = ""
+
+# RequestSystem
 [bool]$GetRequest = $false
 [string]$RequestType = ""
 
@@ -35,6 +39,11 @@ Set-Location "$PSScriptRoot/../.."
     [scriptblock]$SendRequest = {
         $GetRequest = $true
         . "Scripts/Config/RequestSystem.ps1"
+    }
+
+    [scriptblock]$MakeLog = {
+        $GetLog = $true
+        . "Scripts/Config/Gen/LogGenerator.ps1"
     }
 
 # Menu

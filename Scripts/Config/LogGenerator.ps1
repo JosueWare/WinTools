@@ -1,0 +1,2 @@
+# ENV
+[bool]$GetRequest

@@ -1,5 +1,8 @@
 Set-Location "$PSScriptRoot/../.."
 
+# Startup scripts
+& "Scripts/Config/DefaultFolders.ps1"
+
 # ENV
 
     # Scripts Blocks

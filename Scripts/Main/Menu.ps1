@@ -3,6 +3,10 @@ Set-Location "$PSScriptRoot/../.."
 # Startup scripts
 & "Scripts/Config/DefaultFolders.ps1"
 
+# Generator Log Request
+[bool]$GetRequest = $false
+[string]$RequestType = ""
+
 # ENV
 
     # Scripts Blocks
@@ -58,6 +62,10 @@ Set-Location "$PSScriptRoot/../.."
         Clear-Host
         Start-Sleep -Milliseconds 250
         (Get-Process -Id $PID).CloseMainWindow()
+    }
+
+    [scriptblock]$SendRequestLog = {
+        . "Scripts/Config/LogGenerator.ps1"
     }
 
 # Menu

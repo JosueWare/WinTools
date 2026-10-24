@@ -10,43 +10,11 @@ Set-Location "$PSScriptRoot/../.."
 # ENV
 
     # Scripts Blocks
-    [ScriptBlock]$questRepairWindowsSystem = {
-        Clear-Host
-            Start-Sleep -Seconds 1
-            Write-Host ""
-        Write-Host "    Deseja fazer uma verificação de integridade"
-        Write-Host "    do Windows ou uma Reparação completa"
-        Write-Host "    da imagem do sistema?"
-            Write-Host ""
-        Start-Sleep -Seconds 1
-            Write-Host ""
-        Write-Host "        [1]. Verificação   (sfc /scannow)"
-        Write-Host "        [2]. Reparação     (DISM.exe)"
-            Write-Host ""
-
-        $questVerify_OR_Repair = Read-Host
-
-            switch ($questVerify_OR_Repair) {
-
-                "1" {& "Scripts/Tools/Maintenance/SystemFileChecker.ps1"}
-                "2" {& "Scripts/Tools/Maintenance/RepairSystem.ps1"}
-
-                Default {
-                    Clear-Host
-                        Write-Host ""
-                    Write-Host "    Resposta Inválida" -ForegroundColor Red
-                        Write-Host ""
-                        Start-Sleep -Seconds 1
-                    & "Scripts/Main/Menu.ps1"
-                }
-            }
-        }
-
     [scriptblock]$BackToMainMenu = {
         & "Scripts/Main/Menu.ps1"
     }
 
-    [ScriptBlock]$ErrorResponse = {
+    [scriptblock]$ErrorResponse = {
         Clear-Host
             Write-Host ""
         Write-Host "    Resposta Inválida" -ForegroundColor Red
@@ -58,7 +26,7 @@ Set-Location "$PSScriptRoot/../.."
         & $BackToMainMenu
     }
 
-    [ScriptBlock]$ExitTerminalSession = {
+    [scriptblock]$ExitTerminalSession = {
         Clear-Host
         Start-Sleep -Milliseconds 250
         (Get-Process -Id $PID).CloseMainWindow()
@@ -97,7 +65,7 @@ Write-Host "    [X] Sair"
 
 $switchSelectOptions = Read-Host
 switch ($switchSelectOptions) {
-    "1" {& $questRepairWindowsSystem}
+    "1" {& "Scripts/Tools/SelectRepairType.ps1"}
     "2" {& "Scripts/Tools/SearchUpdateApps.ps1"}
     "3" {& "Scripts/Tools/Cleaning/TempClean.ps1"}
     "4" {& "Scripts/Tools/Defrag.ps1"}

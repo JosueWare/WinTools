@@ -1,3 +1,9 @@
+# Check Request
+if (-not ($GetRequest)) {
+    Write-Host "Execution Denied" -ForegroundColor Red
+    exit
+}
+
 # ENV
 [bool]$Internet_NET = Test-Connection -TargetName "8.8.8.8" -Count 1 -Quiet
 [int]$LimitsTryCounts = "0"
@@ -61,6 +67,10 @@
 
                 Start-Process -FilePath "cmd.exe" -ArgumentList "/c DISM.exe /Online /Cleanup-image /Restorehealth" -Verb RunAs -Wait
 
+                # Make Log
+                $LogName = "RepairSystem"
+                . $MakeLog
+
                     Write-Host ""
                 Write-Host "    Processo finalizado" -ForegroundColor Green
                     Write-Host ""
@@ -100,7 +110,7 @@
                 Set-Location $HOME
             }
 
-            Default {& $ErrorResponse}
+            Default {. $ErrorResponse}
         }
 }
 
@@ -145,7 +155,7 @@ if (-not ($Internet_NET)) {
 
                 Start-Sleep -Seconds 2
 
-            & $Execute_DISM
+            . $Execute_DISM
         }
             else {
                 Clear-Host

@@ -6,35 +6,31 @@
 [scriptblock]$Execute_DISM = {
     Clear-Host
         Write-Host ""
-        Write-Host " " -NoNewline
-    Write-Host $Lang.General.WARNING -ForegroundColor Yellow
+    Write-Host " AVISO:" -ForegroundColor Yellow
         Write-Host ""
 
         Start-Sleep -Seconds 1
 
         Write-Host ""
-        Write-Host $Lang.TAB.tab4 -NoNewline
-    Write-Host $Lang.Scripts.RepairSystem.Exclamantion.BR_1 -ForegroundColor Yellow
-    Write-Host $Lang.Scripts.RepairSystem.Exclamantion.BR_2 -ForegroundColor Yellow
-    Write-Host $Lang.Scripts.RepairSystem.Exclamantion.BR_3 -ForegroundColor Yellow
+    Write-Host "    Este processo irá demorar e não pode ser interrompido pois será" -ForegroundColor Yellow
+    Write-Host "    baixada uma nova imagem de disco do sistema e em seguida será" -ForegroundColor Yellow
+    Write-Host "    feito uma verificação da integridade dos arquivos do sistema." -ForegroundColor Yellow
         Write-Host ""
 
         Start-Sleep -Seconds 2
 
         Write-Host ""
-        Write-Host $Lang.TAB.tab4 -NoNewline
-    Write-Host $Lang.Scripts.RepairSystem.Exclamantion.BR_4 -ForegroundColor Yellow
+    Write-Host "    Após isso o computador será reinciado." -ForegroundColor Yellow
         Write-Host ""
 
         Start-Sleep -Seconds 2
 
         Write-Host ""
-        Write-Host $Lang.TAB.tab4 -NoNewline
-    Write-Host $Lang.Scripts.RepairSystem.questProceed
+    Write-Host "    Deseja prosseguir?"
         Write-Host ""
         Start-Sleep -Milliseconds 500
-        Write-Host $Lang.TAB.tab8 -NoNewline
-    Write-Host $Lang.General.YES_OR_NOT
+
+    Write-Host "        [S] Sim / [N] Não"
         Write-Host ""
 
     $questProssidExecute_DISM_ = Read-Host
@@ -47,18 +43,17 @@
                     Start-Sleep -Seconds 1
 
                     Write-Host ""
-                    Write-Host $Lang.TAB.tab4 -NoNewline
-                Write-Host $Lang.General.Starting
+                Write-Host "    Inciando.."
                     Write-Host ""
 
                     Start-Sleep -Seconds 2
 
                 Clear-Host <# Step 1 #>
                     Write-Host ""
-                    Write-Host $Lang.TAB.tab4 -NoNewline
-                Write-Host $Lang.General.Steps.step1 -NoNewline
+                Write-Host " Passo 1:"
                     Start-Sleep -Seconds 1
-                Write-Host $Lang.General.ExecutingThe -NoNewline
+                    Write-Host ""
+                Write-Host "    Executando o" -NoNewline
                 Write-Host "DISM.exe" -ForegroundColor Magenta
                     Write-Host ""
 
@@ -67,16 +62,16 @@
                 Start-Process -FilePath "cmd.exe" -ArgumentList "/c DISM.exe /Online /Cleanup-image /Restorehealth" -Verb RunAs -Wait
 
                     Write-Host ""
-                    Write-Host $Lang.TAB.tab4 -NoNewline
-                Write-Host $Lang.General.FinishedProcess -ForegroundColor Green
+                Write-Host "    Processo finalizado" -ForegroundColor Green
                     Write-Host ""
+
+                    Start-Sleep -Seconds 2
 
                 Clear-Host <# Step 2 #>
                     Write-Host ""
-                    Write-Host $Lang.TAB.tab4 -NoNewline
-                Write-Host $Lang.General.Steps.step2 -NoNewline
+                Write-Host " Passo 2:"
                     Start-Sleep -Seconds 1
-                Write-Host $Lang.General.ExecutingThe -NoNewline
+                Write-Host "Executando o " -NoNewline
                 Write-Host "System File Checker" -ForegroundColor Magenta
                     Write-Host ""
 
@@ -85,16 +80,14 @@
                 Start-Process -FilePath "cmd.exe" -ArgumentList "/c sfc /scannow" -Verb RunAs -Wait
 
                     Write-Host ""
-                    Write-Host $Lang.TAB.tab4 -NoNewline
-                Write-Host $Lang.General.FinishedProcess -ForegroundColor Green
+                Write-Host "    Processo finalizado" -ForegroundColor Green
                     Write-Host ""
 
-                    Start-Sleep -Seconds 1
+                    Start-Sleep -Seconds 2
 
                 Clear-Host
                     Write-Host ""
-                    Write-Host $Lang.TAB.tab4 -NoNewline
-                Write-Host $Lang.General.RestartingComputer -ForegroundColor Yellow
+                Write-Host "    Reiniciando o computador.." -ForegroundColor Yellow
                     Write-Host ""
 
                     Start-Sleep -Seconds 2
@@ -107,15 +100,7 @@
                 Set-Location $HOME
             }
 
-            Default {
-                Clear-Host
-                    Write-Host ""
-                    Write-Host $Lang.TAB.tab4 -NoNewline
-                Write-Host $Lang.General.InvalidResponse -ForegroundColor Red
-                    Write-Host ""
-
-                Set-Location $HOME
-            }
+            Default {& $ErrorResponse}
         }
 }
 

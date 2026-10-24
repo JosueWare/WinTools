@@ -5,4 +5,4 @@ Write-Host "    Opção disponível em breve"
 
     Start-Sleep -Seconds 2
 
-& $BackToMainMenu
+. $BackToMainMenu

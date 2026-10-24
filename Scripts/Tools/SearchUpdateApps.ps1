@@ -39,10 +39,10 @@
 
                     switch ($questReturnToMainMenu) {
 
-                        "S" {& $BackToMainMenu}
-                        "N" {& $ExitTerminalSession}
+                        "S" {. $BackToMainMenu}
+                        "N" {. $ExitTerminalSession}
 
-                        Default {& $ErrorResponse}
+                        Default {. $ErrorResponse}
                     }
             }
 
@@ -80,9 +80,9 @@
                     $questReturnToMainMenu = Read-Host
 
                         switch ($questReturnToMainMenu) {
-                            "S" {& $BackToMainMenu}
-                            "N" {& $ExitTerminalSession}
-                            Default {& $ErrorResponse}
+                            "S" {. $BackToMainMenu}
+                            "N" {. $ExitTerminalSession}
+                            Default {. $ErrorResponse}
                         }
                 }
                 else {
@@ -101,19 +101,19 @@
                     $questReturnToMainMenu = Read-Host
 
                         switch ($questReturnToMainMenu) {
-                            "S" {& $BackToMainMenu}
-                            "N" {& $ExitTerminalSession}
-                            Default {& $ErrorResponse}
+                            "S" {. $BackToMainMenu}
+                            "N" {. $ExitTerminalSession}
+                            Default {. $ErrorResponse}
                     }
                 }
             }
 
             "N" {
                 Clear-History
-                & $BackToMainMenu
+                . $BackToMainMenu
             }
 
-            Default {& $ErrorResponse}
+            Default {. $ErrorResponse}
         }
 }
 
@@ -163,7 +163,7 @@ if (-not ($Internet_NET)) {
 
         # Check Command 'Winget'
         if (Get-Command "winget.exe" -ErrorAction SilentlyContinue) {
-            & $WingetSearchUpgrade
+            . $WingetSearchUpgrade
         }
             else {
                 Clear-Host
@@ -193,7 +193,7 @@ if (-not ($Internet_NET)) {
     else {
         # Check Command 'Winget'
         if (Get-Command "winget.exe" -ErrorAction SilentlyContinue) {
-            & $WingetSearchUpgrade
+            . $WingetSearchUpgrade
         }
             else {
                 Clear-Host

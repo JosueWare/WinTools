@@ -71,7 +71,7 @@
                     Write-Host ""
                 Write-Host " Passo 2:"
                     Start-Sleep -Seconds 1
-                Write-Host "Executando o " -NoNewline
+                Write-Host "    Executando o " -NoNewline
                 Write-Host "System File Checker" -ForegroundColor Magenta
                     Write-Host ""
 

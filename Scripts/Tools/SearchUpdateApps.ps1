@@ -11,12 +11,10 @@
         Start-Sleep -Seconds 1
 
         Write-Host ""
-        Write-Host $Lang.TAB.tab4 -NoNewline
-    Write-Host $Lang.Scripts.SearchUpdateApps.questUpdateAllPrograms_OR
+    Write-Host "    Deseja atualizar todos os programas ou só algum específico?"
         Write-Host ""
         Start-Sleep -Seconds 1
-        Write-Host $Lang.TAB.tab8 -NoNewline
-    Write-Host $Lang.Scripts.SearchUpdateApps.ShowOptions
+    Write-Host "        [A] Atualizar Todos | [E] Específico | [N] Nenhum"
         Write-Host ""
     $questUpgradeAllPrograms = Read-Host
 
@@ -30,12 +28,11 @@
                     Start-Sleep -Seconds 1
 
                     Write-Host ""
-                    Write-Host $Lang.TAB.tab4 -NoNewline
-                Write-Host $Lang.General.questBackToMainMenu
+                Write-Host "    Deseja voltar ao início?"
                     Write-Host ""
                     Start-Sleep -Seconds 1
-                    Write-Host $Lang.TAB.tab8 -NoNewline
-                Write-Host $Lang.Scripts.TempClean.optionsBackToMainMenu.Option_2
+
+                Write-Host "        [S] Sim / [N] Não (Sair)"
                     Write-Host ""
 
                 $questReturnToMainMenu = Read-Host
@@ -56,15 +53,14 @@
                     Start-Sleep -Seconds 1
 
                     Write-Host ""
-                    Write-Host $Lang.TAB.tab4 -NoNewline
-                Write-Host $Lang.Scripts.SearchUpdateApps.EnterSpecificProgram
+                Write-Host "Digite o nome do programa:"
                     Write-Host ""
 
                 $selectedProgramToUpdate = Read-Host
 
                 Clear-Host
 
-                if (($selectedProgramToUpdate) -eq "Spotify.Spotify") {
+                if (($selectedProgramToUpdate) -contains "Spotify.Spotify") {
                     Start-Process -FilePath "pwsh.exe" -ArgumentList @(
                         "-NoProfile",
                         "-Command",
@@ -74,12 +70,11 @@
                         Start-Sleep -Seconds 1
 
                         Write-Host ""
-                        Write-Host $Lang.TAB.tab4 -NoNewline
-                    Write-Host $Lang.General.questBackToMainMenu
+                    Write-Host "        Deseja voltar ao início?"
                         Write-Host ""
                         Start-Sleep -Seconds 1
-                        Write-Host $Lang.TAB.tab8 -NoNewline
-                    Write-Host $Lang.Scripts.TempClean.optionsBackToMainMenu.Option_2
+
+                    Write-Host "        [S] Sim / [N] Não (Sair)"
                         Write-Host ""
 
                     $questReturnToMainMenu = Read-Host
@@ -96,12 +91,11 @@
                         Start-Sleep -Seconds 1
 
                         Write-Host ""
-                        Write-Host $Lang.TAB.tab4 -NoNewline
-                    Write-Host $Lang.General.questBackToMainMenu
+                    Write-Host "        Deseja voltar ao início?"
                         Write-Host ""
                         Start-Sleep -Seconds 1
-                        Write-Host $Lang.TAB.tab8 -NoNewline
-                    Write-Host $Lang.Scripts.TempClean.optionsBackToMainMenu.Option_2
+
+                    Write-Host "        [S] Sim / [N] Não (Sair)"
                         Write-Host ""
 
                     $questReturnToMainMenu = Read-Host
@@ -128,15 +122,13 @@
 if (-not ($Internet_NET)) {
     Clear-Host
         Write-Host ""
-        Write-Host $Lang.TAB.tab4 -NoNewline
-    Write-Host $Lang.General.Errors.ConnectionError -ForegroundColor Red
+    Write-Host "    Erro de conexão" -ForegroundColor Red
         Write-Host ""
 
         Start-Sleep -Seconds 1
 
         Write-Host ""
-        Write-Host $Lang.TAB.tab4 -NoNewline
-    Write-Host $Lang.General.TryingAgain
+    Write-Host "    Tentando novamente " -NoNewline
     Write-Host "$LimitsTryCounts"
         Write-Host ""
 
@@ -150,12 +142,11 @@ if (-not ($Internet_NET)) {
 
         Clear-Host
             Write-Host ""
-        Write-Host $Lang.General.Errors.ConnectionError -ForegroundColor Red
+        Write-Host "    Erro de conexão" -ForegroundColor Red
             Write-Host ""
 
             Write-Host ""
-            Write-Host $Lang.TAB.tab4 -NoNewline
-        Write-Host $Lang.General.TryingAgain
+        Write-Host "    Tentando novamente " -NoNewline
         Write-Host "$LimitsTryCounts"
             Write-Host ""
     } until (($Internet_NET -eq $true) -or ($LimitsTryCounts -gt 20))
@@ -165,8 +156,7 @@ if (-not ($Internet_NET)) {
         Clear-Host
 
             Write-Host ""
-            Write-Host $Lang.TAB.tab4 -NoNewline
-        Write-Host $Lang.General.Reconnected -ForegroundColor Green
+        Write-Host "    Reconectado" -ForegroundColor Green
             Write-Host ""
 
             Start-Sleep -Seconds 2
@@ -178,15 +168,13 @@ if (-not ($Internet_NET)) {
             else {
                 Clear-Host
                     Write-Host ""
-                    Write-Host $Lang.TAB.tab4 -NoNewline
-                Write-Host $Lang.General.Errors.msgError -ForegroundColor Red
+                Write-Host "    Erro" -ForegroundColor Red
                     Write-Host ""
 
                     Start-Sleep -Seconds 1
 
                     Write-Host ""
-                    Write-Host $Lang.TAB.tab4 -NoNewline
-                Write-Host $Lang.General.MissingCommands.Winget -ForegroundColor Red
+                Write-Host "    O comando 'Winget' não foi encontrado" -ForegroundColor Red
                     Write-Host ""
 
                 Set-Location $HOME
@@ -196,8 +184,7 @@ if (-not ($Internet_NET)) {
     if ($LimitsTryCounts -gt 20) {
         Clear-Host
             Write-Host ""
-            Write-Host $Lang.TAB.tab4 -NoNewline
-        Write-Host $Lang.General.TryLimitsExceeded -ForegroundColor Red
+        Write-Host "    Número de tentativas excecidas" -ForegroundColor Red
             Write-Host ""
 
         Set-Location $HOME
@@ -211,15 +198,13 @@ if (-not ($Internet_NET)) {
             else {
                 Clear-Host
                     Write-Host ""
-                    Write-Host $Lang.TAB.tab4 -NoNewline
-                Write-Host $Lang.General.Errors.msgError -ForegroundColor Red
+                Write-Host "    Erro" -ForegroundColor Red
                     Write-Host ""
 
                     Start-Sleep -Seconds 1
 
                     Write-Host ""
-                    Write-Host $Lang.TAB.tab4 -NoNewline
-                Write-Host $Lang.General.MissingCommands.Winget -ForegroundColor Red
+                Write-Host "    O comando 'Winget' não foi encontrado" -ForegroundColor Red
                     Write-Host ""
 
                 Set-Location $HOME

@@ -5,17 +5,10 @@ O sistema de pedido e o gerador de logs estão prontos.
 Em um arquivo de script `.ps1` faça o pedido como este exemplo:
 
 ```powershell
-# Etapa 1: RequestSystem (Configuração)
-[bool]$GetRequest = $false
-[string]$RequestType = ""
+$RequestType = "Defrag" <# Tipo de pedido #>
+$GetRequest = $true <# Confirme o pedido #>
 
-# Etapa 2: Defina qual tipo de pedido
-$RequestType = "Defrag"
-
-# Etapa 3: Confirme o pedido
-$GetRequest = $true
-
-<# Procure em executar o script de pedidos #>
+. $scriptblock:SendRequest <# Enviar pedido #>
 ```
 
 Assim não será possível executar o determinado script sem passar por esta sessão.
@@ -23,4 +16,7 @@ Assim não será possível executar o determinado script sem passar por esta ses
 ## Gerar logs
 Após um evento concluído durante execução de script, execute esses passos por exemplo:
 ```powershell
+$LogName = "" <# Nome do Log #>
+$GetLog = $true <# Confirma #>
+. $scriptblock:makeLog
 ```

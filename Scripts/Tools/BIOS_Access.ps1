@@ -1,9 +1,3 @@
-# Check Request
-if (-not (($GetRequest) -and ($RequestType -eq "BIOS_Access"))) {
-    Write-Host "Execution Denied" -ForegroundColor Red
-    exit
-}
-
 # Logon
 
     # Scripts Blocks

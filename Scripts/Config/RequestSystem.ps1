@@ -3,10 +3,10 @@ if ($GetRequest) {
 
         # Tools
         "SelectRepairType" {. "Scripts/Tools/SelectRepairType.ps1"}
-        "SearchUpdateApps" {}
-        "TempClean" {}
-        "Defrag" {}
-        "BIOS_Access" {}
+        "SearchUpdateApps" {. "Scripts/Tools/SearchUpdateApps.ps1"}
+        "TempClean" {. "Scripts/Tools/Cleaning/TempClean.ps1"}
+        "Defrag" {. "Scripts/Tools/Defrag.ps1"}
+        "BIOS_Access" {. "Scripts/Tools/BIOS_Access.ps1"}
 
         # Config
         "GenerateLog" {. "Scripts/Config/Gen/LogGenerator.ps1"}

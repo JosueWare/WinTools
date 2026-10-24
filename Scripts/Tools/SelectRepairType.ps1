@@ -1,6 +1,6 @@
 # Check Request
-if (-not (($GetRequest -eq $true) -and ($RequestType -eq "SelectRepairType"))) {
-    Write-Host "NEGADO" -ForegroundColor Red
+if (-not (($GetRequest) -and ($RequestType -eq "SelectRepairType"))) {
+    Write-Host "Execution Denied" -ForegroundColor Red
     exit
 }
 

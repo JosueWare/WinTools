@@ -1,3 +1,9 @@
+# Check Request
+if (-not (($GetRequest) -and ($RequestType -eq "SearchUpdateApps"))) {
+    Write-Host "Execution Denied" -ForegroundColor Red
+    exit
+}
+
 # ENV
 [bool]$Internet_NET = Test-Connection -TargetName "8.8.8.8" -Count 1 -Quiet
 [int]$LimitsTryCounts = "0"

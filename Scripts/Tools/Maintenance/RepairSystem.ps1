@@ -40,78 +40,78 @@ if (-not ($GetRequest)) {
         Write-Host ""
 
     $questProssidExecute_DISM_ = Read-Host
+    switch ($questProssidExecute_DISM_) {
 
-        switch ($questProssidExecute_DISM_) {
+        "S" {
+            Clear-Host
 
-            "S" {
-                Clear-Host
+                Start-Sleep -Seconds 1
 
-                    Start-Sleep -Seconds 1
-
-                    Write-Host ""
-                Write-Host "    Inciando.."
-                    Write-Host ""
-
-                    Start-Sleep -Seconds 2
-
-                Clear-Host <# Step 1 #>
-                    Write-Host ""
-                Write-Host " Passo 1:"
-                    Start-Sleep -Seconds 1
-                    Write-Host ""
-                Write-Host "    Executando o" -NoNewline
-                Write-Host "DISM.exe" -ForegroundColor Magenta
-                    Write-Host ""
-
-                    Start-Sleep -Seconds 1
-
-                Start-Process -FilePath "cmd.exe" -ArgumentList "/c DISM.exe /Online /Cleanup-image /Restorehealth" -Verb RunAs -Wait
-
-                # Make Log
-                $LogName = "RepairSystem"
-                . $MakeLog
-
-                    Write-Host ""
-                Write-Host "    Processo finalizado" -ForegroundColor Green
-                    Write-Host ""
-
-                    Start-Sleep -Seconds 2
-
-                Clear-Host <# Step 2 #>
-                    Write-Host ""
-                Write-Host " Passo 2:"
-                    Start-Sleep -Seconds 1
-                Write-Host "    Executando o " -NoNewline
-                Write-Host "System File Checker" -ForegroundColor Magenta
-                    Write-Host ""
-
-                    Start-Sleep -Seconds 1
-
-                Start-Process -FilePath "cmd.exe" -ArgumentList "/c sfc /scannow" -Verb RunAs -Wait
-
-                    Write-Host ""
-                Write-Host "    Processo finalizado" -ForegroundColor Green
-                    Write-Host ""
-
-                    Start-Sleep -Seconds 2
-
-                Clear-Host
-                    Write-Host ""
-                Write-Host "    Reiniciando o computador.." -ForegroundColor Yellow
-                    Write-Host ""
-
-                    Start-Sleep -Seconds 2
-
-                Restart-Computer
-            }
-
-            "N" {
                 Write-Host ""
-                Set-Location $HOME
-            }
+            Write-Host "    Inciando.."
+                Write-Host ""
 
-            Default {. $ErrorResponse}
+                Start-Sleep -Seconds 2
+
+            Clear-Host <# Step 1 #>
+                Write-Host ""
+            Write-Host " Passo 1:"
+                Start-Sleep -Seconds 1
+                Write-Host ""
+            Write-Host "    Executando o" -NoNewline
+            Write-Host "DISM.exe" -ForegroundColor Magenta
+                Write-Host ""
+
+                Start-Sleep -Seconds 1
+
+            Start-Process -FilePath "cmd.exe" -ArgumentList "/c DISM.exe /Online /Cleanup-image /Restorehealth" -Verb RunAs -Wait
+
+            # Make Log
+            $LogName = "RepairSystem"
+            . $MakeLog
+
+                Write-Host ""
+            Write-Host "    Processo finalizado" -ForegroundColor Green
+                Write-Host ""
+
+                Start-Sleep -Seconds 2
+
+            Clear-Host <# Step 2 #>
+                Write-Host ""
+            Write-Host " Passo 2:"
+                Start-Sleep -Seconds 1
+            Write-Host "    Executando o " -NoNewline
+            Write-Host "System File Checker" -ForegroundColor Magenta
+                Write-Host ""
+
+                Start-Sleep -Seconds 1
+
+            Start-Process -FilePath "cmd.exe" -ArgumentList "/c sfc /scannow" -Verb RunAs -Wait
+
+                Write-Host ""
+            Write-Host "    Processo finalizado" -ForegroundColor Green
+                Write-Host ""
+
+                Start-Sleep -Seconds 2
+
+            Clear-Host
+                Write-Host ""
+            Write-Host "    Reiniciando o computador.." -ForegroundColor Yellow
+                Write-Host ""
+
+                Start-Sleep -Seconds 2
+
+            Restart-Computer
         }
+
+        "N" {
+            . $BackToMainMenu
+        }
+
+        Default {
+            . $ErrorResponse
+        }
+    }
 }
 
 <#=============#>
@@ -166,4 +166,4 @@ if (-not ($Internet_NET)) {
             Set-Location $HOME
             }
 }
-    else {& $Execute_DISM}
+    else {. $Execute_DISM}

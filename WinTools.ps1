@@ -6,7 +6,7 @@ $isADMIN = ([Security.Principal.WindowsPrincipal] `
 
 if (($PSVersionTable.PSEdition) -eq "Core") {
     if ($isADMIN) {
-        . (Join-Path -Path "GUI" -ChildPath @("Main", "Menu.ps1"))
+        . "Scripts/Main/Menu.ps1"
     }
     else {
             Write-Host ""
@@ -23,7 +23,7 @@ if (($PSVersionTable.PSEdition) -eq "Core") {
         $questStartPowerShellCore = Read-Host
         switch ($questStartPowerShellCore) {
 
-            "S" {. (Join-Path -Path "Config" -ChildPath "Start.ps1")}
+            "S" {. "Scripts/Config/Start.ps1"}
             Default {}
         }
     }
@@ -40,7 +40,7 @@ else {
     $questStartPowerShellCore = Read-Host
     switch ($questStartPowerShellCore) {
         "S" {
-            & (Join-Path "Config" "Start.ps1")
+            . "Scripts/Config/Start.ps1"
         }
         Default {
             Start-Sleep -Seconds 0

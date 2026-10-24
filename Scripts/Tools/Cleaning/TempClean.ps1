@@ -51,7 +51,7 @@ if ($folder_USER_TEMP -eq $true) { <# TEMP_USER #>
         Write-Host ""
     Write-Host "    Limpando a pasta 'Temp' do usuário.." -NoNewline
 
-    Remove-Item (Join-Path -Path $path_USER_TEMP -ChildPath "*") -Recurse -Force -ErrorAction SilentlyContinue
+    Remove-Item -Path "$path_USER_TEMP/*" -Recurse -ErrorAction SilentlyContinue
         Start-Sleep -Seconds 1
 
     Write-Host " Limpo" -ForegroundColor Green
@@ -68,7 +68,7 @@ if ($folder_TEMP -eq $true) { <# TEMP #>
         Write-Host ""
     Write-Host "    Limpando a pasta 'Temp' do Windows.." -NoNewline
 
-    Remove-Item (Join-Path -Path $path_TEMP -ChildPath "*") -Recurse -Force -ErrorAction SilentlyContinue
+    Remove-Item -Path "$path_TEMP/*" -Recurse -ErrorAction SilentlyContinue
         Start-Sleep -Seconds 1
 
     Write-Host " Limpo" -ForegroundColor Green
@@ -85,7 +85,7 @@ if ($folder_PREFETCH -eq $true) {
         Write-Host ""
     Write-Host "    Limpando a pasta 'Prefetch' do Windows.." -NoNewline
 
-    Remove-Item (Join-Path -Path $path_PREFETCH -ChildPath "*") -Recurse -Force -ErrorAction SilentlyContinue
+    Remove-Item -Path "$path_PREFETCH/*" -Recurse -ErrorAction SilentlyContinue
         Start-Sleep -Seconds 1
 
     Write-Host " Limpo" -ForegroundColor Green
@@ -99,3 +99,6 @@ else {
 }
 
 # Finish
+Start-Sleep -Seconds 2
+
+& $BackToMainMenu

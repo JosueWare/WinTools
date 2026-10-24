@@ -122,10 +122,7 @@ $questStartSystemScanner = Read-Host
                 }
         }
 
-        "N" {
-            Clear-Host
-            Set-Location $HOME
-        }
+        "N" {& $BackToMainMenu}
 
         Default {& $ErrorResponse}
     }

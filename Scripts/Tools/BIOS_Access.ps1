@@ -33,10 +33,10 @@ if ((Confirm-SecureBootUEFI) -eq $true) {
 
                     Start-Sleep -Seconds 1
 
-                & $ExecBIOsAccess
+                . $ExecBIOsAccess
             }
             
-            "N" {& $BackToMainMenu}
+            "N" {. $BackToMainMenu}
 
             Default {& $ErrorResponse}
         }
@@ -71,12 +71,12 @@ elseif ((Confirm-SecureBootUEFI) -eq $false) {
 
                     Start-Sleep -Seconds 1
 
-                & $ExecBIOsAccess
+                . $ExecBIOsAccess
             }
             
-            "N" {& $BackToMainMenu}
+            "N" {. $BackToMainMenu}
 
-            Default {& $ErrorResponse}
+            Default {. $ErrorResponse}
         }
 }
 else {
@@ -100,10 +100,10 @@ else {
 
         switch ($questBackToMainMenu) {
 
-            "S" {& $BackToMainMenu}
-            "Y" {& $BackToMainMenu}
-            "N" {& $ExitTerminalSession}
+            "S" {. $BackToMainMenu}
+            "Y" {. $BackToMainMenu}
+            "N" {. $ExitTerminalSession}
 
-            Default {& $ErrorResponse}
+            Default {. $ErrorResponse}
         }
 }

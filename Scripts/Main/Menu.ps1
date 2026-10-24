@@ -1,7 +1,7 @@
 Set-Location "$PSScriptRoot/../.."
 
 # Startup scripts
-& "Scripts/Config/DefaultFolders.ps1"
+. "Scripts/Config/DefaultFolders.ps1"
 
 # Generator Log Request
 [bool]$GetRequest = $false
@@ -11,7 +11,7 @@ Set-Location "$PSScriptRoot/../.."
 
     # Scripts Blocks
     [scriptblock]$BackToMainMenu = {
-        & "Scripts/Main/Menu.ps1"
+        . "Scripts/Main/Menu.ps1"
     }
 
     [scriptblock]$ErrorResponse = {
@@ -23,7 +23,7 @@ Set-Location "$PSScriptRoot/../.."
             Start-Sleep -Seconds 1
 
         Clear-Host
-        & $BackToMainMenu
+        . $BackToMainMenu
     }
 
     [scriptblock]$ExitTerminalSession = {
@@ -65,13 +65,13 @@ Write-Host "    [X] Sair"
 
 $switchSelectOptions = Read-Host
 switch ($switchSelectOptions) {
-    "1" {& "Scripts/Tools/SelectRepairType.ps1"}
-    "2" {& "Scripts/Tools/SearchUpdateApps.ps1"}
-    "3" {& "Scripts/Tools/Cleaning/TempClean.ps1"}
-    "4" {& "Scripts/Tools/Defrag.ps1"}
-    "5" {& "Scripts/Tools/BIOS_Access.ps1"}
+    "1" {. "Scripts/Tools/SelectRepairType.ps1"}
+    "2" {. "Scripts/Tools/SearchUpdateApps.ps1"}
+    "3" {. "Scripts/Tools/Cleaning/TempClean.ps1"}
+    "4" {. "Scripts/Tools/Defrag.ps1"}
+    "5" {. "Scripts/Tools/BIOS_Access.ps1"}
 
-    "X" {& $ExitTerminalSession}
+    "X" {. $ExitTerminalSession}
 
-    Default {& $ErrorResponse}
+    Default {. $ErrorResponse}
 }

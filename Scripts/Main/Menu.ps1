@@ -32,8 +32,9 @@ Set-Location "$PSScriptRoot/../.."
         (Get-Process -Id $PID).CloseMainWindow()
     }
 
-    [scriptblock]$SendRequestLog = {
-        . "Scripts/Config/LogGenerator.ps1"
+    [scriptblock]$SendRequest = {
+        $GetRequest = $true
+        . "Scripts/Config/RequestSystem.ps1"
     }
 
 # Menu
@@ -65,13 +66,17 @@ Write-Host "    [X] Sair"
 
 $switchSelectOptions = Read-Host
 switch ($switchSelectOptions) {
-    "1" {. "Scripts/Tools/SelectRepairType.ps1"}
-    "2" {. "Scripts/Tools/SearchUpdateApps.ps1"}
-    "3" {. "Scripts/Tools/Cleaning/TempClean.ps1"}
-    "4" {. "Scripts/Tools/Defrag.ps1"}
-    "5" {. "Scripts/Tools/BIOS_Access.ps1"}
+
+    "1" {$RequestType = "SelectRepairType"}
+    "2" {$RequestType = "SearchUpdateApps"}
+    "3" {$RequestType = "TempClean"}
+    "4" {$RequestType = "Defrag"}
+    "5" {$RequestType = "BIOS_Access"}
 
     "X" {. $ExitTerminalSession}
 
     Default {. $ErrorResponse}
 }
+
+# Send Request
+. $SendRequest

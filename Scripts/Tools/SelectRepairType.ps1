@@ -1,3 +1,9 @@
+# Check Request
+if (-not (($GetRequest -eq $true) -and ($RequestType -eq "SelectRepairType"))) {
+    Write-Host "NEGADO" -ForegroundColor Red
+    exit
+}
+
 Clear-Host
     Start-Sleep -Seconds 1
     Write-Host ""

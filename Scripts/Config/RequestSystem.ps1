@@ -2,11 +2,11 @@ if ($GetRequest) {
     switch ($RequestType) {
 
         # Tools
-        "" {}
-        "" {}
-        "" {}
-        "" {}
-        "" {}
+        "SelectRepairType" {. "Scripts/Tools/SelectRepairType.ps1"}
+        "SearchUpdateApps" {}
+        "TempClean" {}
+        "Defrag" {}
+        "BIOS_Access" {}
 
         # Config
         "GenerateLog" {. "Scripts/Config/Gen/LogGenerator.ps1"}

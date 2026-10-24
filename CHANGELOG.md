@@ -1,6 +1,12 @@
 # Changelog
 [Voltar](README.md)
 
+## 1.3.4
+23/10/2026
+
+- Removido a tradução `pt-BR` na beta do projeto
+- E mais outras coisas foram removidas e aprimoradas
+
 ## 1.3.1
 18/10/2026
 

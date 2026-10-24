@@ -19,3 +19,15 @@ if ($GetRequest) {
 else {
     Write-Host "Nenhum pedido de log" -ForegroundColor Red
 }
+
+<# Copy and Paste#>
+
+<#
+
+# Check Request
+if (-not (($GetRequest) -and ($RequestType -eq ""))) {
+    Write-Host "Execution Denied" -ForegroundColor Red
+    exit
+}
+
+#>

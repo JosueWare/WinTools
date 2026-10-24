@@ -1,3 +1,9 @@
+# Check Request
+if (-not (($GetRequest) -and ($RequestType -eq "TempClean"))) {
+    Write-Host "Execution Denied" -ForegroundColor Red
+    exit
+}
+
 # Paths
 [string]$path_USER_TEMP = "$env:USERPROFILE\AppData\Local\Temp"
 [string]$path_TEMP = "C:\Windows\Temp"

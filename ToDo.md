@@ -5,7 +5,7 @@
 Estado de conclusão: **`10%`**
 
 - [x] `Menu.ps1`
-- [ ] `BIOS_Access.ps1`
+- [x] `BIOS_Access.ps1`
 - [ ] `Defrag.ps1`
 - [ ] `SearchUpdateApps.ps1`
 - [ ] `RepairSystem.ps1`

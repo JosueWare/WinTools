@@ -9,18 +9,16 @@
 if ((Confirm-SecureBootUEFI) -eq $true) {
     Clear-Host
         Write-Host ""
-        Write-Host $Lang.Tab.tab4 -NoNewline
-    Write-Host $Lang.Scripts.BIOS_Access.SaveYourItemsFromDesktop -ForegroundColor Yellow
+    Write-Host "    Salve seus itens da sua área de trabalho" -ForegroundColor Yellow
         Write-Host ""
 
         Start-Sleep -Seconds 2
 
-        Write-Host $Lang.Tab.tab4 -NoNewline
-    Write-Host $Lang.Scripts.BIOS_Access.$questRestartComputerNow
+    Write-Host "    Deseja reiniciar o computador agora?"
         Write-Host ""
         Start-Sleep -Seconds 1
-        Write-Host $Lang.Tab.tab8 -NoNewline
-    Write-Host $Lang.General.YES_OR_NOT
+
+    Write-Host "        [S] Sim / [N] Não"
         Write-Host ""
 
     $questRestartComputerNow = Read-Host
@@ -30,8 +28,7 @@ if ((Confirm-SecureBootUEFI) -eq $true) {
             "S" {
                 Clear-Host
                     Write-Host ""
-                    Write-Host $Lang.Tab.tab4 -NoNewline
-                Write-Host $Lang.General.Restarting -ForegroundColor Yellow
+                Write-Host "    Reiniciando.." -ForegroundColor Yellow
                     Write-Host ""
 
                     Start-Sleep -Seconds 1
@@ -47,22 +44,19 @@ if ((Confirm-SecureBootUEFI) -eq $true) {
 elseif ((Confirm-SecureBootUEFI) -eq $false) {
     Clear-Host
         Write-Host ""
-        Write-Host " " -NoNewline
-    Write-Host $Lang.General.WARNING -ForegroundColor Yellow
+    Write-Host " AVISO:" -ForegroundColor Yellow
         Start-Sleep -Seconds 1
         Write-Host ""
-        Write-Host $Lang.Tab.tab4 -NoNewline
-    Write-Host $Lang.Scripts.BIOS_Access.SecureBootState.TRUE_but_inactive -ForegroundColor Yellow
+    Write-Host "    Sua placa-mãe suporta a interface UEFI porém o SecureBoot está desativado" -ForegroundColor Yellow
 
         Start-Sleep -Seconds 2
 
         Write-Host ""
-        Write-Host $Lang.Tab.tab4 -NoNewline
-    Write-Host $Lang.Scripts.BIOS_Access.questRestartComputerNow
+    Write-Host "    Deseja reiniciar o computador agora?"
         Write-Host ""
         Start-Sleep -Seconds 1
-        Write-Host $Lang.Tab.tab8 -NoNewline
-    Write-Host $Lang.General.YES_OR_NOT
+
+    Write-Host "        [S] Sim / [N] Não"
         Write-Host ""
 
     $questRestartComputerNow = Read-Host
@@ -72,8 +66,7 @@ elseif ((Confirm-SecureBootUEFI) -eq $false) {
             "S" {
                 Clear-Host
                     Write-Host ""
-                    Write-Host $Lang.Tab.tab4 -NoNewline
-                Write-Host $Lang.General.Restarting -ForegroundColor Yellow
+                Write-Host "    Reiniciando.." -ForegroundColor Yellow
                     Write-Host ""
 
                     Start-Sleep -Seconds 1
@@ -89,20 +82,18 @@ elseif ((Confirm-SecureBootUEFI) -eq $false) {
 else {
     Clear-Host
         Write-Host ""
-        Write-Host $Lang.Tab.tab4 -NoNewline
-    Write-Host $Lang.Scripts.BIOS_Access.SecureBootState.Incompatible.BR_1 -ForegroundColor Red
-    Write-Host $Lang.Scripts.BIOS_Access.SecureBootState.Incompatible.BR_2 -ForegroundColor Red
+    Write-Host "    A BIOS de sua placa-mãe não é compatível com a interface UEFI" -ForegroundColor Red
+    Write-Host "    Sua placa-mãe está configurado no modo 'BIOsLegacy' (Herdado)" -ForegroundColor Red
         Write-Host ""
 
         Start-Sleep -Seconds 1
 
         Write-Host ""
-        Write-Host $Lang.Tab.tab4 -NoNewline
-    Write-Host $Lang.General.questBackToMainMenu
+    Write-Host "    Deseja voltar ao início?"
         Write-Host ""
         Start-Sleep -Milliseconds 500
-        Write-Host $Lang.Tab.tab8 -NoNewline
-    Write-Host $Lang.General.YES_OR_NOT
+
+    Write-Host "        [S] Sim / [N] Não"
         Write-Host ""
 
     $questBackToMainMenu = Read-Host

@@ -14,7 +14,11 @@ $questSetNewExecutionPolicy = Read-Host
 switch ($questSetNewExecutionPolicy) {
     "S" {
         Clear-Host
-        Set-ExecutionPolicy "Bypass"
+        <# Set-ExecutionPolicy #>
+        Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
+        Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser -Force
+        Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope LocalMachine -Force
+
             Write-Host ""
         Write-Host "    Volte a executar o script" -ForegroundColor Yellow
             Write-Host ""

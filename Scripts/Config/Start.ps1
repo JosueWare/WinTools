@@ -1,5 +1,8 @@
 # Check Execution Policy
-if (-not ((Get-ExecutionPolicy) -eq "Bypass")) {& "$PSScriptRoot/SetExecutionPolicy.ps1"}
+if (-not ((Get-ExecutionPolicy) -eq "Bypass")) {
+    & "$PSScriptRoot/SetExecutionPolicy.ps1"
+    exit
+}
 
 # Logon
 

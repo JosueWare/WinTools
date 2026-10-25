@@ -1,7 +1,13 @@
 # Check Execution Policy
 if (-not ((Get-ExecutionPolicy) -eq "Bypass")) {
-    & "$PSScriptRoot/SetExecutionPolicy.ps1"
-    exit
+    if (($PSVersionTable.PSEdition) -eq "Core") {
+        Start-Process -FilePath "pwsh.exe" -ArgumentList "-NoProfile", "-NoExit", "-File & $PSScriptRoot/SetExecutionPolicy.ps1"
+        exit
+    }
+    else {
+        Start-Process -FilePath "powershell.exe" -ArgumentList "-NoProfile", "-NoExit", "-File & $PSScriptRoot/SetExecutionPolicy.ps1"
+        exit
+    }
 }
 
 # Logon

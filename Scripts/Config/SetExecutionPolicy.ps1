@@ -23,9 +23,9 @@ switch ($questSetNewExecutionPolicy) {
         Write-Host "    Volte a executar o script" -ForegroundColor Yellow
             Write-Host ""
             Start-Sleep -Seconds 2
-        (Get-Process -Id $PID).CloseMainWindow(0)
+        (Get-Process -Id $PID).CloseMainWindow()
     }
     Default {
-        (Get-Process -Id $PID).CloseMainWindow(0)
+        (Get-Process -Id $PID).CloseMainWindow()
     }
 }

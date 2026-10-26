@@ -1,11 +1,12 @@
 # Check Execution Policy
+$TargetScript = Resolve-Path "Scripts/Config/SetExecutionPolicy.ps1"
 if (-not ((Get-ExecutionPolicy) -eq "Bypass")) {
     if (($PSVersionTable.PSEdition) -eq "Core") {
-        Start-Process -FilePath "pwsh.exe" -ArgumentList "-NoProfile", "-NoExit", "-File & $PSScriptRoot/SetExecutionPolicy.ps1"
+        Start-Process -FilePath "pwsh.exe" -ArgumentList "-NoProfile", "-NoExit", "-Command & $TargetScript"
         exit
     }
     else {
-        Start-Process -FilePath "powershell.exe" -ArgumentList "-NoProfile", "-NoExit", "-File & $PSScriptRoot/SetExecutionPolicy.ps1"
+        Start-Process -FilePath "powershell.exe" -ArgumentList "-NoProfile", "-NoExit", "-Command & $TargetScript"
         exit
     }
 }

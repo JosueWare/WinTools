@@ -5,38 +5,33 @@ Set-Location "$PSScriptRoot/../.."
 
 # ENV
 
-    # Scripts Blocks
-    [scriptblock]$BackToMainMenu = {
-        . "Scripts/Main/Menu.ps1"
-    }
+# Scripts Blocks
+[scriptblock]$BackToMainMenu = {
+    . "Scripts/Main/Menu.ps1"
+}
 
-    [scriptblock]$ErrorResponse = {
-        Clear-Host
-            Write-Host ""
-        Write-Host "    Resposta Inválida" -ForegroundColor Red
-            Write-Host ""
+[scriptblock]$ErrorResponse = {
+    Clear-Host
+        Write-Host ""
+    Write-Host "    Resposta Inválida" -ForegroundColor Red
+        Write-Host ""
 
-            Start-Sleep -Seconds 1
+        Start-Sleep -Seconds 1
 
-        Clear-Host
-        . $BackToMainMenu
-    }
+    Clear-Host
+    . $BackToMainMenu
+}
 
-    [scriptblock]$ExitTerminalSession = {
-        Clear-Host
-        Start-Sleep -Milliseconds 250
-        (Get-Process -Id $PID).CloseMainWindow()
-    }
+[scriptblock]$ExitTerminalSession = {
+    Clear-Host
+    Start-Sleep -Milliseconds 250
+    (Get-Process -Id $PID).CloseMainWindow()
+}
 
-    [scriptblock]$SendRequest = {
-        $GetRequest = $true
-        . "Scripts/Config/RequestSystem.ps1"
-    }
-
-    [scriptblock]$MakeLog = {
-        $GetLog = $true
-        . "Scripts/Config/Gen/LogGenerator.ps1"
-    }
+[scriptblock]$MakeLog = {
+    $GetLog = $true
+    . "Scripts/Config/Gen/LogGenerator.ps1"
+}
 
 # Menu
 Clear-Host

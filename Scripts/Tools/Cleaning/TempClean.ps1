@@ -1,9 +1,3 @@
-# Check Request
-if (-not (($GetRequest) -and ($RequestType -eq "TempClean"))) {
-    Write-Host "Execution Denied" -ForegroundColor Red
-    exit
-}
-
 # Paths
 [string]$path_USER_TEMP = "$env:USERPROFILE\AppData\Local\Temp"
 [string]$path_TEMP = "C:\Windows\Temp"
@@ -107,4 +101,18 @@ else {
 # Finish
 Start-Sleep -Seconds 2
 
-& $BackToMainMenu
+    Write-Host ""
+Write-Host "    Deseja voltar a menu principal?"
+    Write-Host ""
+Write-Host "        [S] Sim / [N] Não (Sair)"
+    Write-Host ""
+$questBackToMainMenu = Read-Host
+switch ($questBackToMainMenu) {
+
+    "S" {. $BackToMainMenu}
+    "N" {. $ExitTerminalSession}
+
+    Default {
+        . $ErrorResponse
+    }
+}

@@ -38,7 +38,7 @@ if ((Confirm-SecureBootUEFI) -eq $true) {
             
             "N" {. $BackToMainMenu}
 
-            Default {& $ErrorResponse}
+            Default {& $InvalidResponse}
         }
 }
 elseif ((Confirm-SecureBootUEFI) -eq $false) {
@@ -76,7 +76,7 @@ elseif ((Confirm-SecureBootUEFI) -eq $false) {
             
             "N" {. $BackToMainMenu}
 
-            Default {. $ErrorResponse}
+            Default {. $InvalidResponse}
         }
 }
 else {
@@ -104,6 +104,6 @@ else {
             "Y" {. $BackToMainMenu}
             "N" {. $ExitTerminalSession}
 
-            Default {. $ErrorResponse}
+            Default {. $InvalidResponse}
         }
 }

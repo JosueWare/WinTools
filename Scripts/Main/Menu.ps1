@@ -8,7 +8,7 @@ Set-Location "$PSScriptRoot/../.."
     . "Scripts/Main/Menu.ps1"
 }
 
-[scriptblock]$ErrorResponse = {
+[scriptblock]$InvalidResponse = {
     Clear-Host
         Write-Host ""
     Write-Host "    Resposta Inválida" -ForegroundColor Red
@@ -68,5 +68,5 @@ switch ($switchSelectOptions) {
 
     "X" {. $ExitTerminalSession}
 
-    Default {. $ErrorResponse}
+    Default {. $InvalidResponse}
 }

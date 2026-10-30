@@ -105,7 +105,7 @@ $questStartSystemScanner = Read-Host
                                     Restart-Computer
                                 }
 
-                                Default {& $ErrorResponse}
+                                Default {& $InvalidResponse}
                             }
                     }
                     "N" {
@@ -118,11 +118,11 @@ $questStartSystemScanner = Read-Host
                             Write-Host ""
                     }
 
-                    Default {& $ErrorResponse}
+                    Default {& $InvalidResponse}
                 }
         }
 
         "N" {& $BackToMainMenu}
 
-        Default {& $ErrorResponse}
+        Default {& $InvalidResponse}
     }

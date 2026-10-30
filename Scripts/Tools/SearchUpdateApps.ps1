@@ -42,7 +42,7 @@
                         "S" {. $BackToMainMenu}
                         "N" {. $ExitTerminalSession}
 
-                        Default {. $ErrorResponse}
+                        Default {. $InvalidResponse}
                     }
             }
 
@@ -82,7 +82,7 @@
                         switch ($questReturnToMainMenu) {
                             "S" {. $BackToMainMenu}
                             "N" {. $ExitTerminalSession}
-                            Default {. $ErrorResponse}
+                            Default {. $InvalidResponse}
                         }
                 }
                 else {
@@ -103,7 +103,7 @@
                         switch ($questReturnToMainMenu) {
                             "S" {. $BackToMainMenu}
                             "N" {. $ExitTerminalSession}
-                            Default {. $ErrorResponse}
+                            Default {. $InvalidResponse}
                     }
                 }
             }
@@ -113,7 +113,7 @@
                 . $BackToMainMenu
             }
 
-            Default {. $ErrorResponse}
+            Default {. $InvalidResponse}
         }
 }
 

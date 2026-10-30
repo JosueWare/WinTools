@@ -16,5 +16,5 @@ switch ($questVerify_OR_Repair) {
     "1" {. "Scripts/Tools/Maintenance/SystemFileChecker.ps1"}
     "2" {. "Scripts/Tools/Maintenance/RepairSystem.ps1"}
 
-    Default {. $ErrorResponse}
+    Default {. $InvalidResponse}
 }

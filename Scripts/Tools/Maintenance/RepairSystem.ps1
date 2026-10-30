@@ -103,7 +103,7 @@
             }
 
             Default {
-                . $ErrorResponse
+                . $InvalidResponse
             }
         }
 }

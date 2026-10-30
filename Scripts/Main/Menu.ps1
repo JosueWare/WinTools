@@ -3,8 +3,6 @@ Set-Location "$PSScriptRoot/../.."
 # Startup scripts
 . "Scripts/Config/DefaultFolders.ps1"
 
-# ENV
-
 # Scripts Blocks
 [scriptblock]$BackToMainMenu = {
     . "Scripts/Main/Menu.ps1"
@@ -72,6 +70,3 @@ switch ($switchSelectOptions) {
 
     Default {. $ErrorResponse}
 }
-
-# Send Request
-. $SendRequest

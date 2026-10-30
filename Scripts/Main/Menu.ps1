@@ -31,6 +31,12 @@ Set-Location "$PSScriptRoot/../.."
     . "Scripts/Config/LogGenerator.ps1"
 }
 
+[scriptblock]$CheckOS = {
+    if (-not ($env:OS -eq "Windows_NT")) {
+        . "Scripts/Main/Errors/Windows.ps1"
+    }
+}
+
 # Menu
 Clear-Host
 

@@ -30,7 +30,7 @@ Set-Location "$PSScriptRoot/../.."
 
 [scriptblock]$MakeLog = {
     $GetLog = $true
-    . "Scripts/Config/Gen/LogGenerator.ps1"
+    . "Scripts/Config/LogGenerator.ps1"
 }
 
 # Menu

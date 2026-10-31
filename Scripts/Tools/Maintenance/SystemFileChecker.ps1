@@ -1,128 +1,104 @@
-# Logon
+# Scripts Blocks
+$execSFC = {
+    sfc /scannow
+}
 
-    <#--ScriptsBlocks--[INI]#>
+# Set Preferences
+[bool]$ShutdownRestart_After = $false
+[string]$Shutdown_OR_Restart = "null"
 
-        [ScriptBlock]$actionSFCSCANNOW = {
+# Check Command
+if (Get-Command "sfc" -ErrorAction SilentlyContinue) {
+    Clear-Host
+        Write-Host ""
+    Write-Host "    Este processo irá demorar pois será feito"
+    Write-Host "    uma verificação profunda no sistema."
+        Write-Host ""
+        Start-Sleep -Seconds 1
+    Write-Host "    Deseja prosseguir?"
+        Write-Host ""
+        Start-Sleep -Milliseconds 500
+    Write-Host "        [S] Sim / [N] Não"
+        Write-Host ""
+    $questExecuteSystemFileChecker = Read-Host
+    switch ($questExecuteSystemFileChecker) {
 
+        "S" {
+            Clear-Host
+            Start-Sleep -Seconds 2
+                Write-Host ""
+            Write-Host "    Antes de iniciar"
+            Start-Sleep -Seconds 1
+            Write-Host "    Deseja desligar ou reiniciar"
+            Write-Host "    o computador assim que terminar?"
+                Write-Host ""
+                Start-Sleep -Milliseconds 500
+            Write-Host "        [S] Sim / [N] Não"
+                Write-Host ""
+            $questDoWantShutdown_OR_Restart_AfterProcess = Read-Host
+            switch ($questDoWantShutdown_OR_Restart_AfterProcess) {
+
+                "S" {
+                    $ShutdownRestart_After = $true
+                    Clear-Host
+                        Write-Host ""
+                    Write-Host "    Desligar ou Reiniciar?"
+                        Write-Host ""
+                    Write-Host "        [D] Desligar / [R] Reiniciar"
+                        Write-Host ""
+                    $questShutdown_OR_Restart = Read-Host
+                    switch ($questShutdown_OR_Restart) {
+                        "D" {$Shutdown_OR_Restart = "Shutdown"}
+                        "R" {$Shutdown_OR_Restart = "Restart"}
+                        Default {. $InvalidResponse}
+                    }
+                }
+
+                "N" {$ShutdownRestart_After = $false}
+
+                Default {
+                    . $InvalidResponse
+                }
+            }
+
+            # Execute 'SFC'
+            Clear-Host
                 Write-Host ""
             Write-Host "    Iniciando.."
                 Write-Host ""
+            Start-Sleep -Seconds 1
+            <# Command #>
+            . $execSFC
+                Write-Host ""
+            Write-Host "    Processo Finalizado" -ForegroundColor Green
+                Write-Host ""
 
-            Start-Process -FilePath "cmd.exe" -ArgumentList "/c sfc /scannow" -Verb RunAs -Wait
-
-            Write-Host "    Processo concluído" -ForegroundColor Green
+            if ($ShutdownRestart_After) {}
+            else {
+                Write-Host ""
+            Write-Host "    Pressione qualquer tecla para voltar ao início"
+                Write-Host ""
+            $null = [System.Console]::ReadKey($true)
+            . $BackToMainMenu
+            }
         }
 
-    <#--ScriptsBlocks--[END]#>
+        "N" {. $BackToMainMenu}
 
-# Inicialização
-
-Clear-Host
-
-    Start-Sleep -Seconds 1
-
-    Write-Host ""
-Write-Host "    Deseja iniciar uma verificação de integridade do sistema agora?"
-Write-Host "    (O processo será feito pelo Prompt de comando)"
-    Write-Host ""
-
-    Start-Sleep -Seconds 1
-
-Write-Host "        [S] Sim / [N] Não"
-    Write-Host ""
-
-$questStartSystemScanner = Read-Host
-
-    switch ($questStartSystemScanner) {
-
-        "S" {
-
-            Clear-Host
-
-                Start-Sleep -Seconds 1
-
-                Write-Host ""
-            Write-Host "    Antes de iniciar a verificação"
-                Write-Host ""
-                
-                Start-Sleep -Seconds 1
-
-            Write-Host "    Deseja Desligar ou Reiniciar o sistema"
-            Write-Host "    assim que terminar?"
-                Write-Host ""
-
-                Start-Sleep -Seconds 1
-
-            Write-Host "        [S] Sim / [N] Não"
-                Write-Host ""
-
-            $questStartSystemScanner_Shutdown_OR_Restart_SYS = Read-Host
-            
-                switch ($questStartSystemScanner_Shutdown_OR_Restart_SYS) {
-
-                    "S" {
-
-                        Clear-Host
-
-                            Write-Host ""
-                        Write-Host "    Desligar ou Reiniciar?"
-                            Write-Host ""
-
-                        Write-Host "        [D] Desligar / [R] Reiniciar"
-                            Write-Host ""
-
-                        $questStartSystemScanner_Shutdown_OR_Restart = Read-Host
-
-                            switch ($questStartSystemScanner_Shutdown_OR_Restart) {
-
-                                "D" { <#--DESLIGAR--#>
-
-                                    & $actionSFCSCANNOW
-
-                                        Start-Sleep -Seconds 2
-
-                                        Write-Host ""
-                                    Write-Host "    Desligando.." -ForegroundColor Yellow
-                                        Write-Host ""
-
-                                        Start-Sleep -Seconds 2
-
-                                    Stop-Computer
-                                }
-
-                                "R" { <#--REINICIAR--#>
-
-                                    & $actionSFCSCANNOW
-
-                                        Start-Sleep -Seconds 2
-
-                                        Write-Host ""
-                                    Write-Host "    Reiniciando.." -ForegroundColor Yellow
-                                        Write-Host ""
-
-                                        Start-Sleep -Seconds 2
-
-                                    Restart-Computer
-                                }
-
-                                Default {& $InvalidResponse}
-                            }
-                    }
-                    "N" {
-
-                        Clear-Host
-
-                            Start-Sleep -Seconds 1
-
-                        & $actionSFCSCANNOW
-                            Write-Host ""
-                    }
-
-                    Default {& $InvalidResponse}
-                }
-        }
-
-        "N" {& $BackToMainMenu}
-
-        Default {& $InvalidResponse}
+        Default {. $InvalidResponse}
     }
+}
+else {
+    Clear-Host
+        Write-Host ""
+    Write-Host "    O comando 'sfc' não foi encontrado"
+        Write-Host ""
+
+        Start-Sleep -Seconds 2
+
+        Write-Host ""
+    Write-Host "    Deseja voltar ao início?"
+        Write-Host ""
+    Write-Host "    [S] Sim / [N] Não"
+        Write-Host ""
+}

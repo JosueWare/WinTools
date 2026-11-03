@@ -91,13 +91,13 @@ if (Get-Command "sfc" -ErrorAction SilentlyContinue) {
 else {
     Clear-Host
         Write-Host ""
-    Write-Host "    O comando 'sfc' não foi encontrado" -ForegroundColor Red
-        Write-Host ""
+    Write-Host "    O comando 'sfc.exe' não foi encontrado" -ForegroundColor Red
 
         Start-Sleep -Seconds 2
-
         Write-Host ""
+
     Write-Host "    Pressione qualquer tecla para voltar ao início..."
         Write-Host ""
     $null = [console]::ReadKey($true)
+    . $BackToMainMenu
 }

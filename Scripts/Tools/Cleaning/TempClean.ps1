@@ -113,6 +113,6 @@ switch ($questBackToMainMenu) {
     "N" {. $ExitTerminalSession}
 
     Default {
-        . $ErrorResponse
+        . $InvalidResponse
     }
 }

@@ -76,7 +76,7 @@ if (Get-Command "sfc" -ErrorAction SilentlyContinue) {
             if ($ShutdownRestart_After) {}
             else {
                 Write-Host ""
-            Write-Host "    Pressione qualquer tecla para voltar ao início"
+            Write-Host "    Pressione qualquer tecla para voltar ao início..."
                 Write-Host ""
             $null = [System.Console]::ReadKey($true)
             . $BackToMainMenu
@@ -91,13 +91,13 @@ if (Get-Command "sfc" -ErrorAction SilentlyContinue) {
 else {
     Clear-Host
         Write-Host ""
-    Write-Host "    O comando 'sfc' não foi encontrado"
+    Write-Host "    O comando 'sfc' não foi encontrado" -ForegroundColor Red
         Write-Host ""
 
         Start-Sleep -Seconds 2
 
         Write-Host ""
-    Write-Host "    Pressione qualquer tecla..."
+    Write-Host "    Pressione qualquer tecla para voltar ao início..."
         Write-Host ""
     $null = [console]::ReadKey($true)
 }

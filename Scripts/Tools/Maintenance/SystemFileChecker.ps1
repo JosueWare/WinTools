@@ -97,8 +97,7 @@ else {
         Start-Sleep -Seconds 2
 
         Write-Host ""
-    Write-Host "    Deseja voltar ao início?"
+    Write-Host "    Pressione qualquer tecla..."
         Write-Host ""
-    Write-Host "    [S] Sim / [N] Não"
-        Write-Host ""
+    $null = [console]::ReadKey($true)
 }

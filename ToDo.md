@@ -6,4 +6,4 @@
 
 ## Scripts para reformar
 - [ ] `RepairSystem.ps1`
-- [ ] `SystemFileChecker`
+- [x] `SystemFileChecker`

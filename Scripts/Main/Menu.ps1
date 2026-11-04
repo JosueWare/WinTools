@@ -3,11 +3,6 @@ Set-Location "$PSScriptRoot/../.."
 # Startup scripts
 . "Scripts/Config/DefaultFolders.ps1"
 
-# Set ENV
-$isADMIN = ([Security.Principal.WindowsPrincipal] `
-[Security.Principal.WindowsIdentity]::GetCurrent()
-).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
-
 # Scripts Blocks
 [scriptblock]$BackToMainMenu = {
     . "Scripts/Main/Menu.ps1"
@@ -36,24 +31,7 @@ $isADMIN = ([Security.Principal.WindowsPrincipal] `
     . "Scripts/Config/LogGenerator.ps1"
 }
 
-[scriptblock]$CheckOS = {
-    if (-not ($env:OS -eq "Windows_NT")) {
-        . "Scripts/Main/Errors/Windows.ps1"
-        exit
-    }
-}
-
-[scriptblock]$CheckAdmin = {
-    if (-not ($isADMIN)) {
-        Clear-Host
-        exit
-    }
-}
-
 # Menu
-. $CheckOS
-. $CheckAdmin
-
 Clear-Host
 
     Write-Host ""

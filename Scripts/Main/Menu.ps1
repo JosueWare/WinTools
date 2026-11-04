@@ -1,5 +1,8 @@
 Set-Location "$PSScriptRoot/../.."
 
+# Paths
+$pathMainScript = Resolve-Path "Scripts/Main/Menu.ps1"
+
 # Startup scripts
 . "Scripts/Config/DefaultFolders.ps1"
 
@@ -17,7 +20,7 @@ Set-Location "$PSScriptRoot/../.."
         Start-Sleep -Seconds 1
 
     Clear-Host
-    . $BackToMainMenu
+    . $pathMainScript
 }
 
 [scriptblock]$ExitTerminalSession = {
@@ -31,7 +34,7 @@ Set-Location "$PSScriptRoot/../.."
     . "Scripts/Config/LogGenerator.ps1"
 }
 
-# Menu
+# Menu [GUI]
 Clear-Host
 
     Write-Host ""

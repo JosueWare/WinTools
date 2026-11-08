@@ -1,4 +1,5 @@
 # Changelog
+
 [README](README.md)
 
 [ToDo](ToDo.md)
@@ -13,11 +14,15 @@ Geral:
 Novo script:
 - `DefaultFolders.ps1` criará pastas como `Logs` e private automaticamente quando executar o arquivo script principal.
 
+---
+
 ## 1.3.1
 18/10/2026
 
 ### Changes
 - O arquivo script `WinTools.ps1` foi corrigido
+
+---
 
 ## 1.3.0
 01/10/2026
@@ -40,14 +45,10 @@ Novo script:
 - Removido o bloco de script para o uso integrado com o Git onde o título do projeto era exibido de acordo com a branch posta.
 - Deletado a pasta `Env` em `Config`
 
+---
+
 ## 1.2.6
 13/09/2026
 
 ### Added
 - Foi criado a pasta `.vscode` na raíz do projeto para guardar o arquivo `launch.json` com a ultilidade de executar e depurar o projeto apontando sempre para o arquivo `Start.ps1`.
-
-## 1.2.5
-07/09/2026
-
-### Added
-- Um novo script para facilitar o trabalho com a ferramenta Git.

@@ -5,6 +5,7 @@ $pathMainScript = Resolve-Path "Scripts/Main/Menu.ps1"
 
 # Startup scripts
 . "Scripts/Config/DefaultFolders.ps1"
+. "Scripts/Config/Git-Branch.ps1"
 
 # Scripts Blocks
 [scriptblock]$BackToMainMenu = {
@@ -38,7 +39,7 @@ $pathMainScript = Resolve-Path "Scripts/Main/Menu.ps1"
 Clear-Host
 
     Write-Host ""
-Write-Host "                    WinTools"
+Write-Host "                    WinTools (${currentBranch})"
     Write-Host ""
 
     Start-Sleep -Milliseconds 500

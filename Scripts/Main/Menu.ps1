@@ -32,7 +32,7 @@ $pathMainScript = Resolve-Path "Scripts/Main/Menu.ps1"
 
 [scriptblock]$MakeLog = {
     $GetLog = $true
-    . "Scripts/Config/LogGenerator.ps1"
+    . "Scripts/Config/Log-Generator.ps1"
 }
 
 # Menu [GUI]

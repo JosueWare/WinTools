@@ -30,6 +30,10 @@ $pathMainScript = Resolve-Path "Scripts/Main/Menu.ps1"
     (Get-Process -Id $PID).CloseMainWindow()
 }
 
+[scriptblock]$PressAnyKey = {
+    $null = [System.Console]::ReadKey($true)
+}
+
 [scriptblock]$MakeLog = {
     $GetLog = $true
     . "Scripts/Config/Log-Generator.ps1"

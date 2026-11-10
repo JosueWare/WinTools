@@ -40,7 +40,9 @@ Clear-Host
 
     Write-Host ""
 Write-Host "                    WinTools" -NoNewline
-Write-Host " [${currentBranch}]" -ForegroundColor Cyan
+Write-Host " [" -ForegroundColor Yellow -NoNewline
+Write-Host "${currentBranch}" -ForegroundColor Cyan -NoNewline
+Write-Host "]" -ForegroundColor Yellow -NoNewline
     Write-Host ""
 
     Start-Sleep -Milliseconds 500

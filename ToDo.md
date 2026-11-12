@@ -4,6 +4,7 @@
 
 [Changelog](CHANGELOG.md)
 
-## Scripts para reformar
+## Scripts reformados
 - [ ] `RepairSystem.ps1`
 - [x] `SystemFileChecker`
+- [ ] `SearchUpdateApps.ps1`

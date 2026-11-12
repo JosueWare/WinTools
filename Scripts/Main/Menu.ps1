@@ -43,10 +43,8 @@ $pathMainScript = Resolve-Path "Scripts/Main/Menu.ps1"
 Clear-Host
 
     Write-Host ""
-Write-Host "                    WinTools" -NoNewline
-Write-Host " [" -ForegroundColor Yellow -NoNewline
-Write-Host "${currentBranch}" -ForegroundColor Cyan -NoNewline
-Write-Host "]" -ForegroundColor Yellow -NoNewline
+Write-Host "                    WinTools " -NoNewline
+Write-Host "[${currentBranch}]" -ForegroundColor DarkGray
     Write-Host ""
 
     Start-Sleep -Milliseconds 500

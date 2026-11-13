@@ -3,7 +3,7 @@
 # WinTools
 Conjunto de ferramentas de scripts para reparar, limpar e fazer manutenção do sistema Windows ultilizando o PowerShell 7
 
-[CHANGELOG](CHANGELOG.md)
+[Changelog](CHANGELOG.md)
 
 [ToDo](ToDo.md)
 

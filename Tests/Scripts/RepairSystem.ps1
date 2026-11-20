@@ -31,4 +31,31 @@ else {
         [bool]$Connected = Test-Connection -TargetName "8.8.8.8" -Count 1 -Quiet
         $TryCounts += 1
     } until (($Connected -eq $true) -or ($TryCounts -eq 11))
+    # Check Connection [Again]
+    if ($Connected) {
+        Clear-Host
+            Write-Host ""
+        Write-Host "    Conectado!" -ForegroundColor Green
+            Write-Host ""
+
+            Start-Sleep -Seconds 1
+        
+        . "$PSScriptRoot/RepairSystem.ps1"
+    }
+    elseif ($TryCounts -gt 10) {
+        Clear-Host
+            Write-Host ""
+        Write-Host "    Número de tentativas excedidas" -ForegroundColor Red
+            Write-Host ""
+            Start-Sleep -Seconds 1
+        Write-Host "    Tente novamente mais tarde.." -ForegroundColor Red
+            Write-Host ""
+
+            Start-Sleep -Seconds 1
+        
+            Write-Host ""
+        Write-Host "    Pressione qualquer tecla para voltar..."
+            Write-Host ""
+        . $PressAnyKey
+    }
 }

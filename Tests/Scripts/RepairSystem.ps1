@@ -1,5 +1,5 @@
 # ENV
-[bool]$Connected = Test-Connection -TargetName "8.8.8.8" -Count 1 -Quiet
+[bool]$Connected = Test-Connection -ComputerName "8.8.8.8" -Count 1 -Quiet
 [int]$TryCounts = "0"
 
 # Script Blocks
@@ -28,7 +28,7 @@ else {
         Start-Sleep -Seconds 1
 
         # ENV
-        [bool]$Connected = Test-Connection -TargetName "8.8.8.8" -Count 1 -Quiet
+        [bool]$Connected = Test-Connection -ComputerName "8.8.8.8" -Count 1 -Quiet
         $TryCounts += 1
     } until (($Connected -eq $true) -or ($TryCounts -eq 11))
     # Check Connection [Again]

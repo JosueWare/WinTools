@@ -74,7 +74,7 @@ switch ($switchSelectOptions) {
     "2" {. "Scripts/Tools/SearchUpdateApps.ps1"}
     "3" {. "Scripts/Tools/Cleaning/TempClean.ps1"}
     "4" {. "Scripts/Tools/Defrag.ps1"}
-    "5" {. "Scripts/Tools/BIOS_Access.ps1"}
+    "5" {. "Scripts/Tools/Access-BIOS.ps1"}
 
     # Debug
     "exit" {exit}

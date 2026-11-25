@@ -8,7 +8,11 @@
 }
 
 # Check Connection
-if ($Connected) {}
+if ($Connected) {
+    # Check Command [DISM.exe / SFC.exe]
+    if (Get-Command "winget.exe" -ErrorAction SilentlyContinue) {}
+    else {}
+}
 else {
     Clear-Host
         Write-Host ""

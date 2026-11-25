@@ -1,0 +1,17 @@
+{
+    "generic": {
+        "labelYesNot": "        [S] Sim / [N] Não",
+        "invalid": "    Resposta inválida"
+    },
+    "Menu": {
+        "labelOptions": "    Opções:",
+        "options": {
+            "op1": "        [1] Reparação do Windows",
+            "op2": "        [2] Procurar por atualizações de Software",
+            "op3": "        [3] Limpar arquivos temporários",
+            "op4": "        [4] Otimizar unidades (Em breve)",
+            "op5": "        [5] Acessar BIOS",
+            "exit": "    [X] Sair"
+        }
+    }
+}

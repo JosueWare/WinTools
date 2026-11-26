@@ -8,22 +8,41 @@
 
 # Script Blocks
 [scriptblock]$execDISM = {
-    DISM.exe /Online /Cleanup-image /Restorehealth
+    Dism.exe "/Online /Cleanup-image /Restorehealth"
+}
+[scriptblock]$execSFC = {
+    sfc.exe "/scannow"
 }
 
 # Check Connection
 if ($Connected) {
     # Check Command [DISM.exe]
-    if (Get-Command "Dism.exe" -ErrorAction SilentlyContinue) {$Dism_exis = $true}
-    else {$Dism_exis = $false}
+    if (Get-Command "Dism.exe" -ErrorAction SilentlyContinue) {
+        $Dism_exis = $true
+    }
+    elseif (Test-Path -Path "$env:SystemRoot/System32/DISM.exe") {
+        $exe_SFC = "$env:SystemRoot/System32/DISM.exe"
+    }
+    else {
+        $Dism_exis = $false
+    }
 
     # Check Command [sfc.exe]
-    if (Get-Command "sfc.exe" -ErrorAction SilentlyContinue) {$sfc_exis = $true}
-    else {$sfc_exis = $false}
+    if (Get-Command "sfc.exe" -ErrorAction SilentlyContinue) {
+        $sfc_exis = $true
+    }
+    elseif (Test-Path -Path "$env:SystemRoot/System32/sfc.exe") {
+        $exe_SFC = "$env:SystemRoot/System32/sfc.exe"
+    }
+    else {
+        $sfc_exis = $false
+    }
 
         # Check boths
         if (($Dism_exis) -and $sfc_exis) {} <# RUN #>
-        else {}
+        else {
+            . "Scripts/Main/Errors/MissingCmds.ps1"
+        }
 }
 else {
     Clear-Host

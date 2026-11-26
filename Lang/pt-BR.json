@@ -5,15 +5,15 @@
         }
     },
     "menu": {
-        "promptOption": "Opções:",
-        "invalidOption": "Resposta Inválida",
+        "promptOption": "    Opções:",
+        "invalidOption": "    Resposta Inválida",
         "listOptions": [
-            "[1] Reparação do Windows",
-            "[2] Procurar por atualizações de Software",
-            "[3] Limpar arquivos temporários",
-            "[4] Otimizar unidades (Em breve)",
-            "[5] Acessar BIOS",
-            "[X] Sair"
+            "        [1] Reparação do Windows",
+            "        [2] Procurar por atualizações de Software",
+            "        [3] Limpar arquivos temporários",
+            "        [4] Otimizar unidades (Em breve)",
+            "        [5] Acessar BIOS",
+            "    [X] Sair"
         ]
     }
 }

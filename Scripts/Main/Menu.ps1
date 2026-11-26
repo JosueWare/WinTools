@@ -16,7 +16,7 @@ Set-Alias tab8 Write-Tab8
 
 # Scripts Blocks
 [scriptblock]$BackToMainMenu = {
-    . "Scripts/Main/Menu.ps1"
+    . $pathMainScript
 }
 
 [scriptblock]$InvalidResponse = {

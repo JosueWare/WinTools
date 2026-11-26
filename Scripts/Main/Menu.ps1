@@ -7,6 +7,9 @@ $pathMainScript = Resolve-Path "Scripts/Main/Menu.ps1"
 . "Scripts/Config/DefaultFolders.ps1"
 . "Scripts/Config/Git-Branch.ps1"
 
+# Startup Modules
+Import-Module "./Scripts/Config/Modules/Tab.psm1"
+
 # Scripts Blocks
 [scriptblock]$BackToMainMenu = {
     . "Scripts/Main/Menu.ps1"

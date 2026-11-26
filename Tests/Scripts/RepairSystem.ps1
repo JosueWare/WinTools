@@ -2,6 +2,10 @@
 [bool]$Connected = Test-Connection -ComputerName "8.8.8.8" -Count 1 -Quiet
 [int]$TryCounts = "0"
 
+# Exis Commands
+[bool]$Dism_exis = $true
+[bool]$sfc_exis = $true
+
 # Script Blocks
 [scriptblock]$execDISM = {
     DISM.exe /Online /Cleanup-image /Restorehealth
@@ -9,9 +13,17 @@
 
 # Check Connection
 if ($Connected) {
-    # Check Command [DISM.exe / SFC.exe]
-    if (Get-Command "winget.exe" -ErrorAction SilentlyContinue) {}
-    else {}
+    # Check Command [DISM.exe]
+    if (Get-Command "Dism.exe" -ErrorAction SilentlyContinue) {$Dism_exis = $true}
+    else {$Dism_exis = $false}
+
+    # Check Command [sfc.exe]
+    if (Get-Command "sfc.exe" -ErrorAction SilentlyContinue) {$sfc_exis = $true}
+    else {$sfc_exis = $false}
+
+        # Check boths
+        if (($Dism_exis) -and $sfc_exis) {} <# RUN #>
+        else {}
 }
 else {
     Clear-Host
